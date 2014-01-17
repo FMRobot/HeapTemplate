@@ -1,0 +1,56 @@
+@import "mixins.styl"
+
+.calendar
+  position relative
+  header
+    line-height 2rem
+    margin 0 0 1rem 
+    clear-after()
+
+    .prev-month,
+    .next-month
+      width 2rem 
+      vertical-align middle
+      display inline-block
+      text-align center
+      cursor pointer
+      &:hover
+        color  #0BA5B7 
+      &:before
+        icon()
+        font-size 1.2rem
+    .next-month:before
+      content '\e80b'
+    .prev-month:before
+      content '\e819'
+    .month
+      display inline-block
+      font-size .9rem
+      margin 0 1.5rem 
+      
+  .days
+    width 100%
+    line-height 0
+    font-size 0
+    .day
+      cursor pointer
+      display inline-block
+      box-sizing border-box
+      padding .2rem .4rem 
+      width 14.28571%
+      height 2rem 
+      line-height 1.6rem
+      font-size 0.9rem
+      &:nth-child(7n-1),
+      &:nth-child(7n)
+        color #f00
+      &:hover
+        background-color #f0f0f0
+      &.today
+        background-color  #0BA5B7 
+        color #fff 
+        &:hover
+          background-color darken(#0BA5B7, 15%)
+      
+      
+      

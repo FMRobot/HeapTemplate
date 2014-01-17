@@ -1,0 +1,115 @@
+.add-translation-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.add-translation-form fieldset {
+  height: 2.105263rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.add-translation-form input {
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 81%;
+  margin: 0;
+  padding: 0 .5rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  font-size: .618rem;
+  z-index: 1;
+  border: 1px solid #0ba5b7;
+}
+
+.add-translation-form button {
+  background: none;
+  border-radius: 0;
+  border-style: none;
+  box-shadow: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 .1rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 10%;
+  height: 2.105263rem;
+  line-height: 0;
+  font-size: 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.add-translation-form button[type="reset"] {
+  right: 0;
+  background-color: #ffc000;
+}
+
+.add-translation-form button[type="reset"]:before {
+  vertical-align: middle;
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 2.105263rem;
+  content: '\e806';
+}
+
+.add-translation-form button[type="reset"]:hover {
+  background-color: #ff9600;
+}
+
+.add-translation-form button[type="submit"] {
+  right: 10%;
+  background-color: #0ba5b7;
+}
+
+.add-translation-form button[type="submit"]:before {
+  vertical-align: middle;
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: 2.105263rem;
+  content: '\e807';
+}
+
+.add-translation-form button[type="submit"]:hover {
+  background-color: #098492;
+}

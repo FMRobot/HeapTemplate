@@ -1,0 +1,71 @@
+@import "mixins.styl"
+
+labelandinput()
+  display block
+  box-sizing border-box
+  position absolute
+  left 0
+  top 0
+  width 81%
+  margin 0
+  padding 0 .5rem
+  height 2.105263rem
+  line-height 2.105263rem
+  font-size .618rem
+  z-index 1 
+
+.add-translation-form
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+  margin auto
+  background-color rgba(255,255,255,.9)
+  fieldset
+    height 2.105263rem
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+    margin auto
+  input
+    labelandinput()
+    border 1px solid #0ba5b7
+  button
+    clear-button()
+    white-space nowrap
+    position absolute
+    top 0
+    display block
+    width 10%
+    height 2.105263rem
+    line-height  0
+    font-size 0
+    box-sizing border-box
+    color #fff
+    cursor pointer
+    z-index 2
+    &[type="reset"]
+      right 0
+      background-color #ffc000
+      &:before
+        vertical-align middle
+        icon()
+        font-size 1rem
+        line-height  2.105263rem
+        content '\e806'
+      &:hover
+        background-color #ff9600
+    &[type="submit"]
+      right 10%
+      background-color #0BA5B7
+      &:before
+        vertical-align middle
+        icon()
+        font-size 1rem
+        line-height  2.105263rem
+        content '\e807'
+      &:hover
+        background-color darken(#0BA5B7, 20%) 

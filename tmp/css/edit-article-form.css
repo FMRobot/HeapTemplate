@@ -1,0 +1,190 @@
+.edit-article-form {
+  position: relative;
+  margin: auto;
+  background-color: #fff;
+  z-index: 5;
+}
+
+.edit-article-form.changed fieldset button.reset {
+  display: block;
+  opacity: 1;
+}
+
+.edit-article-form.changed fieldset button.save {
+  background-color: #0ba5b7;
+  cursor: pointer;
+}
+
+.edit-article-form.changed fieldset button.save:hover {
+  background-color: #098c9c;
+}
+
+.edit-article-form fieldset {
+  max-width: 43rem;
+  margin: 0 auto 2rem;
+}
+
+.edit-article-form fieldset button {
+  background: none;
+  border-radius: 0;
+  border-style: none;
+  box-shadow: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 .1rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  white-space: nowrap;
+  display: block;
+  height: 2.105263rem;
+  font-size: .777rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  min-width: 20%;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
+
+.edit-article-form fieldset button.close {
+  float: left;
+  background-color: #f00;
+}
+
+.edit-article-form fieldset button.close:hover {
+  background-color: #c00;
+}
+
+.edit-article-form fieldset button.save {
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  background-color: #d5d5d5;
+  cursor: default;
+}
+
+.edit-article-form fieldset button.save:hover {
+  background-color: #d5d5d5;
+}
+
+.edit-article-form fieldset button.reset {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  float: left;
+  background-color: #ffc000;
+}
+
+.edit-article-form fieldset button.reset:hover {
+  background-color: #ff9600;
+}
+
+.edit-article-form fieldset .two-in-row {
+  overflow: hidden;
+  position: relative;
+}
+
+.edit-article-form fieldset .two-in-row label {
+  float: left;
+  width: 50%;
+}
+
+.edit-article-form fieldset .two-in-row label:first-child input {
+  padding-right: 1rem;
+}
+
+.edit-article-form fieldset .open-calendar {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  right: 0;
+  bottom: 1px;
+  height: 1.618rem;
+  font-size: .9rem;
+  line-height: 1.618rem;
+  width: 2rem;
+  vertical-align: middle;
+  display: block;
+  text-align: right;
+}
+
+.edit-article-form fieldset .open-calendar:hover {
+  color: #0ba5b7;
+}
+
+.edit-article-form fieldset .open-calendar:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: middle;
+  content: '\e80a';
+}
+
+.edit-article-form fieldset label {
+  display: block;
+  overflow: hidden;
+  height: 3.216263rem;
+  width: 100%;
+  border-bottom: 1px solid #0ba5b7;
+  padding-top: 1.111rem;
+  position: relative;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.edit-article-form fieldset label span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: .611rem;
+  line-height: 1.6rem;
+  color: #a9a9a9;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity .25s;
+  transition: opacity .25s;
+}
+
+.edit-article-form fieldset label input {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  line-height: 1.618rem;
+  height: 1.618rem;
+  display: inline-block;
+  position: relative;
+  background: none;
+  border-radius: 0;
+  border-style: none;
+  width: auto;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  font-size: .9rem;
+}
+
+.edit-article-form fieldset label input:focus~span {
+  color: #0ba5b7;
+}
+
+.edit-article-form fieldset label input:valid~span {
+  opacity: 1;
+  z-index: 2;
+}

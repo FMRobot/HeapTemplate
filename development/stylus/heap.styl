@@ -1,0 +1,447 @@
+@import "mixins.styl"
+
+// Стили уникальные для Кучи
+body.heap
+  position relative
+  
+  &>.page
+    max-width: 43rem;
+    margin 0 auto
+    padding: 1rem 2.10526rem 0;
+  
+  // Шапка
+  &>header
+    max-width: 43rem;
+    margin 0 auto
+    padding: 2rem 2.10526rem 0;
+
+
+  // Блок статьи
+  article
+    box-sizing border-box
+    width 100%
+    position relative
+    margin 2rem 0
+    font-size 0.68rem
+    line-height 1.618rem
+    
+    &:first-child
+      margin-top 0
+    
+    // Cписок переводов
+    .translations
+      display none
+      margin-top 0.4rem
+      line-height 1rem
+      font-size 0.68rem
+      .language
+        display inline-block
+        width 3.5rem
+        text-align right
+        font-style italic
+      .title
+        color #0BA5B7
+        &:hover
+          text-decoration none
+        
+    // Шапка
+    header
+      position relative
+      
+      // Заголовок статьи
+      .title
+        color #0BA5B7
+        line-height 2rem
+        font-size 1.5rem 
+        margin 0 0 .2rem
+        a
+          color #0BA5B7
+          &:hover
+            text-decoration none
+      
+      // Дата первой публикации
+      time
+        font-size 0.6316rem
+        white-space nowrap
+        margin 0 1rem 0 0
+        display inline-block
+        
+      // Лайки
+      .likes
+        margin 0 1rem 0 0
+        font-size .8rem
+        vertical-align middle
+        display inline-block
+        white-space nowrap
+        text-decoration none
+        height 1.618rem
+        line-height 1.618rem
+        &:before
+          icon()
+          margin-right .2rem
+          font-size .68rem
+          content "\e802"
+        &:hover
+          color #0ba5b7
+          &:before
+            content '\e801'
+        &.disabled
+          color #999
+          &:before
+            content "\e802"
+          &:hover
+            color #999
+            &:before
+              content '\e801'
+        &.liked
+          &:before
+            content '\e801'
+          &:hover
+            color #0ba5b7
+            &:before
+              content '\e802'
+      
+      // Доменное имя
+      .domain
+        font-size 0.6316rem
+        white-space nowrap
+        margin 0 1rem 0 0
+        &:before
+          icon()
+          position relative
+          cursor default
+          margin-right .2rem
+          font-size .68rem
+          content '\e80c'
+          text-decoration none
+          color #000  
+      
+      // Автор статьи
+      .author
+        font-size 0.6316rem
+        white-space nowrap
+        margin 0 1rem 0 0
+        &:before
+          icon()
+          position relative
+          cursor default
+          margin-right .2rem
+          font-size .68rem
+          content '\e80e'
+          text-decoration none
+          color #000 
+      
+      // Язык оригинала и переводы
+      .language
+        display inline
+        font-size 0.6316rem
+        margin 0 1rem 0 0
+        &:before
+          icon()
+          cursor default
+          margin-right .2rem
+          font-size .68rem
+          content '\e80d'
+          text-decoration none
+          color #000
+
+      // Теги
+      .tags
+        display inline
+        line-height 1.411rem
+        font-size 0.6316rem
+        margin 0 1rem 0 0
+        vertical-align middle
+        a
+          white-space nowrap
+        &:before
+          icon()
+          font-size .68rem
+          margin 0 .25rem 0 0 
+          content "\e805"
+    
+ 
+    // Меню доступное пользователям
+    .user-menu
+      display inline
+      a
+        display inline-block
+        white-space nowrap
+        margin 0 1rem 0 0
+        &.hide-list
+          display none
+          &:hover:before
+            content "\e816"
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e817"
+            text-decoration none
+            color #000
+        &.show-list
+          &:hover:before
+            content "\e817"
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e816"
+            text-decoration none
+            color #000
+        &.add
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e807"
+            text-decoration none
+            color #000
+
+    // Меню доступное членам редакции
+    .editor-menu
+      display inline
+      a
+        display inline-block
+        white-space nowrap
+        margin 0 1rem 0 0
+        &.translate
+          &:hover:before
+            content "\e811"
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e812"
+            text-decoration none
+            color #000
+          &.my:hover:before
+            content "\e812"
+          &.my:before
+            content "\e811"
+        &.edit
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e810"
+            text-decoration none
+            color #000
+        &.remove
+          &:before
+            icon()
+            font-size .68rem
+            margin 0 .25rem 0 0 
+            content "\e806"
+            text-decoration none
+            color #000 
+  
+  // Кнопочка «Загрузить еще статей»
+  .more
+    display inline-block
+    position relative
+    background-color #0ba5b7
+    color #FFF
+    height 3rem
+    padding 0 1rem
+    line-height 3rem
+    cursor pointer
+    overflow visible
+    white-space nowrap
+    &:before
+      content "."
+      overflow hidden
+      display block
+      position absolute
+      top 100%
+      left .5rem
+      margin auto
+      height 0
+      width 0
+      border-width .5rem .5rem 0 0
+      border-color #0ba5b7 transparent transparent
+      border-style solid solid none
+    &:hover
+      background-color darken(#0ba5b7,20%)
+      &:before
+        border-color darken(#0ba5b7,20%) transparent transparent
+    
+  // Пагинатор
+  .page-list
+    margin 2rem 0
+    font-size 0
+    line-height 0
+    white-space nowrap
+    text-align center
+    span
+      cursor default
+      pointer-events none
+      margin 0 0 0 1px 
+      color #000 
+      display inline-block
+      font-size .68rem
+      line-height 3rem
+      text-align center
+      vertical-align middle
+      width 7.544%
+      height 3rem
+    a 
+      margin 0 0 0 1px
+      color #fff
+      text-decoration none
+      display inline-block
+      font-size .68rem
+      line-height 3rem
+      text-align center
+      vertical-align middle
+      width 7.544%
+      height 3rem
+      background-color #0ba5b7
+      &:first-child
+        margin 0 
+      &.selected
+        pointer-events none
+        position relative
+        background-color darken(#0ba5b7,20%)
+        cursor default
+        &:before
+          content "."
+          overflow hidden
+          display block
+          position absolute
+          bottom 0
+          left 0
+          right 0
+          margin auto
+          height 0
+          width 0
+          border-width 0 .25rem .25rem
+          border-color transparent transparent #fff
+          border-style none solid solid
+      &:hover
+        background-color darken(#0ba5b7,20%)
+  
+  // Футер Кучи
+  &>footer
+    max-width: 43rem;
+    margin 2rem auto
+    padding: 1rem 2.10526rem 0;
+    border-top 1px dotted #000
+    font-size 0
+    line-height 0
+    .copyright
+      display block
+      font-size 0.68rem
+      line-height 1.618rem
+      margin 2rem 0
+    nav
+      vertical-align top
+      display inline-block
+      min-width 33%
+      padding 0 1rem 0 0 
+      font-size 0.68rem
+      line-height 1.618rem
+      overflow hidden
+      position relative
+      box-sizing border-box
+      &.сontacts
+        a
+          &:before
+            icon()
+            text-decoration none
+            margin 0 .25rem 0 0 
+            color #000
+      a
+        float left
+        white-space nowrap
+        clear left
+        &.rss
+          &:before
+            content '\e818'
+        &.twitter
+          &:before
+            content '\e815'
+        &.github
+          &:before
+            content '\e80f'
+             
+
+
+@media screen and (min-width: 65rem)
+  body.heap
+    article
+      header
+        .likes
+          position absolute
+          right 100%
+          bottom 0
+        time
+          text-align right
+          position absolute
+          width 6.66666667rem
+          right 100%
+          bottom 1.7rem 
+          
+
+@media screen and (max-width: 40rem)
+  html:root
+    font-size 16px
+  body.heap
+    .more
+      margin 0 0 0 -2.10526rem
+      padding 0 2.10526rem;
+      height 6rem
+      line-height 6rem
+      text-align center
+      width 100%
+      &:before
+        display none
+    .page-list,
+    form
+      display none
+    footer
+      margin-top 0
+      border-top-style none
+      nav
+        width 100%
+        margin 0 0 1rem 
+    article
+      .translations
+        display block !important
+        .language
+          width auto
+          text-align left
+      header
+        time,
+        .domain,
+        .author,
+        .language
+          display inline-block
+        .likes.disabled
+          background-color #ccc
+          color #FFF 
+          &:hover
+            background-color darken(#ccc,10%)
+            color #FFF 
+        .likes.liked,
+        .likes
+          float left
+          margin 0 .5rem 0 0 
+          display block
+          width 3rem
+          height 3rem
+          line-height 3rem
+          background-color #0ba5b7
+          vertical-align middle
+          text-align center
+          color #FFF 
+          &:hover
+            background-color darken(#0ba5b7,20%)
+            color #FFF 
+        .title
+        .tags
+          display block
+      .user-menu,
+      .editor-menu
+        display none
+    

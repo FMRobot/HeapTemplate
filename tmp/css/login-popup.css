@@ -1,0 +1,120 @@
+.login-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+  color: #000;
+}
+
+.login-popup .title {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin: 0 0 .5rem;
+}
+
+.login-popup nav {
+  height: 2.105263rem;
+  display: block;
+  color: #fff;
+  position: relative;
+}
+
+.login-popup nav .confirm {
+  min-width: 3rem;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 50%;
+  width: 10%;
+  height: 2.105263rem;
+  margin: auto;
+  background-color: #0ba5b7;
+  font-size: 0;
+}
+
+.login-popup nav .confirm:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 2.105263rem;
+  width: 2.105263rem;
+  height: 2.105263rem;
+  content: '\e813';
+}
+
+.login-popup nav .confirm:hover {
+  background-color: #098492;
+}
+
+.login-popup nav .deny {
+  min-width: 3rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 50%;
+  width: 10%;
+  margin: auto;
+  height: 2.105263rem;
+  background-color: #ffc000;
+  font-size: 0;
+}
+
+.login-popup nav .deny:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 2.105263rem;
+  width: 2.105263rem;
+  height: 2.105263rem;
+  content: '\e814';
+}
+
+.login-popup nav .deny:hover {
+  background-color: #ff9600;
+}
+
+@media screen and (min-width: 65rem) {
+  .login-popup {
+    border-left: 6.66666667rem solid #fff;
+    left: -6.66666667rem;
+  }
+}

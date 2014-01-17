@@ -1,0 +1,47 @@
+@import "mixins.styl"
+
+labelandinput()
+  display block
+  box-sizing border-box
+  position absolute
+  left 0
+  top 0
+  width 81%
+  margin 0
+  padding 0 .5rem
+  height 2.105263rem
+  line-height 2.105263rem
+  font-size .618rem
+  z-index 1
+
+.add-article-form
+  margin 2rem 0
+  height 2.105263rem
+  position relative
+  label span
+    labelandinput()
+    border 1px solid transition
+    z-index 1
+    transition top .25s
+  input
+    labelandinput()
+    border 1px solid #0ba5b7
+    z-index 2
+    &:valid~span
+      top -2.105263rem
+  button
+    clear-button()
+    white-space nowrap
+    position absolute
+    right 0
+    top 0
+    display block
+    width 20%
+    height 2.105263rem 
+    box-sizing border-box
+    background-color #0BA5B7
+    color #fff
+    cursor pointer
+    z-index 2
+    &:hover
+      background-color darken(#0BA5B7, 20%) 

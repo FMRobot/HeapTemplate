@@ -1,0 +1,333 @@
+doctype html
+html
+  head
+    title Куча | Frontender Magazine
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    link rel="stylesheet" type="text/css" href="css/styles.css"
+    script data-main="js/heap" src="js/require.js"
+  body.heap
+    / header
+    /   nav
+    /     button.tag-toggle type="button" Фильтровать данные
+    /     a.login href="/login/" Войти
+
+    /   .tag-list
+    /     menu
+    /       select
+    /         option Сортировать по дате
+    /         option Сортировать по количеству лайков
+    /       button.close type="button" Закрыть
+    /       button.clear type="button" Очистить фильтр
+    /     .type
+    /       h2.title Скрипты
+    /       nav.tags
+    /         a href="/search/tag/mobile" JavaScript
+    /         a.selected href="/search/tag/nodejs" NodeJS
+    /         a href="/search/tag/webgl" WebGL
+    /         a href="/search/tag/ecma-6" ECMA 6
+    /     .type
+    /       h2.title Разметка
+    /       nav.tags
+    /         a href="/search/tag/html" html
+    /         a href="/search/tag/slim" slim
+    /         a href="/search/tag/haml" haml
+    /     .type
+    /       h2.title Стили
+    /       nav.tags
+    /         a href="/search/tag/css" CSS
+    /         a href="/search/tag/adaptive-design" Adaptive design
+    /         a.selected href="/search/tag/mobile" Mobile
+    /         a href="/search/tag/3d-transforms" 3d-transforms
+    /         a href="/search/tag/less" less
+    /         a href="/search/tag/sass" sass
+    /         a href="/search/tag/stylus" stylus
+    /     .type
+    /       h2.title Автоматизация
+    /       nav.tags
+    /         a href="/search/tag/grunt" Grunt
+    /         a.selected href="/search/tag/bower" Bower
+    /         a.selected href="/search/tag/yoman" Yoman
+    /     .type
+    /       h2.title Разное
+    /       nav.tags
+    /         a href="/search/tag/content-strategy" Content strategy
+    /         a href="/search/tag/fonts" fonts
+    /         a href="/search/tag/antialiasing" antialiasing
+    /         a href="/search/tag/web-fonts" web fonts
+    /     .type
+    /       h2.title Язык
+    /       nav.tags
+    /         a href="/search/tag/en" English
+    /         a href="/search/tag/es" Español
+    /         a href="/search/tag/ru" Русский
+    /         a href="/search/tag/it" Italiano
+    /         a href="/search/tag/fr" Français
+    /     .type.sources
+    /       h2.title Источники
+    /       nav.tags
+    /         a href="/search/tag/alistapart.com" alistapart.com
+    /         a href="/search/tag/habrahabr.ru" habrahabr.ru
+    /         a href="/search/tag/smashingmagazine.com" smashingmagazine.com
+
+    header
+      h1  Frontender Magazine: Куча
+
+    section.page
+
+      form.add-article-form action="/add/url" method="post"
+        fieldset
+          label for="add-article-form-url" 
+            input id="add-article-form-url" name="url" type="text" value="" required="required" placeholder="Введите URL статьи:"
+            span Введите URL статьи:
+          button type="submit" Добавить статью
+
+      .article-list
+
+        article
+          header
+            h3.title 
+              a href="http://alistapart.com/article/dont-poke-the-bear-creating-content-for-sensitive-situations" Don’t Poke the Bear: Creating Content for Sensitive Situations
+            a.likes href="#" title="SilentImp, Kizu" 2
+            time datetime="2013-06-25" 25 июня 2013 года
+            a.language href="/search/tag/English" English
+            a.domain href="/search/tag/alistapart.com" alistapart.com
+            a.author href="/search/tag/kateKieferLee" Kate Kiefer Lee
+            menu.tags
+              a href="/search/tag/content-strategy" Content strategy
+          menu.user-menu
+            a.show-list href="#" Статья переведена на 3 языка
+            a.hide-list href="#" Скрыть список переводов
+            a.add href="#" Добавить ссылку на перевод
+          menu.editor-menu
+            a.remove href="#" Удалить
+            a.edit href="#" Редактировать
+            a.translate href="#" Я переведу!
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
+            li
+              span.language Italien
+              |: 
+              a.title href="#" Non svegliare il can che dorme: creare contenuti per le situazioni delicate
+            li
+              span.language Français
+              |: 
+              a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
+
+        section.calendar
+          header
+            .prev-month
+            h2.month  Январь 2014 года
+            .next-month
+          .days
+            .day 1
+            .day 2
+            .day 3
+            .day 4
+            .day 5
+            .day 6
+            .day 7
+            .day 8
+            .day 9
+            .day 10
+            .day 11
+            .day 12
+            .day 13
+            .day 14
+            .day 15
+            .day.today 16
+            .day 17
+            .day 18
+            .day 19
+            .day 20
+            .day 21
+            .day 22
+            .day 23
+            .day 24
+            .day 25
+            .day 26
+            .day 27
+            .day 28
+            .day 29
+            .day 30
+            .day 31
+
+
+        article
+          header
+            h3.title 
+              a href="http://alistapart.com/article/designing-for-services-beyond-the-screen" Designing for Services Beyond the Screen
+            a.likes.disabled href="#" title="Вам нужно пройти аутентификацию, что бы проголосовать за статью" 1
+            time datetime="2013-06-25" 25 июня 2013 года
+            a.language href="/search/tag/English" English
+            a.domain href="/search/tag/alistapart.com" alistapart.com
+            a.author href="/search/tag/AndyPolaine" Andy Polaine
+            menu.tags
+              a href="/search/tag/css" CSS
+              |, 
+              a href="/search/tag/adaptive-design" Adaptive design
+              |, 
+              a href="/search/tag/mobile" Mobile
+          menu.user-menu
+            a.show-list href="#" Статья переведена на Испанский и Русский
+            a.hide-list href="#" Скрыть список переводов
+            a.add href="#" Добавить ссылку на перевод
+          menu.editor-menu
+            a.remove href="#" Удалить
+            a.edit href="#" Редактировать
+            a.translate.my href="#" Я не хочу это переводить!
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
+            li
+              span.language Italien
+              |: 
+              a.title href="#" Non svegliare il can che dorme: creare contenuti per le situazioni delicate
+
+        article
+          header
+            h3.title 
+              a href="http://habrahabr.ru/post/206734/" Мурлыканье кошки на JavaScript
+            a.likes.liked href="#" title="SilentImp" 1
+            time datetime="2013-06-25" 25 июня 2013 года
+            a.language href="/search/tag/Русский" Русский
+            a.domain href="http://habrahabr.ru/" habrahabr.ru
+            a.author href="/search/tag/ОвчинниковВячеслав" Овчинников Вячеслав
+            menu.tags
+              a href="/search/tag/JavaScript" JavaScript
+              |, 
+              a href="/search/tag/AudioAPI" AudioAPI
+          menu.user-menu
+            a.show-list href="#" Статья переведена на Русский
+            a.hide-list href="#" Скрыть список переводов
+            a.add href="#" Добавить ссылку на перевод
+          menu.editor-menu
+            a.remove href="#" Удалить
+            a.edit href="#" Редактировать
+            a.translate href="#" Я переведу!
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
+
+        article
+          header
+            h3.title 
+              a href="http://www.zonecss.fr/style_css/feuille_css_text_transform.html" Définition de text-transform
+            a.likes href="#" 0
+            time datetime="2013-06-25" 25 июня 2013 года
+            a.language href="/search/tag/Français" Français
+            a.domain href="http://zonecss.fr/" zonecss.fr
+            menu.tags
+              a href="/search/tag/css" CSS
+          menu.user-menu
+            a.add href="#" Добавить ссылку на перевод
+          menu.editor-menu
+            a.remove href="#" Удалить
+            a.edit href="#" Редактировать
+            a.translate href="#" Я переведу!
+
+      menu
+        a.more Ещё! Ещё! Больше статей!
+
+      menu.page-list
+        a.selected href="#" 3
+        a href="#" 2
+        a href="#" 1
+      
+      menu.page-list
+        a.selected href="#" 12
+        a href="#" 11
+        a href="#" 10
+        span … 
+        a href="#" 3
+        a href="#" 2
+        a href="#" 1
+
+      menu.page-list
+        a href="#" 22
+        a href="#" 21
+        a href="#" 20
+        span … 
+        a href="#" 12
+        a href="#" 11
+        a.selected href="#" 10
+        a href="#" 9
+        a href="#" 8
+        span … 
+        a href="#" 3
+        a href="#" 2
+        a href="#" 1
+
+    footer
+      nav.сontacts
+        a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
+        a.rss href="http://feeds.frontender.info/FrontenderMagazine" rss-канал журнала
+        a.rss href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss-канал журнала
+        a.rss href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss-канал кучи
+      nav.project
+        a href="http://frontender.info/" Журнал Frontender Magazine
+        a href="#" Редакция
+        a href="#" Как можно принять участие в проекте?
+        a href="#" Помочь деньгами
+
+      p.copyright &copy; 2013 Frontender Magazine
+
+    template#edit-article-form
+      form action="/edit/article" method="post" class="edit-article-form"
+        fieldset
+          label
+            input type="text" name="title" value="" placeholder="Заголовок" required="required"
+            span Заголовок
+          label
+            input type="text" name="url" value="" placeholder="URL" required="required"
+            span URL
+          .two-in-row
+            label
+              input type="text" name="author" value="" placeholder="Автор" required="required"
+              span Автор
+            label
+              input type="text" name="date" value="" placeholder="Дата первой публикации" required="required"
+              span Дата первой публикации
+            a.open-calendar href="#" 
+          .two-in-row
+            label
+              input type="text" name="domain" value="" placeholder="Домен" required="required"
+              span Домен
+            label
+              input type="text" name="language" value="" placeholder="Язык" required="required"
+              span Язык
+          label
+            input type="text" name="tags" value="" placeholder="Теги, разделенные запятой" required="required"
+            span Теги, разделенные запятой
+        fieldset
+          button.save type="submit" Сохранить
+          button.close type="button" Закрыть
+          button.reset type="reset" Отменить изменения
+            
+
+
+    template#add-translation-form
+      form action="/add/translation/" method="post" class="add-translation-form"
+        fieldset
+          input name="url" type="url" value="" required="required" placeholder="Введите URL перевода:"
+          button type="submit" Добавить перевод
+          button type="reset" Закрыть
+
+    template#confirm-article-remove
+      section.confirm-article-remove
+        .confirm title="Удалить" Удалить
+        .deny title="Я передумал" Я передумал
+
+    template#login-popup
+      section.login-popup
+        h2.title Что бы проголосовать за статью нужно авторизироваться&nbsp;на&nbsp;GitHub
+        nav
+          a.confirm href="https://github.com/login/oauth/authorize?client_id=1295b0c39150f38ee008&amp;state=608783324&amp;redirect_uri=http%3A%2F%2Ffrontender.info%2Fheap%2F&amp;scope=public_repo" title="Авторизироваться" Авторизироваться
+          .deny title="Я передумал" Я передумал

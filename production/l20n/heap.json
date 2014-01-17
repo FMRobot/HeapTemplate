@@ -1,0 +1,10 @@
+{
+  "locales": [
+    "en",
+    "ru"
+  ],
+  "default_locale": "en",
+  "resources": [
+    "{{locale}}/heap.l20n"
+  ]
+}

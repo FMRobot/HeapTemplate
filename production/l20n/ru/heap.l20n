@@ -1,0 +1,7 @@
+<pageTitle "Куча | Frontender Magazine">
+<title "Frontender Magazine: Куча">
+<enterUrl "Введите URL статьи:">
+<enterUrlPlaceholder {
+  placeholder: "Введите URL статьи:"
+}>
+<addArticle "Добавить статью">

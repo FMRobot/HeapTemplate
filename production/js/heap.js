@@ -1,9 +1,3 @@
-require.config({
-    paths: {
-        heapController: 'heapController'
-    }
-});
-
-requirejs(['heapController'],function(heapController){
+requirejs(['l20n.min','heapController'],function(l20n, heapController){
   new heapController()
 });

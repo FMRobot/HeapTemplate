@@ -1,15 +1,14 @@
-/**
-# Класс обеспечивает работу Кучи
-# 
-# @class heapController
-*/
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
+define(['calendarController'], function(calendarController) {
+  /**
+  # Класс обеспечивает работу Кучи
+  # 
+  # @class heapController
+  */
 
-(function() {
-  var heapController,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-
+  var heapController;
   heapController = (function() {
     /**
     # Конструктор выполняет инициализацию Кучи и создает обработчики событий
@@ -349,8 +348,8 @@
     return heapController;
 
   })();
-
-}).call(this);
+  return heapController;
+});
 
 /*
 //@ sourceMappingURL=heapController.js.map

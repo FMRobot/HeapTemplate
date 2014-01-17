@@ -1,9 +1,10 @@
 doctype html
 html
   head
-    title Куча | Frontender Magazine
+    title data-l10n-id="pageTitle" Куча | Frontender Magazine
     meta charset="UTF-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    link rel="localization" href="l20n/heap.json"
     link rel="stylesheet" type="text/css" href="css/styles.css"
     script data-main="js/heap" src="js/require.js"
   body.heap
@@ -71,16 +72,16 @@ html
     /         a href="/search/tag/smashingmagazine.com" smashingmagazine.com
 
     header
-      h1  Frontender Magazine: Куча
+      h1 data-l10n-id="title"
 
     section.page
 
       form.add-article-form action="/add/url" method="post"
         fieldset
           label for="add-article-form-url" 
-            input id="add-article-form-url" name="url" type="text" value="" required="required" placeholder="Введите URL статьи:"
-            span Введите URL статьи:
-          button type="submit" Добавить статью
+            input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" name="url" type="text" value="" required="required" 
+            span data-l10n-id="enterUrl" 
+          button data-l10n-id="addArticle" type="submit"
 
       .article-list
 

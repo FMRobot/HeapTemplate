@@ -15,6 +15,7 @@ module.exports = (grunt) ->
     # Преобразуем coffee в js
     coffee:
       options:
+        bare: true
         sourceMap: true
       dist:
         files: [

@@ -1,0 +1,7 @@
+<pageTitle "Heap | Frontender Magazine">
+<title "Frontender Magazine: Heap">
+<enterUrl "Enter article URL:">
+<enterUrlPlaceholder {
+  placeholder: "Enter article URL:"
+}>
+<addArticle "Add article">

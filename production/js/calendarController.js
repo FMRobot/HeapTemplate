@@ -1,0 +1,1 @@
+define(["moment-with-langs.min"],function(){var a;return a=function(){function a(){console.log("calendar costructor")}return a}()});

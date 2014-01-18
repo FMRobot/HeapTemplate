@@ -1,3 +1,3 @@
-requirejs(['l20n.min','heapController'],function(l20n, heapController){
+requirejs(['heapController'],function(heapController){
   new heapController()
 });

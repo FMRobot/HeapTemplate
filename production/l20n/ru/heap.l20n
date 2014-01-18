@@ -5,3 +5,76 @@
   placeholder: "Введите URL статьи:"
 }>
 <addArticle "Добавить статью">
+
+
+<hideTranslationList "Скрыть список переводов">
+<addNewTanslation "Добавить ссылку на перевод">
+<removeArticle "Удалить">
+<editArticle "Редактировать">
+<iWillTranslate "Я переведу!">
+
+<addTranslationFormClose "Закрыть">
+<addTranslationFormAdd "Добавить перевод">
+<addTranslationFormInput {
+  placeholder: "Введите URL перевода:"
+}>
+
+
+<confirmArticleRemoveConfirm "Удалить" {
+  title: "Удалить"
+}>
+<confirmArticleRemoveDeny "Я передумал" {
+  title: "Я передумал"
+}>
+
+
+<loginPopupTitle "Что бы проголосовать за статью нужно авторизироваться&nbsp;на&nbsp;GitHub">
+<loginPopupYes "Авторизироваться" {
+  title: "Авторизироваться"
+}>
+<loginPopupNo "Я передумал" {
+  title: "Я передумал"
+}>
+
+
+<editArticleTitle "Заголовок" {
+  placeholder: "Заголовок"
+}>
+<editArticleTitleLabel "Заголовок">
+
+<editArticleAuthor "Автор" {
+  placeholder: "Автор"
+}>
+<editArticleAuthorLabel "Автор">
+
+<editArticleDate "Дата первой публикации" {
+  placeholder: "Дата первой публикации"
+}>
+<editArticleDateLabel "Дата первой публикации">
+
+<editArticleDomain "Домен" {
+  placeholder: "Домен"
+}>
+<editArticleDomainLabel "Домен">
+
+<editArticleLanguage "Язык" {
+  placeholder: "Язык"
+}>
+<editArticleLanguageLabel "Язык">
+
+<editArticleTags "Теги, разделенные запятой" {
+  placeholder: "Теги, разделенные запятой"
+}>
+<editArticleTagsLabel "Теги, разделенные запятой">
+
+<editArticleSave "Сохранить">
+<editArticleClose "Закрыть">
+<editArticleReset "Отменить изменения">
+
+<footerMagazineRSS "rss-канал журнала">
+<footerArticleRSS "полнотекстовый rss-канал журнала">
+<footerHeapRSS "rss-канал кучи">
+<footerMagazine "Журнал Frontender Magazine">
+<footerTeam "Редакция">
+<footerContribute "Как можно принять участие в проекте?">
+<footerMoney "Помочь деньгами">

@@ -6,7 +6,7 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     link rel="localization" href="l20n/heap.json"
     link rel="stylesheet" type="text/css" href="css/styles.css"
-    script data-main="js/heap" src="js/require.js"
+    / script data-main="js/heap" src="js/require.js"
   body.heap
     / header
     /   nav
@@ -72,16 +72,16 @@ html
     /         a href="/search/tag/smashingmagazine.com" smashingmagazine.com
 
     header
-      h1 data-l10n-id="title"
+      h1 data-l10n-id="title" Frontender Magazine: Куча
 
     section.page
 
       form.add-article-form action="/add/url" method="post"
         fieldset
           label for="add-article-form-url" 
-            input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" name="url" type="text" value="" required="required" 
-            span data-l10n-id="enterUrl" 
-          button data-l10n-id="addArticle" type="submit"
+            input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" placeholder="Введите URL статьи:" name="url" type="text" value="" required="required" 
+            span data-l10n-id="enterUrl" Введите URL статьи:
+          button data-l10n-id="addArticle" type="submit" Добавить статью
 
       .article-list
 
@@ -98,12 +98,12 @@ html
               a href="/search/tag/content-strategy" Content strategy
           menu.user-menu
             a.show-list href="#" Статья переведена на 3 языка
-            a.hide-list href="#" Скрыть список переводов
-            a.add href="#" Добавить ссылку на перевод
+            a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
+            a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
           menu.editor-menu
-            a.remove href="#" Удалить
-            a.edit href="#" Редактировать
-            a.translate href="#" Я переведу!
+            a.remove data-l10n-id="removeArticle" href="#" Удалить
+            a.edit data-l10n-id="editArticle" href="#" Редактировать
+            a.translate data-l10n-id="iWillTranslate" href="#" Я переведу!
           ul.translations
             li
               span.language Русский
@@ -117,46 +117,7 @@ html
               span.language Français
               |: 
               a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
-
-        section.calendar
-          header
-            .prev-month
-            h2.month  Январь 2014 года
-            .next-month
-          .days
-            .day 1
-            .day 2
-            .day 3
-            .day 4
-            .day 5
-            .day 6
-            .day 7
-            .day 8
-            .day 9
-            .day 10
-            .day 11
-            .day 12
-            .day 13
-            .day 14
-            .day 15
-            .day.today 16
-            .day 17
-            .day 18
-            .day 19
-            .day 20
-            .day 21
-            .day 22
-            .day 23
-            .day 24
-            .day 25
-            .day 26
-            .day 27
-            .day 28
-            .day 29
-            .day 30
-            .day 31
-
-
+        
         article
           header
             h3.title 
@@ -269,14 +230,17 @@ html
     footer
       nav.сontacts
         a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
-        a.rss href="http://feeds.frontender.info/FrontenderMagazine" rss-канал журнала
-        a.rss href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss-канал журнала
-        a.rss href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss-канал кучи
+        a.rss data-l10n-id="footerMagazineRSS" href="http://feeds.frontender.info/FrontenderMagazine" rss-канал журнала
+        a.rss data-l10n-id="footerArticleRSS" href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss-канал журнала
+        a.rss data-l10n-id="footerHeapRSS" href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss-канал кучи
       nav.project
-        a href="http://frontender.info/" Журнал Frontender Magazine
-        a href="#" Редакция
-        a href="#" Как можно принять участие в проекте?
-        a href="#" Помочь деньгами
+        a data-l10n-id="footerMagazine" href="http://frontender.info/" Журнал Frontender Magazine
+        a data-l10n-id="footerTeam" href="#" Редакция
+        a data-l10n-id="footerContribute" href="#" Как можно принять участие в проекте?
+        a data-l10n-id="footerMoney" href="#" Помочь деньгами
+      nav.language
+        a.en href="#" Русский
+        a.ru href="#" English
 
       p.copyright &copy; 2013 Frontender Magazine
 
@@ -284,51 +248,57 @@ html
       form action="/edit/article" method="post" class="edit-article-form"
         fieldset
           label
-            input type="text" name="title" value="" placeholder="Заголовок" required="required"
-            span Заголовок
+            input data-l10n-id="editArticleTitle" type="text" name="title" value="" placeholder="Заголовок" required="required"
+            span data-l10n-id="editArticleTitleLabel" Заголовок
           label
             input type="text" name="url" value="" placeholder="URL" required="required"
             span URL
           .two-in-row
             label
-              input type="text" name="author" value="" placeholder="Автор" required="required"
-              span Автор
+              input data-l10n-id="editArticleAuthor" type="text" name="author" value="" placeholder="Автор" required="required"
+              span data-l10n-id="editArticleAuthorLabel" Автор
             label
-              input type="text" name="date" value="" placeholder="Дата первой публикации" required="required"
-              span Дата первой публикации
+              input data-l10n-id="editArticleDate" type="text" name="date" value="" placeholder="Дата первой публикации" required="required"
+              span data-l10n-id="editArticleDateLabel" Дата первой публикации
             a.open-calendar href="#" 
           .two-in-row
             label
-              input type="text" name="domain" value="" placeholder="Домен" required="required"
-              span Домен
+              input data-l10n-id="editArticleDomain" type="text" name="domain" value="" placeholder="Домен" required="required"
+              span data-l10n-id="editArticleDomainLabel" Домен
             label
-              input type="text" name="language" value="" placeholder="Язык" required="required"
-              span Язык
+              input data-l10n-id="editArticleLanguage" type="text" name="language" value="" placeholder="Язык" required="required"
+              span data-l10n-id="editArticleLanguageLabel" Язык
           label
-            input type="text" name="tags" value="" placeholder="Теги, разделенные запятой" required="required"
-            span Теги, разделенные запятой
+            input data-l10n-id="editArticleTags" type="text" name="tags" value="" placeholder="Теги, разделенные запятой" required="required"
+            span data-l10n-id="editArticleTagsLabel" Теги, разделенные запятой
         fieldset
-          button.save type="submit" Сохранить
-          button.close type="button" Закрыть
-          button.reset type="reset" Отменить изменения
+          button.save data-l10n-id="editArticleSave" type="submit" Сохранить
+          button.close data-l10n-id="editArticleClose" type="button" Закрыть
+          button.reset data-l10n-id="editArticleReset" type="reset" Отменить изменения
             
-
-
     template#add-translation-form
       form action="/add/translation/" method="post" class="add-translation-form"
         fieldset
           input name="url" type="url" value="" required="required" placeholder="Введите URL перевода:"
-          button type="submit" Добавить перевод
-          button type="reset" Закрыть
+          button data-l10n-id="addTranslationFormAdd" type="submit" Добавить перевод
+          button data-l10n-id="addTranslationFormClose" type="reset" Закрыть
 
     template#confirm-article-remove
       section.confirm-article-remove
-        .confirm title="Удалить" Удалить
-        .deny title="Я передумал" Я передумал
+        .confirm data-l10n-id="confirmArticleRemoveConfirm" title="Удалить" Удалить
+        .deny data-l10n-id="confirmArticleRemoveDeny" title="Я передумал" Я передумал
 
     template#login-popup
       section.login-popup
-        h2.title Что бы проголосовать за статью нужно авторизироваться&nbsp;на&nbsp;GitHub
+        h2.title data-l10n-id="loginPopupTitle" Что бы проголосовать за статью нужно авторизироваться&nbsp;на&nbsp;GitHub
         nav
-          a.confirm href="https://github.com/login/oauth/authorize?client_id=1295b0c39150f38ee008&amp;state=608783324&amp;redirect_uri=http%3A%2F%2Ffrontender.info%2Fheap%2F&amp;scope=public_repo" title="Авторизироваться" Авторизироваться
-          .deny title="Я передумал" Я передумал
+          a.confirm data-l10n-id="loginPopupYes" href="https://github.com/login/oauth/authorize?client_id=1295b0c39150f38ee008&amp;state=608783324&amp;redirect_uri=http%3A%2F%2Ffrontender.info%2Fheap%2F&amp;scope=public_repo" title="Авторизироваться" Авторизироваться
+          .deny data-l10n-id="loginPopupNo" title="Я передумал" Я передумал
+
+    template#calendar-template
+      section.calendar
+        header
+          .prev-month
+          h2.month
+          .next-month
+        .days

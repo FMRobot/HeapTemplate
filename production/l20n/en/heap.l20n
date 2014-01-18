@@ -5,3 +5,77 @@
   placeholder: "Enter article URL:"
 }>
 <addArticle "Add article">
+
+
+<hideTranslationList "Hide translations list">
+<addNewTanslation "Add translation url">
+<removeArticle "Remove">
+<editArticle "Edit">
+<iWillTranslate "I want to translate this!">
+
+<addTranslationFormClose "Close">
+<addTranslationFormAdd "Add translation">
+<addTranslationFormInput {
+  placeholder: "Translation url:"
+}>
+
+
+<confirmArticleRemoveConfirm "Yes, remove" {
+  title: "Yes, remove"
+}>
+<confirmArticleRemoveDeny "No, I change my mind" {
+  title: "No, I change my mind"
+}>
+
+
+<loginPopupTitle "To vote you must login&nbsp;on&nbsp;Github">
+<loginPopupYes "Authenticate me" {
+  title: "Authenticate me"
+}>
+<loginPopupNo "No, I change my mind" {
+  title: "No, I change my mind"
+}>
+
+
+
+<editArticleTitle "Title" {
+  placeholder: "Title"
+}>
+<editArticleTitleLabel "Title">
+
+<editArticleAuthor "Author" {
+  placeholder: "Author"
+}>
+<editArticleAuthorLabel "Author">
+
+<editArticleDate "First publication date" {
+  placeholder: "First publication date"
+}>
+<editArticleDateLabel "First publication date">
+
+<editArticleDomain "Domain" {
+  placeholder: "Domain"
+}>
+<editArticleDomainLabel "Domain">
+
+<editArticleLanguage "Language" {
+  placeholder: "Language"
+}>
+<editArticleLanguageLabel "Language">
+
+<editArticleTags "Tags, separated by coma" {
+  placeholder: "Tags, separated by coma"
+}>
+<editArticleTagsLabel "Tags, separated by coma">
+
+<editArticleSave "Save">
+<editArticleClose "Cancel">
+<editArticleReset "Undo changes">
+
+<footerMagazineRSS "journal rss">
+<footerArticleRSS "full-text articles rss">
+<footerHeapRSS "heap rss">
+<footerMagazine "Frontender Magazine">
+<footerTeam "Our team">
+<footerContribute "How you may contribute">
+<footerMoney "Donate">

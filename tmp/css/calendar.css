@@ -1,5 +1,6 @@
 .calendar {
   position: relative;
+  margin: 0 0 2rem;
 }
 
 .calendar header {

@@ -25,11 +25,12 @@ define ['calendarController'], (calendarController) ->
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
       
-      @addTranslationFormTemplate = document.querySelector('#add-translation-form');
-      @confirmArticleRemoveTemplate = document.querySelector('#confirm-article-remove');
-      @loginPopupTemplate = document.querySelector('#login-popup');
-      @editArticleTemplate = document.querySelector('#edit-article-form');
+      @addTranslationFormTemplate = document.querySelector '#add-translation-form'
+      @confirmArticleRemoveTemplate = document.querySelector '#confirm-article-remove'
+      @loginPopupTemplate = document.querySelector '#login-popup'
+      @editArticleTemplate = document.querySelector '#edit-article-form'
 
+      @articleList = document.querySelector '.article-list'
 
       for button in editButton
         button.addEventListener "click", @showEditArticleForm
@@ -48,6 +49,10 @@ define ['calendarController'], (calendarController) ->
 
       for button in likeDisabledButton
         button.addEventListener "click", @showLoginPopup
+
+
+      calendar = new calendarController()
+      calendar.appendTo(@articleList)
 
     ###*
     # Показывает форму редактирования статьи

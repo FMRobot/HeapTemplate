@@ -32,7 +32,7 @@ define(['calendarController'], function(calendarController) {
       this.saveEditArticleForm = __bind(this.saveEditArticleForm, this);
       this.changeEditArticleForm = __bind(this.changeEditArticleForm, this);
       this.showEditArticleForm = __bind(this.showEditArticleForm, this);
-      var addButton, button, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
+      var addButton, button, calendar, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -50,6 +50,7 @@ define(['calendarController'], function(calendarController) {
       this.confirmArticleRemoveTemplate = document.querySelector('#confirm-article-remove');
       this.loginPopupTemplate = document.querySelector('#login-popup');
       this.editArticleTemplate = document.querySelector('#edit-article-form');
+      this.articleList = document.querySelector('.article-list');
       for (_j = 0, _len1 = editButton.length; _j < _len1; _j++) {
         button = editButton[_j];
         button.addEventListener("click", this.showEditArticleForm);
@@ -74,6 +75,8 @@ define(['calendarController'], function(calendarController) {
         button = likeDisabledButton[_o];
         button.addEventListener("click", this.showLoginPopup);
       }
+      calendar = new calendarController();
+      calendar.appendTo(this.articleList);
     }
 
     /**

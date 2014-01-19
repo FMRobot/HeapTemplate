@@ -26,13 +26,19 @@ define ['calendarController'], (calendarController) ->
       addButton = document.querySelectorAll ".add"
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
+      translateButton = document.querySelectorAll ".translate"
       
+      @iWantToTranslateTemplate = document.querySelector "#i-want-to-translate"
+      @iDontWantToTranslateTemplate = document.querySelector "#i-dont-want-to-translate"
       @addTranslationFormTemplate = document.querySelector '#add-translation-form'
       @confirmArticleRemoveTemplate = document.querySelector '#confirm-article-remove'
       @loginPopupTemplate = document.querySelector '#login-popup'
       @editArticleTemplate = document.querySelector '#edit-article-form'
 
       @articleList = document.querySelector '.article-list'
+
+      for button in translateButton
+        button.addEventListener "click", @toggleTranslationArticleForm
 
       for button in editButton
         button.addEventListener "click", @showEditArticleForm
@@ -55,6 +61,21 @@ define ['calendarController'], (calendarController) ->
 
       # calendar = new calendarController()
       # calendar.appendTo(@articleList)
+
+    toggleTranslationArticleForm: (event)=>
+      event.preventDefault()
+      button = event.currentTarget
+      parent = button.parentNode
+      if button.classList.contains "my"
+        link = @iWantToTranslateTemplate.content.cloneNode true
+        console.log "больше не переводишь"
+      else
+        link = @iDontWantToTranslateTemplate.content.cloneNode true
+        console.log "перевод за тобой"
+
+      parent.insertBefore link, button
+      parent.removeChild button
+      parent.querySelector(".translate").addEventListener "click", @toggleTranslationArticleForm
 
     openCalendar: (event)=>
       form = event.currentTarget
@@ -98,7 +119,6 @@ define ['calendarController'], (calendarController) ->
         article.parentNode.appendChild form
       else
         article.parentNode.insertBefore form, article.nextSibling
-
 
       article.nextSibling.addEventListener "submit", @saveEditArticleForm
 

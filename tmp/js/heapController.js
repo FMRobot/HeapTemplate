@@ -33,7 +33,8 @@ define(['calendarController'], function(calendarController) {
       this.changeEditArticleForm = __bind(this.changeEditArticleForm, this);
       this.showEditArticleForm = __bind(this.showEditArticleForm, this);
       this.openCalendar = __bind(this.openCalendar, this);
-      var addButton, button, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
+      this.toggleTranslationArticleForm = __bind(this.toggleTranslationArticleForm, this);
+      var addButton, button, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -48,36 +49,60 @@ define(['calendarController'], function(calendarController) {
       addButton = document.querySelectorAll(".add");
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
+      translateButton = document.querySelectorAll(".translate");
+      this.iWantToTranslateTemplate = document.querySelector("#i-want-to-translate");
+      this.iDontWantToTranslateTemplate = document.querySelector("#i-dont-want-to-translate");
       this.addTranslationFormTemplate = document.querySelector('#add-translation-form');
       this.confirmArticleRemoveTemplate = document.querySelector('#confirm-article-remove');
       this.loginPopupTemplate = document.querySelector('#login-popup');
       this.editArticleTemplate = document.querySelector('#edit-article-form');
       this.articleList = document.querySelector('.article-list');
-      for (_j = 0, _len1 = editButton.length; _j < _len1; _j++) {
-        button = editButton[_j];
+      for (_j = 0, _len1 = translateButton.length; _j < _len1; _j++) {
+        button = translateButton[_j];
+        button.addEventListener("click", this.toggleTranslationArticleForm);
+      }
+      for (_k = 0, _len2 = editButton.length; _k < _len2; _k++) {
+        button = editButton[_k];
         button.addEventListener("click", this.showEditArticleForm);
       }
-      for (_k = 0, _len2 = showButton.length; _k < _len2; _k++) {
-        button = showButton[_k];
+      for (_l = 0, _len3 = showButton.length; _l < _len3; _l++) {
+        button = showButton[_l];
         button.addEventListener("click", this.showTranslationsList);
       }
-      for (_l = 0, _len3 = hideButton.length; _l < _len3; _l++) {
-        button = hideButton[_l];
+      for (_m = 0, _len4 = hideButton.length; _m < _len4; _m++) {
+        button = hideButton[_m];
         button.addEventListener("click", this.hideTranslationsList);
       }
-      for (_m = 0, _len4 = addButton.length; _m < _len4; _m++) {
-        button = addButton[_m];
+      for (_n = 0, _len5 = addButton.length; _n < _len5; _n++) {
+        button = addButton[_n];
         button.addEventListener("click", this.showTranslationForm);
       }
-      for (_n = 0, _len5 = removeButton.length; _n < _len5; _n++) {
-        button = removeButton[_n];
+      for (_o = 0, _len6 = removeButton.length; _o < _len6; _o++) {
+        button = removeButton[_o];
         button.addEventListener("click", this.showRemoveConfirmation);
       }
-      for (_o = 0, _len6 = likeDisabledButton.length; _o < _len6; _o++) {
-        button = likeDisabledButton[_o];
+      for (_p = 0, _len7 = likeDisabledButton.length; _p < _len7; _p++) {
+        button = likeDisabledButton[_p];
         button.addEventListener("click", this.showLoginPopup);
       }
     }
+
+    heapController.prototype.toggleTranslationArticleForm = function(event) {
+      var button, link, parent;
+      event.preventDefault();
+      button = event.currentTarget;
+      parent = button.parentNode;
+      if (button.classList.contains("my")) {
+        link = this.iWantToTranslateTemplate.content.cloneNode(true);
+        console.log("больше не переводишь");
+      } else {
+        link = this.iDontWantToTranslateTemplate.content.cloneNode(true);
+        console.log("перевод за тобой");
+      }
+      parent.insertBefore(link, button);
+      parent.removeChild(button);
+      return parent.querySelector(".translate").addEventListener("click", this.toggleTranslationArticleForm);
+    };
 
     heapController.prototype.openCalendar = function(event) {
       var calendar, date, form,

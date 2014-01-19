@@ -32,7 +32,8 @@ define(['calendarController'], function(calendarController) {
       this.saveEditArticleForm = __bind(this.saveEditArticleForm, this);
       this.changeEditArticleForm = __bind(this.changeEditArticleForm, this);
       this.showEditArticleForm = __bind(this.showEditArticleForm, this);
-      var addButton, button, calendar, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
+      this.openCalendar = __bind(this.openCalendar, this);
+      var addButton, button, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -40,6 +41,7 @@ define(['calendarController'], function(calendarController) {
           template.content = template.childNodes[0];
         }
       }
+      this.lang = 'ru';
       showButton = document.querySelectorAll(".show-list");
       hideButton = document.querySelectorAll(".hide-list");
       likeDisabledButton = document.querySelectorAll(".likes.disabled");
@@ -75,9 +77,31 @@ define(['calendarController'], function(calendarController) {
         button = likeDisabledButton[_o];
         button.addEventListener("click", this.showLoginPopup);
       }
-      calendar = new calendarController();
-      calendar.appendTo(this.articleList);
     }
+
+    heapController.prototype.openCalendar = function(event) {
+      var calendar, date, form,
+        _this = this;
+      form = event.currentTarget;
+      while (form.tagName !== 'FORM') {
+        form = form.parentNode;
+      }
+      date = form.querySelector("[name='date']").value.trim();
+      if (date.length === 0) {
+        date = null;
+      }
+      calendar = new calendarController(date, "DD MMMM YYYY", function(selected_moment) {
+        var day;
+        day = selected_moment.format('DD MMMM YYYY');
+        if (form.querySelector("[name='date']").value !== day) {
+          form.classList.add('changed');
+        }
+        form.querySelector("[name='date']").value = day;
+        return form.style.display = 'block';
+      }, this.lang);
+      form.style.display = 'none';
+      return calendar.insertAfter(form);
+    };
 
     /**
     # Показывает форму редактирования статьи
@@ -93,6 +117,7 @@ define(['calendarController'], function(calendarController) {
       form = this.editArticleTemplate.content.cloneNode(true);
       form.querySelector("button.close").addEventListener("click", this.closeEditArticleForm);
       form.querySelector("button.reset").addEventListener("click", this.resetEditArticleForm);
+      form.querySelector(".open-calendar").addEventListener("click", this.openCalendar);
       this.resetEditArticleForm(null, form, article);
       _ref = form.querySelectorAll("input");
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -130,14 +155,42 @@ define(['calendarController'], function(calendarController) {
 
 
     heapController.prototype.saveEditArticleForm = function(event) {
-      var form;
+      var article, form, i, link, newTagsContainer, tag, tags, tagsContainer, _i, _len;
       event.preventDefault();
       form = event.currentTarget;
       if (!form.classList.contains('changed')) {
         console.log('ничего не изменилось');
         return;
       }
-      return console.log('отправляем данные на сервер');
+      console.log('отправляем данные на сервер');
+      article = form.previousSibling;
+      article.querySelector(".title a").innerHTML = form.querySelector("[name='title']").value;
+      article.querySelector(".title a").setAttribute('href', form.querySelector("[name='url']").value);
+      article.querySelector(".domain").innerHTML = form.querySelector("[name='domain']").value;
+      article.querySelector("time").innerHTML = form.querySelector("[name='date']").value;
+      article.querySelector("time").setAttribute('datetime', moment(form.querySelector("[name='date']").value, 'DD MMMM YYYY').format("YYYY-MM-DD"));
+      article.querySelector(".language").innerHTML = form.querySelector("[name='language']").value;
+      article.querySelector(".author").innerHTML = form.querySelector("[name='author']").value;
+      newTagsContainer = document.createElement("MENU");
+      newTagsContainer.className = 'tags';
+      tags = form.querySelector("[name='tags']").value.split(',');
+      i = false;
+      for (_i = 0, _len = tags.length; _i < _len; _i++) {
+        tag = tags[_i];
+        if (i === true) {
+          newTagsContainer.appendChild(document.createTextNode(", "));
+        }
+        link = document.createElement("A");
+        link.setAttribute("href", "/search/tags/" + tag.trim());
+        link.appendChild(document.createTextNode(tag.trim()));
+        newTagsContainer.appendChild(link);
+        i = true;
+      }
+      tagsContainer = article.querySelector(".tags");
+      tagsContainer.parentNode.insertBefore(newTagsContainer, tagsContainer);
+      tagsContainer.parentNode.removeChild(tagsContainer);
+      form.parentNode.removeChild(form);
+      return article.style.display = "block";
     };
 
     /**

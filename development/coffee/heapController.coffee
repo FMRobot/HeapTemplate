@@ -16,7 +16,9 @@ define ['calendarController'], (calendarController) ->
     constructor: ->
       if "content" not in document.createElement "template"
         for template in document.querySelectorAll "template"
-          template.content = template.childNodes[0]    
+          template.content = template.childNodes[0]  
+
+      @lang = 'ru'  
 
       showButton = document.querySelectorAll ".show-list"
       hideButton = document.querySelectorAll ".hide-list"
@@ -51,8 +53,25 @@ define ['calendarController'], (calendarController) ->
         button.addEventListener "click", @showLoginPopup
 
 
-      calendar = new calendarController()
-      calendar.appendTo(@articleList)
+      # calendar = new calendarController()
+      # calendar.appendTo(@articleList)
+
+    openCalendar: (event)=>
+      form = event.currentTarget
+      while form.tagName != 'FORM'
+        form = form.parentNode
+      date = form.querySelector("[name='date']").value.trim()
+      if date.length == 0
+        date = null
+      calendar = new calendarController(date, "DD MMMM YYYY", (selected_moment)=>
+        day = selected_moment.format 'DD MMMM YYYY'
+        if form.querySelector("[name='date']").value != day
+          form.classList.add 'changed'
+        form.querySelector("[name='date']").value = day
+        form.style.display = 'block'
+      , @lang)
+      form.style.display = 'none'
+      calendar.insertAfter form
 
     ###*
     # Показывает форму редактирования статьи
@@ -66,7 +85,8 @@ define ['calendarController'], (calendarController) ->
       form = @editArticleTemplate.content.cloneNode true
       form.querySelector("button.close").addEventListener "click", @closeEditArticleForm
       form.querySelector("button.reset").addEventListener "click", @resetEditArticleForm
-      # form.querySelector("button.save").addEventListener "click", @saveEditArticleForm
+      form.querySelector(".open-calendar").addEventListener "click", @openCalendar
+      
 
       @resetEditArticleForm null, form, article
 
@@ -104,6 +124,35 @@ define ['calendarController'], (calendarController) ->
         return
       console.log 'отправляем данные на сервер'
 
+      article = form.previousSibling
+      article.querySelector(".title a").innerHTML = form.querySelector("[name='title']").value
+      article.querySelector(".title a").setAttribute 'href', form.querySelector("[name='url']").value
+      article.querySelector(".domain").innerHTML = form.querySelector("[name='domain']").value
+      article.querySelector("time").innerHTML = form.querySelector("[name='date']").value
+      article.querySelector("time").setAttribute('datetime', moment(form.querySelector("[name='date']").value, 'DD MMMM YYYY').format("YYYY-MM-DD"))
+      article.querySelector(".language").innerHTML = form.querySelector("[name='language']").value  
+      article.querySelector(".author").innerHTML = form.querySelector("[name='author']").value
+
+      newTagsContainer = document.createElement "MENU"
+      newTagsContainer.className = 'tags'
+      tags = form.querySelector("[name='tags']").value.split(',')
+      i = false
+      for tag in tags
+        if i == true
+          newTagsContainer.appendChild document.createTextNode(", ")
+        link = document.createElement "A"
+        link.setAttribute "href", "/search/tags/"+ tag.trim()
+        link.appendChild document.createTextNode(tag.trim())
+        newTagsContainer.appendChild link
+        i = true
+
+      tagsContainer = article.querySelector(".tags")
+      tagsContainer.parentNode.insertBefore newTagsContainer ,tagsContainer
+      tagsContainer.parentNode.removeChild tagsContainer
+
+      form.parentNode.removeChild form
+      article.style.display = "block"
+
     ###*
     # Отменяем изменения
     # 
@@ -118,15 +167,15 @@ define ['calendarController'], (calendarController) ->
         article = form.previousSibling
         form.classList.remove 'changed'
 
-      form.querySelector("[name='title']").value = article.querySelector(".title a").innerHTML;
-      form.querySelector("[name='url']").value = article.querySelector(".title a").getAttribute('href');
-      form.querySelector("[name='domain']").value = article.querySelector(".domain").innerHTML;
-      form.querySelector("[name='date']").value = article.querySelector("time").innerHTML;
-      form.querySelector("[name='language']").value = article.querySelector(".language").innerHTML;
+      form.querySelector("[name='title']").value = article.querySelector(".title a").innerHTML
+      form.querySelector("[name='url']").value = article.querySelector(".title a").getAttribute('href')
+      form.querySelector("[name='domain']").value = article.querySelector(".domain").innerHTML
+      form.querySelector("[name='date']").value = article.querySelector("time").innerHTML
+      form.querySelector("[name='language']").value = article.querySelector(".language").innerHTML
       author = article.querySelector ".author"
 
       if author != null
-        form.querySelector("[name='author']").value = author.innerHTML;
+        form.querySelector("[name='author']").value = author.innerHTML
 
       tags = article.querySelectorAll ".tags a"
       line = []
@@ -145,7 +194,7 @@ define ['calendarController'], (calendarController) ->
       form = button.parentNode.parentNode
       article = form.previousSibling
       form.parentNode.removeChild form
-      article.style.display = "block";
+      article.style.display = "block"
 
 
     ###*

@@ -56,9 +56,11 @@
 }
 
 .calendar header .month {
+  text-transform: capitalize;
   display: inline-block;
   font-size: .9rem;
-  margin: 0 1.5rem;
+  width: 9rem;
+  text-align: center;
 }
 
 .calendar .days {

@@ -11,15 +11,18 @@ define ['moment'], (moment) ->
     # 
     # @constructor
     ###
-    constructor: (date=null)->
-
+    constructor: (date=null, format=null, callbackFunction=null, lang='ru')->
+      
+      moment.lang(lang);
+      
       if date == null
         @moment = moment()
       else
-        @moment = moment date, "YYYY-MM-DD"
+        @moment = moment date, format
 
-      # @calendar = document.getElementById('calendar-template').content.cloneNode true
-      @calendar =  document.importNode document.getElementById('calendar-template').content, true
+      @callbackFunction = callbackFunction
+
+      @calendar = document.getElementById('calendar-template').content.cloneNode true
       @next = @calendar.querySelector '.next-month'
       @prev = @calendar.querySelector '.prev-month'
 
@@ -27,15 +30,76 @@ define ['moment'], (moment) ->
       @prev.addEventListener "click", @prevMonth
       @generateMonth()
 
+
+    ###*
+    # Закрыть календарь и передать дату в функцию каллбек
+    # 
+    ###
+    close: ()=>
+      if @callbackFunction != null
+        @callbackFunction.call @, @moment
+      @calendar.parentNode.removeChild @calendar
+
+
+    ###*
+    # Зарегистрировать фунцию callback
+    # 
+    ###
+    registerCallback: (callbackFunction)=>
+      @callbackFunction = callbackFunction
+
+
+    ###*
+    # Добавить календарь в качестве последнего ребенка элемента DOM
+    # 
+    ###
     appendTo: (element)=>
-      @calendar = element.appendChild @calendar
+      element.appendChild @calendar
+      @calendar = element.lastChild
+
+    ###*
+    # Добавить календарь в DOM после элемента
+    # 
+    ###
+    insertAfter: (element)=>
+      if element.nextSibling != null
+        element.parentNode.insertBefore @calendar, element.nextSibling
+        @calendar = element.nextSibling
+      else
+        @appendTo element
+      
+
+    ###*
+    # Добавить календарь в DOM перед элементом
+    # 
+    ###
+    insertBefore: (element)=>
+      element.parentNode.insertBefore @calendar, element
+      @calendar = element.previousSibling
 
 
+    ###*
+    # Выбор дня в календаре
+    # 
+    ###
+    selectDay: (event)=>
+      day = event.currentTarget
+      @moment = moment(day.getAttribute('data-date'), "YYYY-MM-DD")
+      @calendar.querySelector('.today').classList.remove 'today'
+      day.classList.add 'today'
+      @close()
+
+
+    ###*
+    # Сгенерировать дни месяца и добавить в календарь
+    # 
+    ###
     generateMonth: ()=>
-      console.dir @calendar
-      console.log @calendar, @calendar.querySelector('.month')
 
       @calendar.querySelector('.month').innerHTML = @moment.format 'MMMM YYYY'      
+
+      days = @calendar.querySelector '.days'
+      days.parentNode.removeChild days
 
       days = document.createElement("DIV")
       days.className = "days"
@@ -46,6 +110,7 @@ define ['moment'], (moment) ->
         day = document.createElement 'DIV'
         day.className = 'day'
         day.setAttribute "data-date", moment_day.format("YYYY-MM-DD")
+        day.addEventListener "click", @selectDay
         
         if moment_day.isSame(@moment, 'day')
           day.classList.add 'today'
@@ -56,11 +121,19 @@ define ['moment'], (moment) ->
       @calendar.querySelector('header').parentNode.appendChild days
 
 
-
+    ###*
+    # Показать в календаре следующий месяц
+    # 
+    ###
     nextMonth: (event)=>
       @moment.add 'months', 1
       @generateMonth()
 
+
+    ###*
+    # Показать в календаре предидущий месяц
+    # 
+    ###
     prevMonth: (event)=>
       @moment.subtract 'months', 1
       @generateMonth()

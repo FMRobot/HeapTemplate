@@ -1,3 +1,4 @@
+@import "animations.styl"
 @import "mixins.styl"
 
 // Стили уникальные для Кучи
@@ -14,24 +15,49 @@ body.heap
     max-width: 43rem;
     margin 0 auto
     padding: 1rem 2.10526rem 0;
+    h1
+      position relative
+      margin-left 70px
+      &:before
+        content:".";
+        font-size 0
+        line-height 0
+        overflow hidden
+        text-indent -9999px
+        display block
+        position absolute
+        top 0px
+        left -70px
+        width 64px
+        height 64px 
+        background url('../img/logo.png') no-repeat
+        background-size contain
+        
     nav
+      position relative
+      overflow hidden
       margin 0 0 1rem
       font-size .7rem 
       a
-        margin 0 .5rem 0 0 
+        margin 0 .5rem 0 0
+      .filter
+        position relative
+        float left
       .login
         float right 
         margin 0
-      // .rss
-      //   font-size .1px
-      //   line-height 0
-      //   text-decoration none
-      //   &:before
-      //     icon()
-      //     font-size 1rem
-      //     margin 0
-      //     padding 0
-      //     content '\e818'
+        position relative
+        &:before
+          icon()
+          position absolute
+          right 100%
+          top 0
+          width 1rem
+          text-decoration none
+          font-size .7rem
+          padding 0
+          margin 0 0 0 1rem 
+          content '\e80f'
 
 
   // Блок статьи
@@ -262,10 +288,43 @@ body.heap
     color #FFF
     height 3rem
     padding 0 1rem
+    margin 0 0 1rem 
     line-height 3rem
+    min-width 5rem 
     cursor pointer
     overflow visible
     white-space nowrap
+    text-decoration none
+    &.loading:hover,
+    &.loading
+      color lighten(#0ba5b7,90%)
+      cursor default
+      background-color lighten(#0ba5b7,90%)
+      span
+        animation spin 2s infinite linear
+        position absolute
+        left 0
+        right 0
+        bottom 0
+        top 0
+        margin auto
+        width 2rem
+        height 2rem
+        &:after
+          icon()
+          content  '\e81a'
+          position absolute
+          left 0
+          right 0
+          bottom 0
+          top 0
+          vertical-align middle
+          text-align center
+          color #0ba5b7
+          line-height 2rem
+      &:before
+        border-color lighten(#0ba5b7,90%) transparent transparent
+        
     &:before
       content "."
       overflow hidden

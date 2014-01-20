@@ -41,7 +41,7 @@
     vertical-align top
     box-sizing border-box
     margin 0 0 1rem
-    &.sources
+    &.domains
       width 50%
     .title
       white-space nowrap
@@ -49,6 +49,9 @@
       line-height 1.618rem
       border-bottom 1px solid #000
       margin 0 0 .5rem 
+    &.language
+      .tags
+        column-width 4rem  
     .tags
       column-width 8rem
       column-gap 1rem
@@ -74,14 +77,14 @@
   .tag-list
     .type
       width: 33.3%
-      &.sources
+      &.domains
         width 100%
 
 @media screen and (max-width: 30rem)
   .tag-list
     .type
       width: 50%
-      &.sources
+      &.domains
         width 100%
         
 @media screen and (max-width: 22rem)

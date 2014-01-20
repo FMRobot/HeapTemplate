@@ -59,9 +59,59 @@ define ['calendarController'], (calendarController) ->
         button.addEventListener "click", @showLoginPopup
 
 
-      # calendar = new calendarController()
-      # calendar.appendTo(@articleList)
+      @filterButton = document.querySelector '.filter'
+      @filterButton.addEventListener "click", @showFilter
+      @filterList = document.querySelector '.tag-list '
+      @filterList.querySelector('.close').addEventListener "click", @hideFilter
+      @filterList.querySelector('.clear').addEventListener "click", @clearFilter
+      elements = @filterList.querySelectorAll('a')
+      for element in elements
+        element.addEventListener "click", @filterBy
 
+
+    ###*
+    # Очистить фильтр
+    # 
+    ###
+    filterBy: (event)=>
+      event.preventDefault()
+      link = event.currentTarget
+      link.classList.toggle 'selected'
+
+    ###*
+    # Очистить фильтр
+    # 
+    ###
+    clearFilter: (event)=>
+      event.preventDefault()
+      selected = @filterList.querySelectorAll('.selected')
+      for tag in selected
+        tag.classList.remove 'selected'
+
+
+    ###*
+    # Скрыть фильтр
+    # 
+    ###
+    hideFilter: (event)=>
+      event.preventDefault()
+      @filterButton.style.display = "block"
+      @filterList.style.display = "none"
+
+    ###*
+    # Показать фильтр
+    # 
+    ###
+    showFilter: (event)=>
+      event.preventDefault()
+      @filterButton.style.display = "none"
+      @filterList.style.display = "block"
+
+
+    ###*
+    # Выбрать переводишь ты статью или нет
+    # 
+    ###
     toggleTranslationArticleForm: (event)=>
       event.preventDefault()
       button = event.currentTarget
@@ -77,6 +127,10 @@ define ['calendarController'], (calendarController) ->
       parent.removeChild button
       parent.querySelector(".translate").addEventListener "click", @toggleTranslationArticleForm
 
+    ###*
+    # Показывает календарь для выбора даты
+    # 
+    ###
     openCalendar: (event)=>
       form = event.currentTarget
       while form.tagName != 'FORM'

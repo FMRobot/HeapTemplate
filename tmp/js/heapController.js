@@ -34,7 +34,11 @@ define(['calendarController'], function(calendarController) {
       this.showEditArticleForm = __bind(this.showEditArticleForm, this);
       this.openCalendar = __bind(this.openCalendar, this);
       this.toggleTranslationArticleForm = __bind(this.toggleTranslationArticleForm, this);
-      var addButton, button, editButton, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref;
+      this.showFilter = __bind(this.showFilter, this);
+      this.hideFilter = __bind(this.hideFilter, this);
+      this.clearFilter = __bind(this.clearFilter, this);
+      this.filterBy = __bind(this.filterBy, this);
+      var addButton, button, editButton, element, elements, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _o, _p, _q, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -85,7 +89,78 @@ define(['calendarController'], function(calendarController) {
         button = likeDisabledButton[_p];
         button.addEventListener("click", this.showLoginPopup);
       }
+      this.filterButton = document.querySelector('.filter');
+      this.filterButton.addEventListener("click", this.showFilter);
+      this.filterList = document.querySelector('.tag-list ');
+      this.filterList.querySelector('.close').addEventListener("click", this.hideFilter);
+      this.filterList.querySelector('.clear').addEventListener("click", this.clearFilter);
+      elements = this.filterList.querySelectorAll('a');
+      for (_q = 0, _len8 = elements.length; _q < _len8; _q++) {
+        element = elements[_q];
+        element.addEventListener("click", this.filterBy);
+      }
     }
+
+    /**
+    # Очистить фильтр
+    #
+    */
+
+
+    heapController.prototype.filterBy = function(event) {
+      var link;
+      event.preventDefault();
+      link = event.currentTarget;
+      return link.classList.toggle('selected');
+    };
+
+    /**
+    # Очистить фильтр
+    #
+    */
+
+
+    heapController.prototype.clearFilter = function(event) {
+      var selected, tag, _i, _len, _results;
+      event.preventDefault();
+      selected = this.filterList.querySelectorAll('.selected');
+      _results = [];
+      for (_i = 0, _len = selected.length; _i < _len; _i++) {
+        tag = selected[_i];
+        _results.push(tag.classList.remove('selected'));
+      }
+      return _results;
+    };
+
+    /**
+    # Скрыть фильтр
+    #
+    */
+
+
+    heapController.prototype.hideFilter = function(event) {
+      event.preventDefault();
+      this.filterButton.style.display = "block";
+      return this.filterList.style.display = "none";
+    };
+
+    /**
+    # Показать фильтр
+    #
+    */
+
+
+    heapController.prototype.showFilter = function(event) {
+      event.preventDefault();
+      this.filterButton.style.display = "none";
+      return this.filterList.style.display = "block";
+    };
+
+    /**
+    # Выбрать переводишь ты статью или нет
+    #
+    */
+
 
     heapController.prototype.toggleTranslationArticleForm = function(event) {
       var button, link, parent;
@@ -103,6 +178,12 @@ define(['calendarController'], function(calendarController) {
       parent.removeChild(button);
       return parent.querySelector(".translate").addEventListener("click", this.toggleTranslationArticleForm);
     };
+
+    /**
+    # Показывает календарь для выбора даты
+    #
+    */
+
 
     heapController.prototype.openCalendar = function(event) {
       var calendar, date, form,

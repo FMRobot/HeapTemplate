@@ -8,73 +8,67 @@ html
     link rel="stylesheet" type="text/css" href="css/styles.css"
     script data-main="js/heap" src="js/require.js"
   body.heap
-    / header
-    /   nav
-    /     button.tag-toggle type="button" Фильтровать данные
-    /     a.login href="/login/" Войти
 
-    /   .tag-list
-    /     menu
-    /       select
-    /         option Сортировать по дате
-    /         option Сортировать по количеству лайков
-    /       button.close type="button" Закрыть
-    /       button.clear type="button" Очистить фильтр
-    /     .type
-    /       h2.title Скрипты
-    /       nav.tags
-    /         a href="/search/tag/mobile" JavaScript
-    /         a.selected href="/search/tag/nodejs" NodeJS
-    /         a href="/search/tag/webgl" WebGL
-    /         a href="/search/tag/ecma-6" ECMA 6
-    /     .type
-    /       h2.title Разметка
-    /       nav.tags
-    /         a href="/search/tag/html" html
-    /         a href="/search/tag/slim" slim
-    /         a href="/search/tag/haml" haml
-    /     .type
-    /       h2.title Стили
-    /       nav.tags
-    /         a href="/search/tag/css" CSS
-    /         a href="/search/tag/adaptive-design" Adaptive design
-    /         a.selected href="/search/tag/mobile" Mobile
-    /         a href="/search/tag/3d-transforms" 3d-transforms
-    /         a href="/search/tag/less" less
-    /         a href="/search/tag/sass" sass
-    /         a href="/search/tag/stylus" stylus
-    /     .type
-    /       h2.title Автоматизация
-    /       nav.tags
-    /         a href="/search/tag/grunt" Grunt
-    /         a.selected href="/search/tag/bower" Bower
-    /         a.selected href="/search/tag/yoman" Yoman
-    /     .type
-    /       h2.title Разное
-    /       nav.tags
-    /         a href="/search/tag/content-strategy" Content strategy
-    /         a href="/search/tag/fonts" fonts
-    /         a href="/search/tag/antialiasing" antialiasing
-    /         a href="/search/tag/web-fonts" web fonts
-    /     .type
-    /       h2.title Язык
-    /       nav.tags
-    /         a href="/search/tag/en" English
-    /         a href="/search/tag/es" Español
-    /         a href="/search/tag/ru" Русский
-    /         a href="/search/tag/it" Italiano
-    /         a href="/search/tag/fr" Français
-    /     .type.sources
-    /       h2.title Источники
-    /       nav.tags
-    /         a href="/search/tag/alistapart.com" alistapart.com
-    /         a href="/search/tag/habrahabr.ru" habrahabr.ru
-    /         a href="/search/tag/smashingmagazine.com" smashingmagazine.com
+    .tag-list
+      menu
+        select
+          option Сортировать по дате
+          option Сортировать по количеству лайков
+        button.close type="button" Закрыть
+        button.clear type="button" Очистить фильтр
+      .type
+        h2.title JavaScript
+        nav.tags
+          a.selected href="/search/tag/nodejs" NodeJS
+          a href="/search/tag/webgl" WebGL
+          a href="/search/tag/ecma-6" ECMA 6
+      .type
+        h2.title Markup
+        nav.tags
+          a href="/search/tag/html" html
+          a href="/search/tag/slim" slim
+          a href="/search/tag/haml" haml
+      .type
+        h2.title Styles
+        nav.tags
+          a href="/search/tag/css" CSS
+          a href="/search/tag/adaptive-design" Adaptive design
+          a.selected href="/search/tag/mobile" Mobile
+          a href="/search/tag/3d-transforms" 3d-transforms
+          a href="/search/tag/less" less
+          a href="/search/tag/sass" sass
+          a href="/search/tag/stylus" stylus
+      .type
+        h2.title Automation
+        nav.tags
+          a href="/search/tag/grunt" Grunt
+          a.selected href="/search/tag/bower" Bower
+          a.selected href="/search/tag/yoman" Yoman
+      .type
+        h2.title Misc
+        nav.tags
+          a href="/search/tag/content-strategy" Content strategy
+          a href="/search/tag/fonts" fonts
+          a href="/search/tag/antialiasing" antialiasing
+          a href="/search/tag/web-fonts" web fonts
+      .type.language
+        h2.title Language
+        nav.tags
+          a href="/search/tag/en" English
+          a href="/search/tag/es" Español
+          a href="/search/tag/ru" Русский
+          a href="/search/tag/it" Italiano
+          a href="/search/tag/fr" Français
+      .type.domains
+        h2.title Domains
+        nav.tags
+          a href="/search/tag/alistapart.com" alistapart.com
+          a href="/search/tag/habrahabr.ru" habrahabr.ru
+          a href="/search/tag/smashingmagazine.com" smashingmagazine.com
 
     header
       nav 
         a.filter href="#" Фильтр
-        / a.rss href="#" RSS
         a.login href="#" Вход
       h1 data-l10n-id="title" 
         |Frontender Magazine: Куча 
@@ -201,7 +195,12 @@ html
             a.translate href="#" Я переведу!
 
       menu
-        a.more Ещё! Ещё! Больше статей!
+        a.more href="#" Ещё! Ещё! Больше статей!
+
+      menu
+        a.more.loading href="#" 
+          |Ещё! Ещё! Больше статей!
+          span
 
       menu.page-list
         a.selected href="#" 3

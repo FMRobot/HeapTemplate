@@ -11,7 +11,21 @@ body.heap>.page {
 body.heap>header {
   max-width: 43rem;
   margin: 0 auto;
-  padding: 2rem 2.10526rem 0;
+  padding: 1rem 2.10526rem 0;
+}
+
+body.heap>header nav {
+  margin: 0 0 1rem;
+  font-size: .7rem;
+}
+
+body.heap>header nav a {
+  margin: 0 .5rem 0 0;
+}
+
+body.heap>header nav .login {
+  float: right;
+  margin: 0;
 }
 
 body.heap article {

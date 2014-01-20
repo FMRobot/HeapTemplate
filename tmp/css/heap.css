@@ -65,7 +65,7 @@ body.heap>header h1:before {
   text-indent: -9999px;
   display: block;
   position: absolute;
-  top: 0;
+  top: -5px;
   left: -70px;
   width: 64px;
   height: 64px;

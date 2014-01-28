@@ -553,19 +553,10 @@ body.heap>footer nav a.github:before {
   content: '\e80f';
 }
 
-@media screen and (min-width: 65rem) {
+@media screen and (min-width: 58rem) {
   body.heap article header .likes {
     position: absolute;
     right: 100%;
-    bottom: 0;
-  }
-
-  body.heap article header time {
-    text-align: right;
-    position: absolute;
-    width: 6.66666667rem;
-    right: 100%;
-    bottom: 1.7rem;
   }
 }
 
@@ -611,13 +602,6 @@ body.heap>footer nav a.github:before {
     text-align: left;
   }
 
-  body.heap article header time,
-  body.heap article header .domain,
-  body.heap article header .author,
-  body.heap article header .language {
-    display: inline-block;
-  }
-
   body.heap article header .likes.disabled {
     background-color: #ccc;
     color: #fff;
@@ -625,6 +609,10 @@ body.heap>footer nav a.github:before {
 
   body.heap article header .likes.disabled:hover {
     background-color: #b8b8b8;
+    color: #fff;
+  }
+
+  body.heap article header .likes.disabled:hover:before {
     color: #fff;
   }
 
@@ -650,6 +638,11 @@ body.heap>footer nav a.github:before {
   body.heap article header .likes.liked:hover,
   body.heap article header .likes:hover {
     background-color: #098492;
+    color: #fff;
+  }
+
+  body.heap article header .likes.liked:hover:before,
+  body.heap article header .likes:hover:before {
     color: #fff;
   }
 

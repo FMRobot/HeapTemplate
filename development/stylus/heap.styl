@@ -420,21 +420,13 @@ body.heap
              
 
 
-@media screen and (min-width: 65rem)
+@media screen and (min-width: 58rem)
   body.heap
     article
       header
         .likes
           position absolute
-          right 100%
-          bottom 0
-        time
-          text-align right
-          position absolute
-          width 6.66666667rem
-          right 100%
-          bottom 1.7rem 
-          
+          right 100%          
 
 @media screen and (max-width: 40rem)
   html:root
@@ -465,17 +457,14 @@ body.heap
           width auto
           text-align left
       header
-        time,
-        .domain,
-        .author,
-        .language
-          display inline-block
         .likes.disabled
           background-color #ccc
           color #FFF 
           &:hover
             background-color darken(#ccc,10%)
-            color #FFF 
+            color #FFF
+            &:before
+              color #FFF
         .likes.liked,
         .likes
           float left
@@ -493,6 +482,8 @@ body.heap
           &:hover
             background-color darken(#0ba5b7,20%)
             color #FFF 
+            &:before
+              color #FFF
         .title
         .tags
           display block

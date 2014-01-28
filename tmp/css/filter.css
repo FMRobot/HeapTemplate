@@ -3,7 +3,7 @@
   position: relative;
   line-height: 0;
   font-size: 0;
-  padding: 0 0 0 1.5rem;
+  padding: 0 1.10526rem 0 2.10526rem;
   margin: -3rem 0 1rem;
 }
 
@@ -14,7 +14,8 @@
 .tag-list menu {
   max-width: 43rem;
   margin: 0 auto 1rem;
-  padding: 1rem 2.10526rem 0 .60526rem;
+  padding: 1rem 1rem 0 0;
+  line-height: 1.618rem;
   position: relative;
   overflow: hidden;
   display: block;
@@ -25,28 +26,15 @@
 }
 
 .tag-list menu .clear {
-  background: none;
-  border-radius: 0;
-  border-style: none;
-  box-shadow: none;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0 .1rem;
-  height: 2.105263rem;
-  line-height: 2.105263rem;
-  -webkit-appearance: none;
-  position: relative;
-  overflow: visible;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: underline;
+  white-space: nowrap;
+  border-bottom: 1px dotted #666;
+  text-decoration: none;
   margin: 0 1rem 0 0;
   font-size: .7rem;
 }
 
 .tag-list menu .clear:hover {
-  color: #0ba5b7;
+  border-bottom-color: #0ba5b7;
 }
 
 .tag-list menu .close {
@@ -161,6 +149,11 @@
 }
 
 @media screen and (max-width: 45rem) {
+  .tag-list menu select {
+    margin: 0 0 .5rem;
+    display: block;
+  }
+
   .tag-list .type {
     width: 33.3%;
   }
@@ -171,6 +164,11 @@
 }
 
 @media screen and (max-width: 30rem) {
+  .tag-list menu select {
+    margin: 0 0 .5rem;
+    display: block;
+  }
+
   .tag-list .type {
     width: 50%;
   }
@@ -181,6 +179,11 @@
 }
 
 @media screen and (max-width: 22rem) {
+  .tag-list menu select {
+    margin: 0 0 .5rem;
+    display: block;
+  }
+
   .tag-list .type {
     width: 100%;
   }

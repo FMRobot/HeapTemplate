@@ -74,18 +74,25 @@ body.heap
       &:hover
         border-bottom-color #0ba5b7
     .filter
+      width 2.105263rem
+      height 2.105263rem
+      line-height 2.105263rem
+      text-align center
       vertical-align middle
+      font-size 0
       display inline-block
-      font-size 1.5rem
-      margin 0 1rem 0 0 
+      margin 0 1rem 0 0
       text-decoration none
       &.selected
-        color #0ba5b7 
+        background-color #0ba5b7 
+        color #FFF 
         &:hover
-          color #000 
+          color #FFF 
+          background-color darken(#0ba5b7,20%)
       &:before
         icon()
-        content "\e81b"
+        font-size 1.5rem
+        content "\e809"
 
 
   // Блок статьи
@@ -297,8 +304,9 @@ body.heap
             
     // Cписок переводов
     .translations
+      clear both
       display none
-      margin-top 0.5rem
+      padding-top 0.5rem
       th
         text-align left
         padding 0 1rem 0 0 
@@ -327,9 +335,9 @@ body.heap
     text-decoration none
     &.loading:hover,
     &.loading
-      color lighten(#0ba5b7,90%)
+      color lighten(#0ba5b7,97%)
       cursor default
-      background-color lighten(#0ba5b7,90%)
+      background-color lighten(#0ba5b7,97%)
       span
         animation spin 2s infinite linear
         position absolute
@@ -428,7 +436,7 @@ body.heap
           position absolute
           right 100%          
 
-@media screen and (max-width: 40rem)
+@media screen and (max-width: 42rem)
   html:root
     font-size 16px
   body.heap
@@ -440,6 +448,9 @@ body.heap
       text-align center
       width 100%
       &:before
+        display none
+    .config
+      .add-article
         display none
     .page-list,
     form

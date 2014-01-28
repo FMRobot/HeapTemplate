@@ -28,6 +28,10 @@
   content: '\e80a';
 }
 
+.icon-cog:before {
+  content: '\e800';
+}
+
 .icon-heart:before {
   content: '\e801';
 }
@@ -46,6 +50,10 @@
 
 .icon-user:before {
   content: '\e80e';
+}
+
+.icon-menu-1:before {
+  content: '\e809';
 }
 
 .icon-tag:before {
@@ -72,12 +80,12 @@
   content: '\e818';
 }
 
-.icon-down-open-mini:before {
-  content: '\e804';
+.icon-menu:before {
+  content: '\e81c';
 }
 
-.icon-cog-alt:before {
-  content: '\e81b';
+.icon-up-open-mini:before {
+  content: '\e808';
 }
 
 .icon-left-open-big:before {
@@ -116,6 +124,10 @@
   content: '\e810';
 }
 
+.icon-menu-2:before {
+  content: '\e81b';
+}
+
 .icon-star-circled:before {
   content: '\e81d';
 }
@@ -128,6 +140,6 @@
   content: '\e821';
 }
 
-.icon-up-open-mini:before {
-  content: '\e808';
+.icon-down-open-mini:before {
+  content: '\e804';
 }

@@ -5,14 +5,15 @@
   position relative
   line-height 0
   font-size 0
-  padding 0 0 0 1.5rem
+  padding 0 1.10526rem 0 2.10526rem
   margin -3rem 0 1rem 
   &.open
     display block
   menu
     max-width 43rem
     margin 0 auto 1rem 
-    padding 1rem 2.10526rem 0 0.60526rem
+    padding 1rem 1rem 0 0
+    line-height 1.618rem
     
     position relative
     overflow hidden
@@ -20,10 +21,13 @@
     select
       margin 0 1rem 0 0 
     .clear
-      clear-button()
-      link-button()
+      white-space nowrap
+      border-bottom 1px dotted #666
+      text-decoration none
       margin 0 1rem 0 0 
       font-size 0.7rem
+      &:hover
+        border-bottom-color #0ba5b7
     .close
       float right
       clear-button()
@@ -77,6 +81,10 @@
          
 @media screen and (max-width: 45rem)
   .tag-list
+    menu
+      select
+        margin 0 0 .5rem
+        display block
     .type
       width: 33.3%
       &.domains
@@ -84,6 +92,10 @@
 
 @media screen and (max-width: 30rem)
   .tag-list
+    menu
+      select
+        margin 0 0 .5rem
+        display block
     .type
       width: 50%
       &.domains
@@ -91,5 +103,9 @@
         
 @media screen and (max-width: 22rem)
   .tag-list
+    menu
+      select
+        margin 0 0 .5rem
+        display block
     .type
       width 100%

@@ -67,9 +67,8 @@ define ['calendarController'], (calendarController) ->
       @addArticleButton.addEventListener "click", @showAddArticleForm
 
       @filterButton = document.querySelector '.filter'
-      @filterButton.addEventListener "click", @showFilter
+      @filterButton.addEventListener "click", @toggleFilter
       @filterList = document.querySelector '.tag-list '
-      @filterList.querySelector('.close').addEventListener "click", @hideFilter
       @filterList.querySelector('.clear').addEventListener "click", @clearFilter
       elements = @filterList.querySelectorAll('a')
       for element in elements
@@ -102,21 +101,11 @@ define ['calendarController'], (calendarController) ->
       for tag in selected
         tag.classList.remove 'selected'
 
-
-    ###*
-    # Скрыть фильтр
-    # 
-    ###
-    hideFilter: (event)=>
-      event.preventDefault()
-      @filterButton.classList.remove "selected"
-      @filterList.classList.remove "open"
-
     ###*
     # Показать/скрыть фильтр
     # 
     ###
-    showFilter: (event)=>
+    toggleFilter: (event)=>
       event.preventDefault()
       @filterButton.classList.toggle "selected"
       @filterList.classList.toggle "open"
@@ -175,7 +164,6 @@ define ['calendarController'], (calendarController) ->
       form.querySelector("button.close").addEventListener "click", @closeEditArticleForm
       form.querySelector("button.reset").addEventListener "click", @resetEditArticleForm
       form.querySelector(".open-calendar").addEventListener "click", @openCalendar
-      
 
       @resetEditArticleForm null, form, article
 
@@ -257,9 +245,9 @@ define ['calendarController'], (calendarController) ->
 
       form.querySelector("[name='title']").value = article.querySelector(".title a").innerHTML
       form.querySelector("[name='url']").value = article.querySelector(".title a").getAttribute('href')
-      form.querySelector("[name='domain']").value = article.querySelector(".domain a").innerHTML
+      form.querySelector("[name='domain']").value = article.querySelector(".domain").innerHTML
       form.querySelector("[name='date']").value = article.querySelector("time").innerHTML
-      form.querySelector("[name='language']").value = article.querySelector(".language a").innerHTML
+      form.querySelector("[name='language']").value = article.querySelector(".language").innerHTML
       author = article.querySelector ".author"
 
       if author != null
@@ -357,7 +345,9 @@ define ['calendarController'], (calendarController) ->
       header.appendChild @addTranslationFormTemplate.content.cloneNode(true)
       form = header.querySelector ".add-translation-form"
       form.addEventListener "submit", @addTranslation
-      form.querySelector("input").addEventListener "keyup", @changeTranslationURL
+      input = form.querySelector("input")
+      input.addEventListener "keyup", @changeTranslationURL 
+      input.focus()
       form.querySelector("button[type='reset']").addEventListener "click", @hideTranslationForm
 
     ###*

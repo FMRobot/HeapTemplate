@@ -32,8 +32,10 @@ html
         select
           option Сортировать по дате
           option Сортировать по количеству лайков
-        button.close type="button" Закрыть
-        button.clear type="button" Очистить фильтр
+        select
+          option Сортировать по убыванию
+          option Сортировать по возрастанию
+        a.clear href="#" Очистить фильтр
       .type
         h2.title JavaScript
         nav.tags
@@ -100,10 +102,8 @@ html
             .author Kate Kiefer Lee
 
           nav.filter
-            span.language 
-              a href="/search/tag/English" English
-            span.domain 
-              a href="/search/tag/alistapart.com" alistapart.com
+            a.language href="/search/tag/English" English
+            a.domain href="/search/tag/alistapart.com" alistapart.com
             menu.tags
               a href="/search/tag/content-strategy" Content strategy
           menu.user-menu

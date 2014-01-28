@@ -138,19 +138,25 @@ body.heap .config .add-article:hover {
 }
 
 body.heap .config .filter {
+  width: 2.105263rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  text-align: center;
   vertical-align: middle;
+  font-size: 0;
   display: inline-block;
-  font-size: 1.5rem;
   margin: 0 1rem 0 0;
   text-decoration: none;
 }
 
 body.heap .config .filter.selected {
-  color: #0ba5b7;
+  background-color: #0ba5b7;
+  color: #fff;
 }
 
 body.heap .config .filter.selected:hover {
-  color: #000;
+  color: #fff;
+  background-color: #098492;
 }
 
 body.heap .config .filter:before {
@@ -163,7 +169,8 @@ body.heap .config .filter:before {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  content: "\e81b";
+  font-size: 1.5rem;
+  content: "\e809";
 }
 
 body.heap article {
@@ -383,8 +390,9 @@ body.heap article .editor-menu a.remove:before {
 }
 
 body.heap article .translations {
+  clear: both;
   display: none;
-  margin-top: .5rem;
+  padding-top: .5rem;
 }
 
 body.heap article .translations th {
@@ -421,9 +429,9 @@ body.heap .more {
 
 body.heap .more.loading:hover,
 body.heap .more.loading {
-  color: #e1fafd;
+  color: #f6fefe;
   cursor: default;
-  background-color: #e1fafd;
+  background-color: #f6fefe;
 }
 
 body.heap .more.loading:hover span,
@@ -560,7 +568,7 @@ body.heap>footer nav a.github:before {
   }
 }
 
-@media screen and (max-width: 40rem) {
+@media screen and (max-width: 42rem) {
   html:root {
     font-size: 16px;
   }
@@ -575,6 +583,10 @@ body.heap>footer nav a.github:before {
   }
 
   body.heap .more:before {
+    display: none;
+  }
+
+  body.heap .config .add-article {
     display: none;
   }
 

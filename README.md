@@ -1,4 +1,4 @@
-# Frontender Magazine | Куча
+# Frontender Magazine: Куча
 
 Куча это хаб статей. 
 

@@ -77,7 +77,7 @@ body.heap>header nav {
   position: relative;
   overflow: hidden;
   margin: 0 0 1rem;
-  font-size: .7rem;
+  font-size: .8rem;
 }
 
 body.heap>header nav a {
@@ -110,10 +110,60 @@ body.heap>header nav .login:before {
   top: 0;
   width: 1rem;
   text-decoration: none;
-  font-size: .7rem;
   padding: 0;
   margin: 0 0 0 1rem;
   content: '\e80f';
+}
+
+body.heap .config {
+  position: relative;
+  max-width: 43rem;
+  padding: 0 2.10526rem;
+  margin: 4rem auto 3rem;
+}
+
+body.heap .config .add-article {
+  border-bottom: 1px dotted #666;
+  text-decoration: none;
+  font-size: .777rem;
+  vertical-align: middle;
+}
+
+body.heap .config .add-article.open {
+  display: none;
+}
+
+body.heap .config .add-article:hover {
+  border-bottom-color: #0ba5b7;
+}
+
+body.heap .config .filter {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 0 1rem 0 0;
+  text-decoration: none;
+}
+
+body.heap .config .filter.selected {
+  color: #0ba5b7;
+}
+
+body.heap .config .filter.selected:hover {
+  color: #000;
+}
+
+body.heap .config .filter:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: "\e81b";
 }
 
 body.heap article {
@@ -121,35 +171,18 @@ body.heap article {
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  margin: 2rem 0;
-  font-size: .68rem;
-  line-height: 1.618rem;
+  margin: 3rem 0;
+  font-size: .777rem;
+  line-height: 1.257186rem;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+body.heap article a {
+  text-decoration: none;
 }
 
 body.heap article:first-child {
   margin-top: 0;
-}
-
-body.heap article .translations {
-  display: none;
-  margin-top: .4rem;
-  line-height: 1rem;
-  font-size: .68rem;
-}
-
-body.heap article .translations .language {
-  display: inline-block;
-  width: 3.5rem;
-  text-align: right;
-  font-style: italic;
-}
-
-body.heap article .translations .title {
-  color: #0ba5b7;
-}
-
-body.heap article .translations .title:hover {
-  text-decoration: none;
 }
 
 body.heap article header {
@@ -158,35 +191,32 @@ body.heap article header {
 
 body.heap article header .title {
   color: #0ba5b7;
-  line-height: 2rem;
-  font-size: 1.5rem;
+  line-height: 2.4rem;
+  font-size: 1.8rem;
   margin: 0 0 .2rem;
+  font-family: Georgia,Palatino,Times,'Times New Roman',serif;
 }
 
 body.heap article header .title a {
+  border-bottom: 1px solid #0ba5b7;
   color: #0ba5b7;
 }
 
 body.heap article header .title a:hover {
+  border-bottom-style: none;
   text-decoration: none;
 }
 
 body.heap article header time {
-  font-size: .6316rem;
   white-space: nowrap;
   margin: 0 1rem 0 0;
   display: inline-block;
 }
 
 body.heap article header .likes {
-  margin: 0 1rem 0 0;
-  font-size: .8rem;
-  vertical-align: middle;
-  display: inline-block;
   white-space: nowrap;
+  margin: 0 1rem 0 0;
   text-decoration: none;
-  height: 1.618rem;
-  line-height: 1.618rem;
 }
 
 body.heap article header .likes:before {
@@ -199,9 +229,13 @@ body.heap article header .likes:before {
   text-align: center;
   font-variant: normal;
   text-transform: none;
+  position: relative;
+  cursor: default;
   margin-right: .2rem;
   font-size: .68rem;
   content: "\e802";
+  text-decoration: none;
+  color: #000;
 }
 
 body.heap article header .likes:hover {
@@ -209,19 +243,12 @@ body.heap article header .likes:hover {
 }
 
 body.heap article header .likes:hover:before {
+  color: #0ba5b7;
   content: '\e801';
-}
-
-body.heap article header .likes.disabled {
-  color: #999;
 }
 
 body.heap article header .likes.disabled:before {
   content: "\e802";
-}
-
-body.heap article header .likes.disabled:hover {
-  color: #999;
 }
 
 body.heap article header .likes.disabled:hover:before {
@@ -237,108 +264,42 @@ body.heap article header .likes.liked:hover {
 }
 
 body.heap article header .likes.liked:hover:before {
+  color: #0ba5b7;
   content: '\e802';
 }
 
-body.heap article header .domain {
-  font-size: .6316rem;
-  white-space: nowrap;
-  margin: 0 1rem 0 0;
-}
-
-body.heap article header .domain:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  position: relative;
-  cursor: default;
-  margin-right: .2rem;
-  font-size: .68rem;
-  content: '\e80c';
-  text-decoration: none;
-  color: #000;
-}
-
 body.heap article header .author {
-  font-size: .6316rem;
+  display: inline-block;
   white-space: nowrap;
   margin: 0 1rem 0 0;
 }
 
-body.heap article header .author:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  position: relative;
-  cursor: default;
-  margin-right: .2rem;
-  font-size: .68rem;
-  content: '\e80e';
-  text-decoration: none;
-  color: #000;
+body.heap article .filter a {
+  display: inline;
+  border-bottom: 1px dotted #666;
 }
 
-body.heap article header .language {
+body.heap article .filter a:hover {
+  border-bottom-color: #0ba5b7;
+}
+
+body.heap article .filter .language {
   display: inline;
-  font-size: .6316rem;
   margin: 0 1rem 0 0;
 }
 
-body.heap article header .language:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  cursor: default;
-  margin-right: .2rem;
-  font-size: .68rem;
-  content: '\e80d';
-  text-decoration: none;
-  color: #000;
-}
-
-body.heap article header .tags {
+body.heap article .filter .domain {
   display: inline;
-  line-height: 1.411rem;
-  font-size: .6316rem;
-  margin: 0 1rem 0 0;
-  vertical-align: middle;
-}
-
-body.heap article header .tags a {
   white-space: nowrap;
+  margin: 0 1rem 0 0;
 }
 
-body.heap article header .tags:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e805";
+body.heap article .filter .tags {
+  display: inline;
+}
+
+body.heap article .filter .tags a {
+  white-space: nowrap;
 }
 
 body.heap article .user-menu {
@@ -346,145 +307,100 @@ body.heap article .user-menu {
 }
 
 body.heap article .user-menu a {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
   margin: 0 1rem 0 0;
+  white-space: nowrap;
+  border-bottom: 1px dotted #666;
+}
+
+body.heap article .user-menu a:hover {
+  border-bottom-color: #0ba5b7;
 }
 
 body.heap article .user-menu a.hide-list {
   display: none;
 }
 
-body.heap article .user-menu a.hide-list:hover:before {
-  content: "\e816";
-}
-
-body.heap article .user-menu a.hide-list:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e817";
-  text-decoration: none;
-  color: #000;
-}
-
-body.heap article .user-menu a.show-list:hover:before {
-  content: "\e817";
-}
-
-body.heap article .user-menu a.show-list:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e816";
-  text-decoration: none;
-  color: #000;
-}
-
-body.heap article .user-menu a.add:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e807";
-  text-decoration: none;
-  color: #000;
+body.heap article:hover .editor-menu {
+  visibility: visible;
 }
 
 body.heap article .editor-menu {
-  display: inline;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
 }
 
 body.heap article .editor-menu a {
   display: inline-block;
   white-space: nowrap;
-  margin: 0 1rem 0 0;
 }
 
-body.heap article .editor-menu a.translate:hover:before {
-  content: "\e811";
+body.heap article .editor-menu a:hover:before {
+  color: #0ba5b7;
+}
+
+body.heap article .editor-menu a:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  text-align: left;
+  margin: 0;
+  text-decoration: none;
+  color: #000;
+  vertical-align: middle;
 }
 
 body.heap article .editor-menu a.translate:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e812";
-  text-decoration: none;
-  color: #000;
+  content: "\e81d";
 }
 
 body.heap article .editor-menu a.translate.my:hover:before {
-  content: "\e812";
+  color: #000;
 }
 
 body.heap article .editor-menu a.translate.my:before {
-  content: "\e811";
+  color: #0ba5b7;
 }
 
 body.heap article .editor-menu a.edit:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
-  content: "\e810";
-  text-decoration: none;
-  color: #000;
+  content: "\e821";
 }
 
 body.heap article .editor-menu a.remove:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  font-size: .68rem;
-  margin: 0 .25rem 0 0;
   content: "\e806";
+}
+
+body.heap article .translations {
+  display: none;
+  margin-top: .5rem;
+}
+
+body.heap article .translations th {
+  text-align: left;
+  padding: 0 1rem 0 0;
+  font-style: italic;
+}
+
+body.heap article .translations a {
+  text-decoration: underline;
+  font-family: Georgia,Palatino,Times,'Times New Roman',serif;
+  color: #0ba5b7;
+}
+
+body.heap article .translations a:hover {
   text-decoration: none;
-  color: #000;
 }
 
 body.heap .more {
@@ -575,73 +491,6 @@ body.heap .more:hover:before {
   border-color: #098492 transparent transparent;
 }
 
-body.heap .page-list {
-  margin: 2rem 0;
-  font-size: 0;
-  line-height: 0;
-  white-space: nowrap;
-  text-align: center;
-}
-
-body.heap .page-list span {
-  cursor: default;
-  pointer-events: none;
-  margin: 0 0 0 1px;
-  color: #000;
-  display: inline-block;
-  font-size: .68rem;
-  line-height: 3rem;
-  text-align: center;
-  vertical-align: middle;
-  width: 7.544%;
-  height: 3rem;
-}
-
-body.heap .page-list a {
-  margin: 0 0 0 1px;
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  font-size: .68rem;
-  line-height: 3rem;
-  text-align: center;
-  vertical-align: middle;
-  width: 7.544%;
-  height: 3rem;
-  background-color: #0ba5b7;
-}
-
-body.heap .page-list a:first-child {
-  margin: 0;
-}
-
-body.heap .page-list a.selected {
-  pointer-events: none;
-  position: relative;
-  background-color: #098492;
-  cursor: default;
-}
-
-body.heap .page-list a.selected:before {
-  content: ".";
-  overflow: hidden;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  height: 0;
-  width: 0;
-  border-width: 0 .25rem .25rem;
-  border-color: transparent transparent #fff;
-  border-style: none solid solid;
-}
-
-body.heap .page-list a:hover {
-  background-color: #098492;
-}
-
 body.heap>footer {
   max-width: 43rem;
   margin: 2rem auto;
@@ -661,7 +510,7 @@ body.heap>footer .copyright {
 body.heap>footer nav {
   vertical-align: top;
   display: inline-block;
-  min-width: 33%;
+  min-width: 30%;
   padding: 0 1rem 0 0;
   font-size: .68rem;
   line-height: 1.618rem;
@@ -790,6 +639,11 @@ body.heap>footer nav a.github:before {
     background-color: #0ba5b7;
     vertical-align: middle;
     text-align: center;
+    color: #fff;
+  }
+
+  body.heap article header .likes.liked:before,
+  body.heap article header .likes:before {
     color: #fff;
   }
 

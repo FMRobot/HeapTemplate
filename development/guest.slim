@@ -9,24 +9,6 @@ html
     script data-main="js/heap" src="js/require.js"
   body.heap
 
-    header
-      nav 
-        a.login href="#" Вход
-      h1 data-l10n-id="title" 
-        |Frontender Magazine: Куча 
-
-    nav.config
-      a.filter href="#"
-      a.add-article id="add-article-button" data-l10n-id="addArticle" href="#" Добавить статью
-
-      form.add-article-form action="/add/url" method="post"
-        fieldset
-          label for="add-article-form-url" 
-            input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" placeholder="Введите URL статьи:" name="url" type="url" value="" required="required" 
-            span data-l10n-id="enterUrl" Введите URL статьи:
-          button data-l10n-id="addArticle" type="submit" Добавить статью
-
-
     .tag-list
       menu
         select
@@ -84,63 +66,62 @@ html
           a href="/search/tag/habrahabr.ru" habrahabr.ru
           a href="/search/tag/smashingmagazine.com" smashingmagazine.com
 
+    header
+      nav 
+        a.filter href="#" Фильтр
+        a.login href="#" Вход
+      h1 data-l10n-id="title" 
+        |Frontender Magazine: Куча 
+
     section.page
+
+      form.add-article-form action="/add/url" method="post"
+        fieldset
+          label for="add-article-form-url" 
+            input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" placeholder="Введите URL статьи:" name="url" type="text" value="" required="required" 
+            span data-l10n-id="enterUrl" Введите URL статьи:
+          button data-l10n-id="addArticle" type="submit" Добавить статью
+
       .article-list
 
         article
-          menu.editor-menu
-            a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
-            a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
-            a.translate data-l10n-id="iWillTranslate" href="#" title="Я переведу!"
           header
             h3.title 
               a href="http://alistapart.com/article/dont-poke-the-bear-creating-content-for-sensitive-situations" Don’t Poke the Bear: Creating Content for Sensitive Situations
-            a.likes href="#" title="SilentImp, Kizu" 2
+            a.likes.disabled href="#" title="Вам нужно пройти аутентификацию, что бы проголосовать за статью" 2
             time datetime="2014.06.25" 19 января 2014
-            .author Kate Kiefer Lee
-
-          nav.filter
-            span.language 
-              a href="/search/tag/English" English
-            span.domain 
-              a href="/search/tag/alistapart.com" alistapart.com
+            a.language href="/search/tag/English" English
+            a.domain href="/search/tag/alistapart.com" alistapart.com
+            a.author href="/search/tag/kateKieferLee" Kate Kiefer Lee
             menu.tags
               a href="/search/tag/content-strategy" Content strategy
           menu.user-menu
             a.show-list href="#" Статья переведена на 3 языка
             a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
             a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
-          table.translations
-            tr
-              th Русский
-              td
-                a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
-            tr
-              th Italien
-              td
-                a.title href="#" Non svegliare il can che dorme: creare contenuti per le situazioni delicate
-            tr
-              th Français
-              td
-                a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
-
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
+            li
+              span.language Italien
+              |: 
+              a.title href="#" Non svegliare il can che dorme: creare contenuti per le situazioni delicate
+            li
+              span.language Français
+              |: 
+              a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
         
         article
-          menu.editor-menu
-            a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
-            a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
-            a.translate.my data-l10n-id="iWillNotTranslate" href="#" title="Я не хочу это переводить!"
           header
             h3.title 
               a href="http://alistapart.com/article/designing-for-services-beyond-the-screen" Designing for Services Beyond the Screen
             a.likes.disabled href="#" title="Вам нужно пройти аутентификацию, что бы проголосовать за статью" 1
             time datetime="2014.06.25" 19 января 2014
-            .author Andy Polaine
-
-          nav.filter
             a.language href="/search/tag/English" English
             a.domain href="/search/tag/alistapart.com" alistapart.com
-
+            a.author href="/search/tag/AndyPolaine" Andy Polaine
             menu.tags
               a href="/search/tag/css" CSS
               |, 
@@ -151,56 +132,45 @@ html
             a.show-list href="#" Статья переведена на Испанский и Русский
             a.hide-list href="#" Скрыть список переводов
             a.add href="#" Добавить ссылку на перевод
-          table.translations
-            tr
-              th Русский
-              td
-                a.title href="#" Дизайн вне категории экранов
-            tr
-              th Spanish
-              td
-                a.title href="#" Diseñar para servicios más allá de la pantalla
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
+            li
+              span.language Italien
+              |: 
+              a.title href="#" Non svegliare il can che dorme: creare contenuti per le situazioni delicate
 
         article
-          menu.editor-menu
-            a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
-            a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
-            a.translate data-l10n-id="iWillTranslate" href="#" title="Я переведу!"
           header
             h3.title 
               a href="http://habrahabr.ru/post/206734/" Мурлыканье кошки на JavaScript
-            a.likes.liked href="#" title="SilentImp" 1
+            a.likes.disabled href="#" title="Вам нужно пройти аутентификацию, что бы проголосовать за статью" 0
             time datetime="2014.06.25" 19 января 2014
-            .author Овчинников Вячеслав
-          nav.filter
             a.language href="/search/tag/Русский" Русский
             a.domain href="http://habrahabr.ru/" habrahabr.ru
+            a.author href="/search/tag/ОвчинниковВячеслав" Овчинников Вячеслав
             menu.tags
               a href="/search/tag/JavaScript" JavaScript
               |, 
               a href="/search/tag/AudioAPI" AudioAPI
           menu.user-menu
-            a.show-list href="#" Статья переведена на Английский
+            a.show-list href="#" Статья переведена на Русский
             a.hide-list href="#" Скрыть список переводов
             a.add href="#" Добавить ссылку на перевод
-          table.translations
-            tr
-              th English
-              td
-                a.title href="#" Сats purring on JavaScript
+          ul.translations
+            li
+              span.language Русский
+              |: 
+              a.title href="#" Не дразните медведя: создание контента для щекотливых ситуаций
 
         article
-          menu.editor-menu
-            a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
-            a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
-            a.translate data-l10n-id="iWillTranslate" href="#" title="Я переведу!"
           header
             h3.title 
               a href="http://www.zonecss.fr/style_css/feuille_css_text_transform.html" Définition de text-transform
-            a.likes href="#" 0
+            a.likes.disabled href="#" title="Вам нужно пройти аутентификацию, что бы проголосовать за статью" 0
             time datetime="2014.06.25" 19 января 2014
-
-          nav.filter
             a.language href="/search/tag/Français" Français
             a.domain href="http://zonecss.fr/" zonecss.fr
             menu.tags
@@ -211,10 +181,6 @@ html
       menu
         a.more href="#" Ещё! Ещё! Больше статей!
 
-      menu
-        a.more.loading href="#" 
-          |Ещё! Ещё! Больше статей!
-          span
 
     footer
       nav.сontacts
@@ -268,31 +234,27 @@ html
     template#add-translation-form
       form action="/add/translation/" method="post" class="add-translation-form"
         fieldset
-          label
-            input name="url" type="url" value="" required="required" placeholder="Введите URL перевода:"
-            span Введите URL перевода:
+          input name="url" type="url" value="" required="required" placeholder="Введите URL перевода:"
           button data-l10n-id="addTranslationFormAdd" type="submit" Добавить перевод
           button data-l10n-id="addTranslationFormClose" type="reset" Закрыть
 
     template#confirm-article-remove
-      section.confirm-article-remove.yes-no-popup
-        nav
-          h2.title Точно-точно удалить?
-          .confirm data-l10n-id="confirmArticleRemoveConfirm" title="Удалить" Да!
-          .deny data-l10n-id="confirmArticleRemoveDeny" title="Нет, я передумал" Нет, я передумал
+      section.confirm-article-remove
+        .confirm data-l10n-id="confirmArticleRemoveConfirm" title="Удалить" Удалить
+        .deny data-l10n-id="confirmArticleRemoveDeny" title="Я передумал" Я передумал
 
     template#login-popup
-      section.login-popup.yes-no-popup
+      section.login-popup
+        h2.title data-l10n-id="loginPopupTitle" Что бы проголосовать за статью нужно авторизироваться&nbsp;на&nbsp;GitHub
         nav
-          h2.title data-l10n-id="loginPopupTitle" Что бы проголосовать за перевод нужно авторизироваться&nbsp;на&nbsp;GitHub
           a.confirm data-l10n-id="loginPopupYes" href="https://github.com/login/oauth/authorize?client_id=1295b0c39150f38ee008&amp;state=608783324&amp;redirect_uri=http%3A%2F%2Ffrontender.info%2Fheap%2F&amp;scope=public_repo" title="Авторизироваться" Авторизироваться
-          .deny data-l10n-id="loginPopupNo" title="Не хочу" Не хочу
+          .deny data-l10n-id="loginPopupNo" title="Я передумал" Я передумал
 
     template#i-want-to-translate
-      a.translate data-l10n-id="iWillTranslate" href="#" title="Я переведу!"
+      a.translate href="#" Я переведу!
 
     template#i-dont-want-to-translate
-      a.translate.my data-l10n-id="iWillNotTranslate" href="#" title="Я не хочу это переводить!"
+      a.translate.my href="#" Я не хочу это переводить!
 
     template#calendar-template
       section.calendar

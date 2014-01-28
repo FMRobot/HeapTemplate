@@ -1,7 +1,16 @@
 .add-article-form {
-  margin: 2rem 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 5rem;
+  right: 0;
+  bottom: 0;
   height: 2.105263rem;
-  position: relative;
+  display: none;
+}
+
+.add-article-form.open {
+  display: block;
 }
 
 .add-article-form label span {
@@ -16,7 +25,7 @@
   padding: 0 .5rem;
   height: 2.105263rem;
   line-height: 2.105263rem;
-  font-size: .618rem;
+  font-size: .666rem;
   z-index: 1;
   border: 1px solid transition;
   z-index: 1;
@@ -36,13 +45,13 @@
   padding: 0 .5rem;
   height: 2.105263rem;
   line-height: 2.105263rem;
-  font-size: .618rem;
+  font-size: .666rem;
   z-index: 1;
   border: 1px solid #0ba5b7;
   z-index: 2;
 }
 
-.add-article-form input:valid~span {
+.add-article-form input.non-empty + span {
   top: -2.105263rem;
 }
 

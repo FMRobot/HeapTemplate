@@ -27,6 +27,10 @@ define ['calendarController'], (calendarController) ->
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
       translateButton = document.querySelectorAll ".translate"
+
+      @addArticleForm = document.querySelector ".add-article-form"
+      @addArticleFormInput = @addArticleForm.querySelector "input"
+      @addArticleButton = document.getElementById "add-article-button"
       
       @iWantToTranslateTemplate = document.querySelector "#i-want-to-translate"
       @iDontWantToTranslateTemplate = document.querySelector "#i-dont-want-to-translate"
@@ -59,6 +63,9 @@ define ['calendarController'], (calendarController) ->
         button.addEventListener "click", @showLoginPopup
 
 
+      @addArticleFormInput.addEventListener "keyup", @changeTranslationURL
+      @addArticleButton.addEventListener "click", @showAddArticleForm
+
       @filterButton = document.querySelector '.filter'
       @filterButton.addEventListener "click", @showFilter
       @filterList = document.querySelector '.tag-list '
@@ -68,6 +75,13 @@ define ['calendarController'], (calendarController) ->
       for element in elements
         element.addEventListener "click", @filterBy
 
+
+    showAddArticleForm: (event)=>
+      event.preventDefault()
+      link = event.currentTarget
+      link.classList.add 'open'
+      @addArticleForm.classList.add 'open'
+      @addArticleFormInput.focus()
 
     ###*
     # Очистить фильтр
@@ -95,17 +109,17 @@ define ['calendarController'], (calendarController) ->
     ###
     hideFilter: (event)=>
       event.preventDefault()
-      @filterButton.style.display = "block"
-      @filterList.style.display = "none"
+      @filterButton.classList.remove "selected"
+      @filterList.classList.remove "open"
 
     ###*
-    # Показать фильтр
+    # Показать/скрыть фильтр
     # 
     ###
     showFilter: (event)=>
       event.preventDefault()
-      @filterButton.style.display = "none"
-      @filterList.style.display = "block"
+      @filterButton.classList.toggle "selected"
+      @filterList.classList.toggle "open"
 
 
     ###*
@@ -201,10 +215,10 @@ define ['calendarController'], (calendarController) ->
       article = form.previousSibling
       article.querySelector(".title a").innerHTML = form.querySelector("[name='title']").value
       article.querySelector(".title a").setAttribute 'href', form.querySelector("[name='url']").value
-      article.querySelector(".domain").innerHTML = form.querySelector("[name='domain']").value
+      article.querySelector(".domain a").innerHTML = form.querySelector("[name='domain']").value
       article.querySelector("time").innerHTML = form.querySelector("[name='date']").value
       article.querySelector("time").setAttribute('datetime', moment(form.querySelector("[name='date']").value, 'DD MMMM YYYY').format("YYYY-MM-DD"))
-      article.querySelector(".language").innerHTML = form.querySelector("[name='language']").value  
+      article.querySelector(".language a").innerHTML = form.querySelector("[name='language']").value  
       article.querySelector(".author").innerHTML = form.querySelector("[name='author']").value
 
       newTagsContainer = document.createElement "MENU"
@@ -243,9 +257,9 @@ define ['calendarController'], (calendarController) ->
 
       form.querySelector("[name='title']").value = article.querySelector(".title a").innerHTML
       form.querySelector("[name='url']").value = article.querySelector(".title a").getAttribute('href')
-      form.querySelector("[name='domain']").value = article.querySelector(".domain").innerHTML
+      form.querySelector("[name='domain']").value = article.querySelector(".domain a").innerHTML
       form.querySelector("[name='date']").value = article.querySelector("time").innerHTML
-      form.querySelector("[name='language']").value = article.querySelector(".language").innerHTML
+      form.querySelector("[name='language']").value = article.querySelector(".language a").innerHTML
       author = article.querySelector ".author"
 
       if author != null
@@ -314,7 +328,7 @@ define ['calendarController'], (calendarController) ->
     denyRemoveConfirmation: (event)=>
       event.preventDefault()
       button = event.currentTarget
-      form = button.parentNode
+      form = button.parentNode.parentNode
       article = form.parentNode
       article.removeChild form
 
@@ -325,7 +339,7 @@ define ['calendarController'], (calendarController) ->
     confirmRemoveConfirmation: (event)=>
       event.preventDefault()
       button = event.currentTarget
-      form = button.parentNode
+      form = button.parentNode.parentNode
       article = form.parentNode
       article.removeChild form
       article.parentNode.removeChild article
@@ -343,7 +357,20 @@ define ['calendarController'], (calendarController) ->
       header.appendChild @addTranslationFormTemplate.content.cloneNode(true)
       form = header.querySelector ".add-translation-form"
       form.addEventListener "submit", @addTranslation
+      form.querySelector("input").addEventListener "keyup", @changeTranslationURL
       form.querySelector("button[type='reset']").addEventListener "click", @hideTranslationForm
+
+    ###*
+    # Показать подставку, если в поле что то введено и не видно placeholder
+    # 
+    ###
+    changeTranslationURL: (event)=>
+      input = event.currentTarget
+
+      if input.value.trim().length > 0
+        input.classList.add "non-empty"
+      else
+        input.classList.remove "non-empty"
 
     ###*
     # Скрыть форму добавления перевода
@@ -355,7 +382,7 @@ define ['calendarController'], (calendarController) ->
       form = button.parentNode.parentNode
       article = form.parentNode
       article.removeChild form
-      article.querySelector(".add").style.display = "inline-block"
+      article.querySelector(".add").style.display = "inline"
 
     ###*
     # Добавить перевод в кучу
@@ -375,7 +402,7 @@ define ['calendarController'], (calendarController) ->
       article = button.parentNode.parentNode
       list = article.querySelector ".translations"
       list.style.display = "block"
-      article.querySelector(".hide-list").style.display = "inline-block"
+      article.querySelector(".hide-list").style.display = "inline"
       button.style.display = "none"
 
     ###*
@@ -389,6 +416,6 @@ define ['calendarController'], (calendarController) ->
       list = article.querySelector ".translations"
       list.style.display = "none"
       button.style.display = "none"
-      article.querySelector(".show-list").style.display = "inline-block"
+      article.querySelector(".show-list").style.display = "inline"
 
   return heapController

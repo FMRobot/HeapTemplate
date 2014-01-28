@@ -21,6 +21,7 @@ define(['calendarController'], function(calendarController) {
       this.showTranslationsList = __bind(this.showTranslationsList, this);
       this.addTranslation = __bind(this.addTranslation, this);
       this.hideTranslationForm = __bind(this.hideTranslationForm, this);
+      this.changeTranslationURL = __bind(this.changeTranslationURL, this);
       this.showTranslationForm = __bind(this.showTranslationForm, this);
       this.confirmRemoveConfirmation = __bind(this.confirmRemoveConfirmation, this);
       this.denyRemoveConfirmation = __bind(this.denyRemoveConfirmation, this);
@@ -38,6 +39,7 @@ define(['calendarController'], function(calendarController) {
       this.hideFilter = __bind(this.hideFilter, this);
       this.clearFilter = __bind(this.clearFilter, this);
       this.filterBy = __bind(this.filterBy, this);
+      this.showAddArticleForm = __bind(this.showAddArticleForm, this);
       var addButton, button, editButton, element, elements, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _o, _p, _q, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
@@ -54,6 +56,9 @@ define(['calendarController'], function(calendarController) {
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
       translateButton = document.querySelectorAll(".translate");
+      this.addArticleForm = document.querySelector(".add-article-form");
+      this.addArticleFormInput = this.addArticleForm.querySelector("input");
+      this.addArticleButton = document.getElementById("add-article-button");
       this.iWantToTranslateTemplate = document.querySelector("#i-want-to-translate");
       this.iDontWantToTranslateTemplate = document.querySelector("#i-dont-want-to-translate");
       this.addTranslationFormTemplate = document.querySelector('#add-translation-form');
@@ -89,6 +94,8 @@ define(['calendarController'], function(calendarController) {
         button = likeDisabledButton[_p];
         button.addEventListener("click", this.showLoginPopup);
       }
+      this.addArticleFormInput.addEventListener("keyup", this.changeTranslationURL);
+      this.addArticleButton.addEventListener("click", this.showAddArticleForm);
       this.filterButton = document.querySelector('.filter');
       this.filterButton.addEventListener("click", this.showFilter);
       this.filterList = document.querySelector('.tag-list ');
@@ -100,6 +107,15 @@ define(['calendarController'], function(calendarController) {
         element.addEventListener("click", this.filterBy);
       }
     }
+
+    heapController.prototype.showAddArticleForm = function(event) {
+      var link;
+      event.preventDefault();
+      link = event.currentTarget;
+      link.classList.add('open');
+      this.addArticleForm.classList.add('open');
+      return this.addArticleFormInput.focus();
+    };
 
     /**
     # Очистить фильтр
@@ -140,20 +156,20 @@ define(['calendarController'], function(calendarController) {
 
     heapController.prototype.hideFilter = function(event) {
       event.preventDefault();
-      this.filterButton.style.display = "block";
-      return this.filterList.style.display = "none";
+      this.filterButton.classList.remove("selected");
+      return this.filterList.classList.remove("open");
     };
 
     /**
-    # Показать фильтр
+    # Показать/скрыть фильтр
     #
     */
 
 
     heapController.prototype.showFilter = function(event) {
       event.preventDefault();
-      this.filterButton.style.display = "none";
-      return this.filterList.style.display = "block";
+      this.filterButton.classList.toggle("selected");
+      return this.filterList.classList.toggle("open");
     };
 
     /**
@@ -272,10 +288,10 @@ define(['calendarController'], function(calendarController) {
       article = form.previousSibling;
       article.querySelector(".title a").innerHTML = form.querySelector("[name='title']").value;
       article.querySelector(".title a").setAttribute('href', form.querySelector("[name='url']").value);
-      article.querySelector(".domain").innerHTML = form.querySelector("[name='domain']").value;
+      article.querySelector(".domain a").innerHTML = form.querySelector("[name='domain']").value;
       article.querySelector("time").innerHTML = form.querySelector("[name='date']").value;
       article.querySelector("time").setAttribute('datetime', moment(form.querySelector("[name='date']").value, 'DD MMMM YYYY').format("YYYY-MM-DD"));
-      article.querySelector(".language").innerHTML = form.querySelector("[name='language']").value;
+      article.querySelector(".language a").innerHTML = form.querySelector("[name='language']").value;
       article.querySelector(".author").innerHTML = form.querySelector("[name='author']").value;
       newTagsContainer = document.createElement("MENU");
       newTagsContainer.className = 'tags';
@@ -318,9 +334,9 @@ define(['calendarController'], function(calendarController) {
       }
       form.querySelector("[name='title']").value = article.querySelector(".title a").innerHTML;
       form.querySelector("[name='url']").value = article.querySelector(".title a").getAttribute('href');
-      form.querySelector("[name='domain']").value = article.querySelector(".domain").innerHTML;
+      form.querySelector("[name='domain']").value = article.querySelector(".domain a").innerHTML;
       form.querySelector("[name='date']").value = article.querySelector("time").innerHTML;
-      form.querySelector("[name='language']").value = article.querySelector(".language").innerHTML;
+      form.querySelector("[name='language']").value = article.querySelector(".language a").innerHTML;
       author = article.querySelector(".author");
       if (author !== null) {
         form.querySelector("[name='author']").value = author.innerHTML;
@@ -408,7 +424,7 @@ define(['calendarController'], function(calendarController) {
       var article, button, form;
       event.preventDefault();
       button = event.currentTarget;
-      form = button.parentNode;
+      form = button.parentNode.parentNode;
       article = form.parentNode;
       return article.removeChild(form);
     };
@@ -423,7 +439,7 @@ define(['calendarController'], function(calendarController) {
       var article, button, form;
       event.preventDefault();
       button = event.currentTarget;
-      form = button.parentNode;
+      form = button.parentNode.parentNode;
       article = form.parentNode;
       article.removeChild(form);
       return article.parentNode.removeChild(article);
@@ -444,7 +460,24 @@ define(['calendarController'], function(calendarController) {
       header.appendChild(this.addTranslationFormTemplate.content.cloneNode(true));
       form = header.querySelector(".add-translation-form");
       form.addEventListener("submit", this.addTranslation);
+      form.querySelector("input").addEventListener("keyup", this.changeTranslationURL);
       return form.querySelector("button[type='reset']").addEventListener("click", this.hideTranslationForm);
+    };
+
+    /**
+    # Показать подставку, если в поле что то введено и не видно placeholder
+    #
+    */
+
+
+    heapController.prototype.changeTranslationURL = function(event) {
+      var input;
+      input = event.currentTarget;
+      if (input.value.trim().length > 0) {
+        return input.classList.add("non-empty");
+      } else {
+        return input.classList.remove("non-empty");
+      }
     };
 
     /**
@@ -460,7 +493,7 @@ define(['calendarController'], function(calendarController) {
       form = button.parentNode.parentNode;
       article = form.parentNode;
       article.removeChild(form);
-      return article.querySelector(".add").style.display = "inline-block";
+      return article.querySelector(".add").style.display = "inline";
     };
 
     /**
@@ -486,7 +519,7 @@ define(['calendarController'], function(calendarController) {
       article = button.parentNode.parentNode;
       list = article.querySelector(".translations");
       list.style.display = "block";
-      article.querySelector(".hide-list").style.display = "inline-block";
+      article.querySelector(".hide-list").style.display = "inline";
       return button.style.display = "none";
     };
 
@@ -504,7 +537,7 @@ define(['calendarController'], function(calendarController) {
       list = article.querySelector(".translations");
       list.style.display = "none";
       button.style.display = "none";
-      return article.querySelector(".show-list").style.display = "inline-block";
+      return article.querySelector(".show-list").style.display = "inline";
     };
 
     return heapController;

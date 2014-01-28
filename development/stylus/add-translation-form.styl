@@ -16,12 +16,21 @@ labelandinput()
 
 .add-translation-form
   position absolute
-  top 0
-  left 0
+  top -1.4rem
+  left -7rem
+  border-width 1.4rem 0 0 7rem
+  border-style solid
+  border-color rgba(255,255,255,.9) transparent transparent rgba(255,255,255,.9)
+  background-clip padding-box
   right 0
   bottom 0
   margin auto
   background-color rgba(255,255,255,.9)
+  
+  border-width 1.4rem 0 0 7rem
+  border-style solid
+  border-color rgba(255,255,255,.9) transparent transparent rgba(255,255,255,.9)
+
   fieldset
     height 2.105263rem
     position absolute
@@ -30,16 +39,26 @@ labelandinput()
     right 0
     bottom 0
     margin auto
+  span
+    labelandinput()
+    font-size .666rem
+    font-family georgia, times, serif
+    z-index 1
+    position absolute
+    transition top .25s
   input
     labelandinput()
     border 1px solid #0ba5b7
+    z-index 2
+    &.non-empty + span
+      top -2.105263rem
   button
     clear-button()
     white-space nowrap
     position absolute
     top 0
     display block
-    width 10%
+    width 10.5%
     height 2.105263rem
     line-height  0
     font-size 0
@@ -48,6 +67,7 @@ labelandinput()
     cursor pointer
     z-index 2
     &[type="reset"]
+      z-index 1
       right 0
       background-color #ffc000
       &:before
@@ -55,10 +75,11 @@ labelandinput()
         icon()
         font-size 1rem
         line-height  2.105263rem
-        content '\e806'
+        content '\e803'
       &:hover
         background-color #ff9600
     &[type="submit"]
+      z-index 2
       right 10%
       background-color #0BA5B7
       &:before

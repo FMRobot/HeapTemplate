@@ -1,0 +1,75 @@
+@import "mixins.styl"
+
+.yes-no-popup
+  position absolute
+  top -1.4rem
+  left -7rem
+  border-width 1.4rem 0 0 7rem
+  border-style solid
+  border-color rgba(255,255,255,.9) transparent transparent rgba(255,255,255,.9)
+  right 0
+  bottom 0
+  background-clip padding-box
+  margin auto
+  background-color rgba(255,255,255,.9)
+  color #FFF
+  nav
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    margin auto
+    height 2.105263rem
+    .title
+      color #000 
+      display inline
+      font-size .777rem
+      margin 0 1rem 0 0
+      vertical-align middle
+    .confirm
+      margin 0 1rem 0 0  
+      display inline-block
+      cursor pointer
+      white-space nowrap
+      padding 0 1rem 
+      line-height 2.105263rem 
+      height 2.105263rem
+      background-color #0BA5B7
+      font-size .777rem
+      position relative
+      vertical-align middle
+      color #FFF 
+      &:before
+        content "."
+        width 0
+        height 0
+        overflow hidden
+        text-indent -9999px
+        display block
+        position absolute
+        top 100%
+        left .5rem
+        border-width .5rem .5rem 0 0
+        border-style solid
+        border-color #0BA5B7 transparent transparent transparent
+      &:hover
+        background-color darken(#0BA5B7, 20%) 
+        &:before
+          border-color darken(#0BA5B7, 20%) transparent transparent transparent
+    
+    .deny
+      display inline
+      cursor pointer
+      height 2.105263rem
+      font-size .777rem
+      position relative
+      vertical-align middle
+      white-space nowrap
+      border-bottom 1px dotted #666
+      color #000
+      &:hover
+        color #f00
+        border-bottom 1px dotted #f00
+
+        

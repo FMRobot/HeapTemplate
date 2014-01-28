@@ -473,7 +473,7 @@ body.heap .more.loading span:after {
 
 body.heap .more.loading:hover:before,
 body.heap .more.loading:before {
-  border-color: #e1fafd transparent transparent;
+  border-color: #f6fefe transparent transparent;
 }
 
 body.heap .more:before {

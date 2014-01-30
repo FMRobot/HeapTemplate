@@ -75,6 +75,21 @@ body.heap
       cursor pointer
       position relative
       
+      &:before
+        content "."
+        height 0
+        width 0
+        overflow hidden
+        font-size 0
+        line-height 0
+        border-style solid
+        border-color transparent transparent #fff
+        border-width 0 .35rem .35rem 
+        position absolute
+        bottom 0
+        left 50%
+        margin 0 0 0 -.35rem 
+        
           
       span
         font-size .666rem
@@ -538,7 +553,7 @@ body.heap
     .page-list,
     form
       display none
-    footer
+    &>footer
       margin-top 0
       border-top-style none
       nav

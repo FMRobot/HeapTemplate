@@ -76,6 +76,7 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
       @filterButton = document.querySelector '.filter'
       @filterButton.addEventListener "click", @toggleFilter
       @filterList = document.querySelector '.tag-list '
+      @filterList.querySelector('.close').addEventListener "click", @toggleFilter
       @filterList.querySelector('.clear').addEventListener "click", @clearFilter
       elements = @filterList.querySelectorAll('a')
       for element in elements

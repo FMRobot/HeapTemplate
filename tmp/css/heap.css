@@ -147,6 +147,22 @@ body.heap .config .filter {
   position: relative;
 }
 
+body.heap .config .filter:before {
+  content: ".";
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  border-style: solid;
+  border-color: transparent transparent #fff;
+  border-width: 0 .35rem .35rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 0 -.35rem;
+}
+
 body.heap .config .filter span {
   font-size: .666rem;
   border-bottom: 1px dotted #666;
@@ -690,12 +706,12 @@ body.heap>footer nav a.github:before {
     display: none;
   }
 
-  body.heap footer {
+  body.heap>footer {
     margin-top: 0;
     border-top-style: none;
   }
 
-  body.heap footer nav {
+  body.heap>footer nav {
     width: 100%;
     margin: 0 0 1rem;
   }

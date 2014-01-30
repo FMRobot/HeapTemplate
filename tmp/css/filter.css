@@ -11,6 +11,25 @@
   display: block;
 }
 
+.tag-list footer {
+  border-top: 1px solid #000;
+  clear: both;
+  display: block;
+  margin: 0 0 2rem;
+  line-height: 1.618rem;
+}
+
+.tag-list footer a {
+  font-size: .666rem;
+  text-decoration: none;
+  display: inline;
+  border-bottom: 1px dotted #666;
+}
+
+.tag-list footer a:hover {
+  border-bottom-color: #0ba5b7;
+}
+
 .tag-list menu {
   max-width: 43rem;
   margin: 0 auto 1rem;

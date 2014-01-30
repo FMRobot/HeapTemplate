@@ -107,6 +107,7 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
       this.filterButton = document.querySelector('.filter');
       this.filterButton.addEventListener("click", this.toggleFilter);
       this.filterList = document.querySelector('.tag-list ');
+      this.filterList.querySelector('.close').addEventListener("click", this.toggleFilter);
       this.filterList.querySelector('.clear').addEventListener("click", this.clearFilter);
       elements = this.filterList.querySelectorAll('a');
       for (_q = 0, _len8 = elements.length; _q < _len8; _q++) {

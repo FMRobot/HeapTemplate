@@ -25,11 +25,21 @@ define ['moment'], (moment) ->
       @calendar = document.getElementById('calendar-template').content.cloneNode true
       @next = @calendar.querySelector '.next-month'
       @prev = @calendar.querySelector '.prev-month'
+      @closeButton = @calendar.querySelector '.close'
 
       @next.addEventListener "click", @nextMonth
       @prev.addEventListener "click", @prevMonth
+      @closeButton.addEventListener "click", @closeCalendar
       @generateMonth()
 
+    ###*
+    # Закрыть календарь и передать дату, без изменений
+    # 
+    ###
+    closeCalendar: (event)=>
+      if @callbackFunction != null
+        @callbackFunction.call @, null
+      @calendar.parentNode.removeChild @calendar
 
     ###*
     # Закрыть календарь и передать дату в функцию каллбек

@@ -11,13 +11,17 @@ html
 
     header
       nav 
-        a.login href="#" Вход
+        a.fm href="http://frontender.info/" Frontender Magazine
+        a.login href="#" Войдите, что бы проголосовать
       h1 data-l10n-id="title" 
         |Frontender Magazine: Куча 
 
     nav.config
-      a.filter href="#"
-      a.add-article id="add-article-button" data-l10n-id="addArticle" href="#" Добавить статью
+      
+      .add-article id="add-article-button" data-l10n-id="addArticle" Добавить статью
+      
+      .filter 
+        span Фильтр
 
       form.add-article-form action="/add/url" method="post"
         fieldset
@@ -25,7 +29,6 @@ html
             input data-l10n-id="enterUrlPlaceholder" id="add-article-form-url" placeholder="Введите URL статьи:" name="url" type="url" value="" required="required" 
             span data-l10n-id="enterUrl" Введите URL статьи:
           button data-l10n-id="addArticle" type="submit" Добавить статью
-
 
     .tag-list
       menu
@@ -94,6 +97,8 @@ html
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
             a.translate data-l10n-id="iWillTranslate" href="#" title="Я переведу!"
+            / a.translate-trigger.on href="#"
+            /   span
           header
             h3.title 
               a href="http://alistapart.com/article/dont-poke-the-bear-creating-content-for-sensitive-situations" Don’t Poke the Bear: Creating Content for Sensitive Situations
@@ -107,9 +112,9 @@ html
             menu.tags
               a href="/search/tag/content-strategy" Content strategy
           menu.user-menu
-            a.show-list href="#" Статья переведена на 3 языка
-            a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
             a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
+            / a.show-list href="#" Статья переведена на 3 языка
+            / a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
           table.translations
             tr
               th Русский
@@ -123,7 +128,6 @@ html
               th Français
               td
                 a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
-
         
         article
           menu.editor-menu
@@ -148,9 +152,9 @@ html
               |, 
               a href="/search/tag/mobile" Mobile
           menu.user-menu
-            a.show-list href="#" Статья переведена на Испанский и Русский
-            a.hide-list href="#" Скрыть список переводов
-            a.add href="#" Добавить ссылку на перевод
+            a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
+            / a.show-list href="#" Статья переведена на Испанский и Русский
+            / a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
           table.translations
             tr
               th Русский
@@ -180,9 +184,9 @@ html
               |, 
               a href="/search/tag/AudioAPI" AudioAPI
           menu.user-menu
-            a.show-list href="#" Статья переведена на Английский
-            a.hide-list href="#" Скрыть список переводов
-            a.add href="#" Добавить ссылку на перевод
+            a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
+            / a.show-list href="#" Статья переведена на Английский
+            / a.hide-list data-l10n-id="hideTranslationList" href="#" Скрыть список переводов
           table.translations
             tr
               th English
@@ -206,15 +210,18 @@ html
             menu.tags
               a href="/search/tag/css" CSS
           menu.user-menu
-            a.add href="#" Добавить ссылку на перевод
+            a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
 
       menu
-        a.more href="#" Ещё! Ещё! Больше статей!
-
-      menu
-        a.more.loading href="#" 
+        a.more href="#" 
           |Ещё! Ещё! Больше статей!
           span
+
+      menu.paginator
+        span.title Cтраницы 
+        span.current contenteditable="true" 1&#8202;–&#8202;3
+        span.separator &#8202;/&#8202;
+        span.total 10
 
     footer
       nav.сontacts
@@ -224,9 +231,11 @@ html
         a.rss data-l10n-id="footerHeapRSS" href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss-канал кучи
       nav.project
         a data-l10n-id="footerMagazine" href="http://frontender.info/" Журнал Frontender Magazine
+        a data-l10n-id="footerContribute" href="#" Я хочу стать автором
+        a data-l10n-id="footerContribute" href="#" Я хочу стать переводчиком
+        a data-l10n-id="footerMoney" href="#" Помочь проекту деньгами
+        a data-l10n-id="footerContribute" href="#" Как еще я могу помочь?
         a data-l10n-id="footerTeam" href="#" Редакция
-        a data-l10n-id="footerContribute" href="#" Как можно принять участие в проекте?
-        a data-l10n-id="footerMoney" href="#" Помочь деньгами
       nav.language
         a.en href="#" Русский
         a.ru href="#" English
@@ -297,6 +306,7 @@ html
     template#calendar-template
       section.calendar
         header
+          .close
           .prev-month
           h2.month
           .next-month

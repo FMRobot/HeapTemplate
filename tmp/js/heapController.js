@@ -1,7 +1,7 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-define(['calendarController'], function(calendarController) {
+define(['calendarController', 'MutationObserver-polyfil'], function(calendarController) {
   /**
   # Класс обеспечивает работу Кучи
   # 
@@ -39,6 +39,9 @@ define(['calendarController'], function(calendarController) {
       this.clearFilter = __bind(this.clearFilter, this);
       this.filterBy = __bind(this.filterBy, this);
       this.showAddArticleForm = __bind(this.showAddArticleForm, this);
+      this.blockKeys = __bind(this.blockKeys, this);
+      this.setPage = __bind(this.setPage, this);
+      this.savePageValue = __bind(this.savePageValue, this);
       var addButton, button, editButton, element, elements, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _o, _p, _q, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
@@ -55,6 +58,12 @@ define(['calendarController'], function(calendarController) {
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
       translateButton = document.querySelectorAll(".translate");
+      this.paginator = document.querySelector(".paginator");
+      this.paginatorCurrent = this.paginator.querySelector(".current");
+      this.paginatorCurrent.addEventListener("keydown", this.blockKeys);
+      this.paginatorCurrent.addEventListener("focus", this.savePageValue);
+      this.paginatorCurrent.addEventListener("blur", this.setPage);
+      this.paginatorTotal = parseInt(this.paginator.querySelector(".total").innerHTML, 10);
       this.addArticleForm = document.querySelector(".add-article-form");
       this.addArticleFormInput = this.addArticleForm.querySelector("input");
       this.addArticleButton = document.getElementById("add-article-button");
@@ -105,6 +114,73 @@ define(['calendarController'], function(calendarController) {
         element.addEventListener("click", this.filterBy);
       }
     }
+
+    heapController.prototype.savePageValue = function(event) {
+      return this.paginatorCurrent.setAttribute("data-pages", this.paginatorCurrent.innerHTML);
+    };
+
+    heapController.prototype.setPage = function(event) {
+      var value;
+      value = this.paginatorCurrent.innerHTML;
+      value = value.replace(/[‒–—―]/ig, '-');
+      value = value.replace(/[^\d\-]/ig, '');
+      value = value.split('-');
+      if (value.length > 1) {
+        value[0] = parseInt(value[0], 10);
+        value[1] = parseInt(value[1], 10);
+        if (isNaN(value[0]) || value[0] < 1) {
+          value[0] = 1;
+        }
+        if (isNaN(value[1]) || value[1] > this.paginatorTotal) {
+          value[1] = this.paginatorTotal;
+        }
+        if (value[0] > value[1]) {
+          value[1] += value[0];
+          value[0] = value[1] - value[0];
+          value[1] = value[1] - value[0];
+          if (value[0] < 1) {
+            value[0] = 1;
+          }
+          if (value[1] > this.paginatorTotal) {
+            value[1] = this.paginatorTotal;
+          }
+        }
+        if (value[0] === value[1]) {
+          return this.paginatorCurrent.innerHTML = value[0];
+        } else {
+          return this.paginatorCurrent.innerHTML = value[0] + "&#8202;–&#8202;" + value[1];
+        }
+      } else {
+        value = parseInt(value[0], 10);
+        if (isNaN(value) || value < 1 || value > this.paginatorTotal) {
+          value = 1;
+        }
+        return this.paginatorCurrent.innerHTML = value;
+      }
+    };
+
+    heapController.prototype.blockKeys = function(event) {
+      var controls, numbers, _ref, _ref1, _ref2;
+      numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+      controls = [189, 32, 8, 9, 45, 46, 39, 37, 27, 17, 18, 16, 13, 91];
+      if ((_ref = event.which, __indexOf.call(controls, _ref) < 0) && (_ref1 = event.which, __indexOf.call(numbers, _ref1) < 0)) {
+        event.preventDefault();
+      }
+      switch (event.which) {
+        case 13:
+          event.preventDefault();
+          this.setPage();
+          this.paginatorCurrent.blur();
+          break;
+        case 27:
+          event.preventDefault();
+          this.paginatorCurrent.innerHTML = this.paginatorCurrent.getAttribute("data-pages");
+          this.paginatorCurrent.blur();
+      }
+      if (this.paginatorCurrent.innerHTML.length > 10 && (_ref2 = event.which, __indexOf.call(numbers, _ref2) >= 0)) {
+        return event.preventDefault();
+      }
+    };
 
     heapController.prototype.showAddArticleForm = function(event) {
       var link;
@@ -200,11 +276,13 @@ define(['calendarController'], function(calendarController) {
       }
       calendar = new calendarController(date, "DD MMMM YYYY", function(selected_moment) {
         var day;
-        day = selected_moment.format('DD MMMM YYYY');
-        if (form.querySelector("[name='date']").value !== day) {
-          form.classList.add('changed');
+        if (selected_moment !== null) {
+          day = selected_moment.format('DD MMMM YYYY');
+          if (form.querySelector("[name='date']").value !== day) {
+            form.classList.add('changed');
+          }
+          form.querySelector("[name='date']").value = day;
         }
-        form.querySelector("[name='date']").value = day;
         return form.style.display = 'block';
       }, this.lang);
       form.style.display = 'none';

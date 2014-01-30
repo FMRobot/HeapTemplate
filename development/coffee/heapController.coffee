@@ -1,4 +1,4 @@
-define ['calendarController'], (calendarController) ->
+define ['calendarController','MutationObserver-polyfil'], (calendarController) ->
 
   ###*
   # Класс обеспечивает работу Кучи
@@ -27,6 +27,13 @@ define ['calendarController'], (calendarController) ->
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
       translateButton = document.querySelectorAll ".translate"
+
+      @paginator = document.querySelector ".paginator"
+      @paginatorCurrent = @paginator.querySelector ".current"
+      @paginatorCurrent.addEventListener "keydown", @blockKeys
+      @paginatorCurrent.addEventListener "focus", @savePageValue
+      @paginatorCurrent.addEventListener "blur", @setPage
+      @paginatorTotal = parseInt(@paginator.querySelector(".total").innerHTML,10)
 
       @addArticleForm = document.querySelector ".add-article-form"
       @addArticleFormInput = @addArticleForm.querySelector "input"
@@ -74,6 +81,61 @@ define ['calendarController'], (calendarController) ->
       for element in elements
         element.addEventListener "click", @filterBy
 
+    savePageValue: (event)=>
+      @paginatorCurrent.setAttribute "data-pages", @paginatorCurrent.innerHTML
+
+    setPage: (event)=>
+      value = @paginatorCurrent.innerHTML
+      value = value.replace /[‒–—―]/ig, '-'
+      value = value.replace /[^\d\-]/ig, ''
+      value = value.split '-'
+
+      if value.length>1
+        value[0] = parseInt value[0], 10
+        value[1] = parseInt value[1], 10
+        if isNaN(value[0]) || value[0]<1
+          value[0] = 1
+        if isNaN(value[1]) || value[1]>@paginatorTotal
+          value[1] = @paginatorTotal
+        if value[0]>value[1]
+          value[1]+= value[0]
+          value[0] = value[1] - value[0]
+          value[1] = value[1] - value[0]
+          if value[0]<1
+            value[0] = 1
+          if value[1]>@paginatorTotal
+            value[1] = @paginatorTotal
+        if value[0] == value[1]
+          @paginatorCurrent.innerHTML = value[0]
+        else
+          @paginatorCurrent.innerHTML = value[0]+"&#8202;–&#8202;"+value[1]
+      else
+        value = parseInt(value[0],10)
+        if isNaN(value) || value<1 || value>@paginatorTotal
+          value = 1
+        @paginatorCurrent.innerHTML = value
+
+    blockKeys: (event)=>
+      numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
+      controls = [189, 32, 8, 9, 45, 46, 39, 37, 27, 17, 18, 16, 13, 91]
+      
+      if event.which not in controls and event.which not in numbers
+        event.preventDefault()
+
+      switch event.which
+        when 13 
+          # Ввод страницы закончен
+          event.preventDefault()
+          @setPage()
+          @paginatorCurrent.blur()
+        when 27
+          # Отменить действие
+          event.preventDefault()
+          @paginatorCurrent.innerHTML = @paginatorCurrent.getAttribute "data-pages"
+          @paginatorCurrent.blur()
+
+      if @paginatorCurrent.innerHTML.length>10 and event.which in numbers
+        event.preventDefault()
 
     showAddArticleForm: (event)=>
       event.preventDefault()
@@ -142,11 +204,14 @@ define ['calendarController'], (calendarController) ->
       if date.length == 0
         date = null
       calendar = new calendarController(date, "DD MMMM YYYY", (selected_moment)=>
-        day = selected_moment.format 'DD MMMM YYYY'
-        if form.querySelector("[name='date']").value != day
-          form.classList.add 'changed'
-        form.querySelector("[name='date']").value = day
+        if selected_moment != null
+          day = selected_moment.format 'DD MMMM YYYY'
+          if form.querySelector("[name='date']").value != day
+            form.classList.add 'changed'
+          form.querySelector("[name='date']").value = day
+
         form.style.display = 'block'
+
       , @lang)
       form.style.display = 'none'
       calendar.insertAfter form

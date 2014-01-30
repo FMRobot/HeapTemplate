@@ -19,6 +19,28 @@
   clear: both;
 }
 
+.calendar header .close {
+  float: right;
+  cursor: pointer;
+}
+
+.calendar header .close:hover {
+  color: #0ba5b7;
+}
+
+.calendar header .close:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: '\e806';
+}
+
 .calendar header .prev-month,
 .calendar header .next-month {
   width: 2rem;
@@ -67,6 +89,7 @@
   width: 100%;
   line-height: 0;
   font-size: 0;
+  position: relative;
 }
 
 .calendar .days .day {
@@ -77,6 +100,7 @@
   padding: .2rem .4rem;
   width: 14.28571%;
   height: 2rem;
+  padding-top: 5%;
   line-height: 1.6rem;
   font-size: .9rem;
 }

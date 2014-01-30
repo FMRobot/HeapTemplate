@@ -8,6 +8,14 @@
     margin 0 0 1rem 
     clear-after()
 
+    .close
+      float right
+      cursor pointer
+      &:hover
+        color  #0BA5B7
+      &:before
+        icon()
+        content '\e806'
     .prev-month,
     .next-month
       width 2rem 
@@ -35,6 +43,7 @@
     width 100%
     line-height 0
     font-size 0
+    position relative
     .day
       cursor pointer
       display inline-block
@@ -42,6 +51,7 @@
       padding .2rem .4rem 
       width 14.28571%
       height 2rem 
+      padding-top 5%
       line-height 1.6rem
       font-size 0.9rem
       &:nth-child(7n-1),

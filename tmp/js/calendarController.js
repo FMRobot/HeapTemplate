@@ -37,6 +37,7 @@ define(['moment'], function(moment) {
       this.appendTo = __bind(this.appendTo, this);
       this.registerCallback = __bind(this.registerCallback, this);
       this.close = __bind(this.close, this);
+      this.closeCalendar = __bind(this.closeCalendar, this);
       moment.lang(lang);
       if (date === null) {
         this.moment = moment();
@@ -47,10 +48,25 @@ define(['moment'], function(moment) {
       this.calendar = document.getElementById('calendar-template').content.cloneNode(true);
       this.next = this.calendar.querySelector('.next-month');
       this.prev = this.calendar.querySelector('.prev-month');
+      this.closeButton = this.calendar.querySelector('.close');
       this.next.addEventListener("click", this.nextMonth);
       this.prev.addEventListener("click", this.prevMonth);
+      this.closeButton.addEventListener("click", this.closeCalendar);
       this.generateMonth();
     }
+
+    /**
+    # Закрыть календарь и передать дату, без изменений
+    #
+    */
+
+
+    calendarController.prototype.closeCalendar = function(event) {
+      if (this.callbackFunction !== null) {
+        this.callbackFunction.call(this, null);
+      }
+      return this.calendar.parentNode.removeChild(this.calendar);
+    };
 
     /**
     # Закрыть календарь и передать дату в функцию каллбек

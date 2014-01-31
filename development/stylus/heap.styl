@@ -21,7 +21,6 @@ body.heap
               
     nav
       position relative
-      overflow hidden
       margin 0 0 1rem
       font-size .8rem 
       a
@@ -29,9 +28,12 @@ body.heap
         &:hover
           text-decoration none
       .fm
+        margin 0 0 0 -1rem 
         &:before
           content "←"
           display inline-block
+          width 1rem
+          text-align right
           margin 0 .25rem 0 0
           text-decoration none
       .login
@@ -73,23 +75,7 @@ body.heap
       float right
       height 2.105263rem
       cursor pointer
-      position relative
-      
-      &:before
-        content "."
-        height 0
-        width 0
-        overflow hidden
-        font-size 0
-        line-height 0
-        border-style solid
-        border-color transparent transparent #fff
-        border-width 0 .35rem .35rem 
-        position absolute
-        bottom 0
-        left 50%
-        margin 0 0 0 -.35rem 
-        
+      position relative  
           
       span
         font-size .666rem
@@ -105,8 +91,25 @@ body.heap
         background-color #0BA5B7
         padding 0 .5rem 
         margin 0 
+        &:before
+          content "."
+          height 0
+          width 0
+          display block
+          overflow hidden
+          font-size 0
+          line-height 0
+          border-style solid
+          border-color #0ba5b7 transparent transparent
+          border-width .35rem .35rem 0
+          position absolute
+          top 100%
+          left 50%
+          margin 0 0 0 -.35rem 
         &:hover
           background-color darken(#0BA5B7,20%)
+          &:before
+            border-color darken(#0BA5B7,20%) transparent transparent
           span
             border-bottom-color darken(#0BA5B7,20%)
         span
@@ -120,6 +123,7 @@ body.heap
     width 100%
     position relative
     margin 3rem 0
+    padding 0
     font-size 0.777rem
     line-height 1.257186rem 
     font-family Helvetica, Arial, sans-serif
@@ -155,38 +159,47 @@ body.heap
         display inline-block
         
       // Лайки
-      .likes
-        white-space nowrap
-        margin 0 1rem 0 0
-        text-decoration none
+      .likes        
+        position relative
+        float left
+        right 0
+        top 0
+
+        margin .6rem .5rem 0 .6rem
+        width 2.4rem
+        height 2.4rem
+        line-height 2.4rem
+        text-align center
+        display block
+        color #000 
+        font-size 0.666rem
+        &:hover
+          color #fff
+          &:before
+            color #c00
+        &.liked
+          color #fff
+          &:hover
+            color #000
+            &:before
+              color #e8e8e8   
+          &:before
+            content "\e81e"
+            color #c00
         &:before
           icon()
-          position relative
-          cursor default
-          margin-right .2rem
-          font-size .68rem
-          content "\e802"
-          text-decoration none
-          color #000
-        &:hover
-          color #0ba5b7
-          &:before
-            color #0ba5b7
-            content '\e801'
-        &.disabled
-          &:before
-            content "\e802"
-          &:hover
-            &:before
-              content '\e801'
-        &.liked
-          &:before
-            content '\e801'
-          &:hover
-            color #0ba5b7
-            &:before
-              color #0ba5b7
-              content '\e802'
+          color #e8e8e8
+          font-size 2rem
+          content "\e81e"
+          position absolute
+          top .05rem
+          left 0
+          z-index -1
+          width 2.4rem
+          height 2.4rem
+          display block
+          text-align center
+          vertical-align middle
             
       // Автор статьи
       .author
@@ -196,6 +209,7 @@ body.heap
     
     // То, по чему можно фильтровать
     .filter
+      overflow hidden
       a
         display inline
         border-bottom 1px dotted #666 
@@ -206,40 +220,18 @@ body.heap
       .language
         display inline
         margin 0 1rem 0 0
-        // &:before
-        //   icon()
-        //   cursor default
-        //   margin-right .2rem
-        //   font-size .68rem
-        //   content '\e80d'
-        //   text-decoration none
-        //   color #000
           
       // Доменное имя
       .domain
         display inline
         white-space nowrap
         margin 0 1rem 0 0
-        // &:before
-        //   icon()
-        //   position relative
-        //   cursor default
-        //   margin-right .2rem
-        //   font-size .68rem
-        //   content '\e80c'
-        //   text-decoration none
-        //   color #000
 
       // Теги
       .tags
         display inline
         a
           white-space nowrap
-        // &:before
-        //   icon()
-        //   font-size .68rem
-        //   margin 0 .25rem 0 0 
-        //   content "\e805"
     
     // Меню доступное пользователям
     .user-menu
@@ -253,33 +245,6 @@ body.heap
           border-bottom-color #0ba5b7 
         &.hide-list
           display none
-        //   &:hover:before
-        //     content "\e816"
-        //   &:before
-        //     icon()
-        //     font-size .68rem
-        //     margin 0 .25rem 0 0 
-        //     content "\e817"
-        //     text-decoration none
-        //     color #000
-        // &.show-list
-        //   &:hover:before
-        //     content "\e817"
-        //   &:before
-        //     icon()
-        //     font-size .68rem
-        //     margin 0 .25rem 0 0 
-        //     content "\e816"
-        //     text-decoration none
-        //     color #000
-        // &.add
-        //   &:before
-        //     icon()
-        //     font-size .68rem
-        //     margin 0 .25rem 0 0 
-        //     content "\e807"
-        //     text-decoration none
-        //     color #000
 
     // Меню доступное членам редакции
     &:hover
@@ -327,26 +292,6 @@ body.heap
           font-size .6rem 
           text-align center
           content '\e812'
-        // span
-        //   display none
-        //   position absolute
-        //   z-index 3
-        //   float left
-        //   border-radius 100%
-        //   height .8333rem
-        //   width .8333rem
-        //   background-color #FFF 
-        //   line-height .8333rem
-        //   &:before
-        //     icon()
-        //     position relative
-        //     z-index 4
-        //     line-height .8333rem
-        //     height .8333rem
-        //     width .8333rem
-        //     font-size .45rem 
-        //     text-align center
-        //     content '\e811'
       a
         display inline-block
         white-space nowrap
@@ -395,7 +340,7 @@ body.heap
           text-decoration none
   
   //Пагинатор
-  menu.paginator
+  .paginator
     margin 0 0 1rem
     float right 
     font-size 1.8rem
@@ -531,14 +476,23 @@ body.heap
     article
       header
         .likes
+          margin 0 .5rem 0 0
           position absolute
-          right 100%          
+          right 100%
+          float none
 
 @media screen and (max-width: 42rem)
   html:root
     font-size 16px
   body.heap
+    .paginator
+      float none
+      display block
+      text-align center
+      margin 2rem 0 2rem
+      
     .more
+      float none
       margin 0 0 0 -2.10526rem
       padding 0 2.10526rem;
       height 6rem
@@ -560,39 +514,15 @@ body.heap
         width 100%
         margin 0 0 1rem 
     article
+      padding-left 0
       .translations
         display block !important
         .language
           width auto
           text-align left
       header
-        .likes.disabled
-          background-color #ccc
-          color #FFF 
-          &:hover
-            background-color darken(#ccc,10%)
-            color #FFF
-            &:before
-              color #FFF
-        .likes.liked,
         .likes
-          float left
-          margin 0 .5rem 0 0 
-          display block
-          width 3rem
-          height 3rem
-          line-height 3rem
-          background-color #0ba5b7
-          vertical-align middle
-          text-align center
-          color #FFF
-          &:before
-            color #FFF
-          &:hover
-            background-color darken(#0ba5b7,20%)
-            color #FFF 
-            &:before
-              color #FFF
+          margin 0 .5rem 0 0
         .title
         .tags
           display block

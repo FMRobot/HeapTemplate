@@ -76,7 +76,8 @@ define ['moment'], (moment) ->
         element.parentNode.insertBefore @calendar, element.nextSibling
         @calendar = element.nextSibling
       else
-        @appendTo element
+
+        @appendTo element.parentNode
       
 
     ###*

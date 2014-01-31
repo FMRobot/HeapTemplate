@@ -183,6 +183,12 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
       }
     };
 
+    /**
+    # Показать форму добавления новой статьи
+    #
+    */
+
+
     heapController.prototype.showAddArticleForm = function(event) {
       var link;
       event.preventDefault();
@@ -267,10 +273,12 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
     heapController.prototype.openCalendar = function(event) {
       var calendar, date, form,
         _this = this;
+      console.log('открываем');
       form = event.currentTarget;
       while (form.tagName !== 'FORM') {
         form = form.parentNode;
       }
+      console.log(form);
       date = form.querySelector("[name='date']").value.trim();
       if (date.length === 0) {
         date = null;

@@ -69,7 +69,6 @@ body.heap>header h1 {
 
 body.heap>header nav {
   position: relative;
-  overflow: hidden;
   margin: 0 0 1rem;
   font-size: .8rem;
 }
@@ -82,9 +81,15 @@ body.heap>header nav a:hover {
   text-decoration: none;
 }
 
+body.heap>header nav .fm {
+  margin: 0 0 0 -1rem;
+}
+
 body.heap>header nav .fm:before {
   content: "←";
   display: inline-block;
+  width: 1rem;
+  text-align: right;
   margin: 0 .25rem 0 0;
   text-decoration: none;
 }
@@ -147,22 +152,6 @@ body.heap .config .filter {
   position: relative;
 }
 
-body.heap .config .filter:before {
-  content: ".";
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  font-size: 0;
-  line-height: 0;
-  border-style: solid;
-  border-color: transparent transparent #fff;
-  border-width: 0 .35rem .35rem;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin: 0 0 0 -.35rem;
-}
-
 body.heap .config .filter span {
   font-size: .666rem;
   border-bottom: 1px dotted #666;
@@ -182,8 +171,29 @@ body.heap .config .filter.selected {
   margin: 0;
 }
 
+body.heap .config .filter.selected:before {
+  content: ".";
+  height: 0;
+  width: 0;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  border-style: solid;
+  border-color: #0ba5b7 transparent transparent;
+  border-width: .35rem .35rem 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin: 0 0 0 -.35rem;
+}
+
 body.heap .config .filter.selected:hover {
   background-color: #098492;
+}
+
+body.heap .config .filter.selected:hover:before {
+  border-color: #098492 transparent transparent;
 }
 
 body.heap .config .filter.selected:hover span {
@@ -201,6 +211,7 @@ body.heap article {
   width: 100%;
   position: relative;
   margin: 3rem 0;
+  padding: 0;
   font-size: .777rem;
   line-height: 1.257186rem;
   font-family: Helvetica,Arial,sans-serif;
@@ -243,9 +254,43 @@ body.heap article header time {
 }
 
 body.heap article header .likes {
-  white-space: nowrap;
-  margin: 0 1rem 0 0;
-  text-decoration: none;
+  position: relative;
+  float: left;
+  right: 0;
+  top: 0;
+  margin: .6rem .5rem 0 .6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  display: block;
+  color: #000;
+  font-size: .666rem;
+}
+
+body.heap article header .likes:hover {
+  color: #fff;
+}
+
+body.heap article header .likes:hover:before {
+  color: #c00;
+}
+
+body.heap article header .likes.liked {
+  color: #fff;
+}
+
+body.heap article header .likes.liked:hover {
+  color: #000;
+}
+
+body.heap article header .likes.liked:hover:before {
+  color: #e8e8e8;
+}
+
+body.heap article header .likes.liked:before {
+  content: "\e81e";
+  color: #c00;
 }
 
 body.heap article header .likes:before {
@@ -258,49 +303,28 @@ body.heap article header .likes:before {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  position: relative;
-  cursor: default;
-  margin-right: .2rem;
-  font-size: .68rem;
-  content: "\e802";
-  text-decoration: none;
-  color: #000;
-}
-
-body.heap article header .likes:hover {
-  color: #0ba5b7;
-}
-
-body.heap article header .likes:hover:before {
-  color: #0ba5b7;
-  content: '\e801';
-}
-
-body.heap article header .likes.disabled:before {
-  content: "\e802";
-}
-
-body.heap article header .likes.disabled:hover:before {
-  content: '\e801';
-}
-
-body.heap article header .likes.liked:before {
-  content: '\e801';
-}
-
-body.heap article header .likes.liked:hover {
-  color: #0ba5b7;
-}
-
-body.heap article header .likes.liked:hover:before {
-  color: #0ba5b7;
-  content: '\e802';
+  color: #e8e8e8;
+  font-size: 2rem;
+  content: "\e81e";
+  position: absolute;
+  top: .05rem;
+  left: 0;
+  z-index: -1;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 body.heap article header .author {
   display: inline-block;
   white-space: nowrap;
   margin: 0 1rem 0 0;
+}
+
+body.heap article .filter {
+  overflow: hidden;
 }
 
 body.heap article .filter a {
@@ -491,7 +515,7 @@ body.heap article .translations a:hover {
   text-decoration: none;
 }
 
-body.heap menu.paginator {
+body.heap .paginator {
   margin: 0 0 1rem;
   float: right;
   font-size: 1.8rem;
@@ -499,23 +523,23 @@ body.heap menu.paginator {
   height: 3rem;
 }
 
-body.heap menu.paginator .total,
-body.heap menu.paginator .separator {
+body.heap .paginator .total,
+body.heap .paginator .separator {
   font-weight: 100;
 }
 
-body.heap menu.paginator .current {
+body.heap .paginator .current {
   font-weight: 100;
   cursor: pointer;
   outline: none;
 }
 
-body.heap menu.paginator .current:focus,
-body.heap menu.paginator .current:hover {
+body.heap .paginator .current:focus,
+body.heap .paginator .current:hover {
   background-color: #f0f0f0;
 }
 
-body.heap menu.paginator .title {
+body.heap .paginator .title {
   display: inline;
   font-size: .777rem;
 }
@@ -674,8 +698,10 @@ body.heap>footer nav a.github:before {
 
 @media screen and (min-width: 58rem) {
   body.heap article header .likes {
+    margin: 0 .5rem 0 0;
     position: absolute;
     right: 100%;
+    float: none;
   }
 }
 
@@ -684,7 +710,15 @@ body.heap>footer nav a.github:before {
     font-size: 16px;
   }
 
+  body.heap .paginator {
+    float: none;
+    display: block;
+    text-align: center;
+    margin: 2rem 0 2rem;
+  }
+
   body.heap .more {
+    float: none;
     margin: 0 0 0 -2.10526rem;
     padding: 0 2.10526rem;
     height: 6rem;
@@ -716,6 +750,10 @@ body.heap>footer nav a.github:before {
     margin: 0 0 1rem;
   }
 
+  body.heap article {
+    padding-left: 0;
+  }
+
   body.heap article .translations {
     display: block !important;
   }
@@ -725,48 +763,8 @@ body.heap>footer nav a.github:before {
     text-align: left;
   }
 
-  body.heap article header .likes.disabled {
-    background-color: #ccc;
-    color: #fff;
-  }
-
-  body.heap article header .likes.disabled:hover {
-    background-color: #b8b8b8;
-    color: #fff;
-  }
-
-  body.heap article header .likes.disabled:hover:before {
-    color: #fff;
-  }
-
-  body.heap article header .likes.liked,
   body.heap article header .likes {
-    float: left;
     margin: 0 .5rem 0 0;
-    display: block;
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
-    background-color: #0ba5b7;
-    vertical-align: middle;
-    text-align: center;
-    color: #fff;
-  }
-
-  body.heap article header .likes.liked:before,
-  body.heap article header .likes:before {
-    color: #fff;
-  }
-
-  body.heap article header .likes.liked:hover,
-  body.heap article header .likes:hover {
-    background-color: #098492;
-    color: #fff;
-  }
-
-  body.heap article header .likes.liked:hover:before,
-  body.heap article header .likes:hover:before {
-    color: #fff;
   }
 
   body.heap article header .title,

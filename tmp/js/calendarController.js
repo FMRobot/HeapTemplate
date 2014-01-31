@@ -113,7 +113,7 @@ define(['moment'], function(moment) {
         element.parentNode.insertBefore(this.calendar, element.nextSibling);
         return this.calendar = element.nextSibling;
       } else {
-        return this.appendTo(element);
+        return this.appendTo(element.parentNode);
       }
     };
 

@@ -138,6 +138,10 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
       if @paginatorCurrent.innerHTML.length>10 and event.which in numbers
         event.preventDefault()
 
+    ###*
+    # Показать форму добавления новой статьи
+    # 
+    ###
     showAddArticleForm: (event)=>
       event.preventDefault()
       link = event.currentTarget
@@ -198,9 +202,15 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
     # 
     ###
     openCalendar: (event)=>
+
+      console.log 'открываем'
+
       form = event.currentTarget
       while form.tagName != 'FORM'
         form = form.parentNode
+
+      console.log form
+
       date = form.querySelector("[name='date']").value.trim()
       if date.length == 0
         date = null

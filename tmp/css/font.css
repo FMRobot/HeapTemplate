@@ -28,16 +28,16 @@
   content: '\e80a';
 }
 
+.icon-heart-empty-1:before {
+  content: '\e81f';
+}
+
+.icon-menu:before {
+  content: '\e81c';
+}
+
 .icon-cog:before {
   content: '\e800';
-}
-
-.icon-heart:before {
-  content: '\e801';
-}
-
-.icon-heart-empty:before {
-  content: '\e802';
 }
 
 .icon-star:before {
@@ -80,12 +80,12 @@
   content: '\e818';
 }
 
-.icon-menu:before {
-  content: '\e81c';
+.icon-down-open-mini:before {
+  content: '\e804';
 }
 
-.icon-up-open-mini:before {
-  content: '\e808';
+.icon-heart-1:before {
+  content: '\e81e';
 }
 
 .icon-left-open-big:before {
@@ -128,6 +128,14 @@
   content: '\e81b';
 }
 
+.icon-heart:before {
+  content: '\e801';
+}
+
+.icon-heart-empty:before {
+  content: '\e802';
+}
+
 .icon-star-circled:before {
   content: '\e81d';
 }
@@ -140,6 +148,6 @@
   content: '\e821';
 }
 
-.icon-down-open-mini:before {
-  content: '\e804';
+.icon-up-open-mini:before {
+  content: '\e808';
 }

@@ -90,6 +90,60 @@
   }
 }
 
+@-webkit-keyframes hart-broken {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes hart-broken {
+  0% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hart-broken {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 body.heap {
   position: relative;
 }
@@ -409,6 +463,8 @@ body.heap article header .likes.liked {
 }
 
 body.heap article header .likes.liked:hover {
+  -webkit-animation: hart-broken .4s 1 linear;
+  animation: hart-broken .4s 1 linear;
   color: #000;
 }
 
@@ -845,7 +901,7 @@ body.heap>footer nav a.github:before {
   }
 }
 
-@media screen and (max-width: 42rem) {
+@media screen and (max-width: 45rem) {
   html:root {
     font-size: 16px;
   }

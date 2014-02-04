@@ -119,6 +119,7 @@ body.heap
 
   // Блок статьи
   article
+    transform translateZ(0)
     box-sizing border-box
     width 100%
     position relative
@@ -133,6 +134,19 @@ body.heap
     
     &:first-child
       margin-top 0
+      
+    &.translated
+      header
+        .likes,
+        .likes:hover
+          color #000
+          animation none
+          cursor default
+          &:before
+            font-weight 200
+            color #000
+            content "\e81f"
+            pointer-events none
         
     // Шапка
     header
@@ -157,11 +171,47 @@ body.heap
         white-space nowrap
         margin 0 1rem 0 0
         display inline-block
-        
+       
+      // Пожертвования
+      .donate
+        position relative
+        float left
+        z-index 2
+        right 0
+        top 0
+        margin .6rem .5rem 0 .6rem
+        width 2.4rem
+        height 2.4rem
+        line-height 2.4rem
+        text-align center
+        display block
+        color #000 
+        font-size 0.666rem
+        transition transform .25s
+        &:hover
+          transform scale(1.2) rotate(-30deg)
+          &:before
+            color #c00 
+        &:before
+          icon()
+          color #000
+          font-size 1.2rem
+          content "\e823"
+          position absolute
+          top .05rem
+          left 0
+          z-index -1
+          width 2.4rem
+          height 2.4rem
+          display block
+          text-align center
+          vertical-align middle
+
       // Лайки
       .likes        
         position relative
         float left
+        z-index 1
         right 0
         top 0
 
@@ -173,10 +223,12 @@ body.heap
         display block
         color #000 
         font-size 0.666rem
+        
         &:hover
+          animation hart .4s 1 linear
           color #fff
           &:before
-            color #c00
+            color #d00
         &.liked
           color #fff
           &:hover
@@ -185,7 +237,7 @@ body.heap
               color #e8e8e8   
           &:before
             content "\e81e"
-            color #c00
+            color #d00
         &:before
           icon()
           color #e8e8e8
@@ -249,9 +301,10 @@ body.heap
     // Меню доступное членам редакции
     &:hover
       .editor-menu
-        visibility visible
+        opacity 1
     .editor-menu
-      visibility hidden
+      opacity 0
+      transition opacity .25s
       position absolute
       left 0
       right 0
@@ -332,6 +385,9 @@ body.heap
         text-align left
         padding 0 1rem 0 0 
         font-style italic
+      .domain
+        padding 0 1rem 0 0
+        font-size 0.666rem
       a
         text-decoration underline
         font-family Georgia, Palatino, Times, 'Times New Roman', serif
@@ -475,6 +531,9 @@ body.heap
   body.heap
     article
       header
+        .donate
+          top 2.4rem 
+        .donate,
         .likes
           margin 0 .5rem 0 0
           position absolute
@@ -521,6 +580,7 @@ body.heap
           width auto
           text-align left
       header
+        .donate,
         .likes
           margin 0 .5rem 0 0
         .title

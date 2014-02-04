@@ -16,7 +16,7 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
     constructor: ->
       if "content" not in document.createElement "template"
         for template in document.querySelectorAll "template"
-          template.content = template.childNodes[0]  
+          template.content = template.childNodes[0]
 
       @lang = 'ru'  
 

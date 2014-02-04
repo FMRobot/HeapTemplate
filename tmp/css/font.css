@@ -40,6 +40,10 @@
   content: '\e800';
 }
 
+.icon-credit-card:before {
+  content: '\e820';
+}
+
 .icon-star:before {
   content: '\e811';
 }
@@ -84,12 +88,12 @@
   content: '\e804';
 }
 
-.icon-heart-1:before {
-  content: '\e81e';
+.icon-up-open-mini:before {
+  content: '\e808';
 }
 
-.icon-left-open-big:before {
-  content: '\e819';
+.icon-heart-1:before {
+  content: '\e81e';
 }
 
 .icon-right-open-big:before {
@@ -102,6 +106,10 @@
 
 .icon-language:before {
   content: '\e80d';
+}
+
+.icon-credit-card-1:before {
+  content: '\e822';
 }
 
 .icon-github:before {
@@ -128,6 +136,10 @@
   content: '\e81b';
 }
 
+.icon-credit-card-2:before {
+  content: '\e823';
+}
+
 .icon-heart:before {
   content: '\e801';
 }
@@ -148,6 +160,6 @@
   content: '\e821';
 }
 
-.icon-up-open-mini:before {
-  content: '\e808';
+.icon-left-open-big:before {
+  content: '\e819';
 }

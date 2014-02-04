@@ -36,6 +36,60 @@
   }
 }
 
+@-webkit-keyframes hart {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes hart {
+  0% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hart {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 body.heap {
   position: relative;
 }
@@ -206,6 +260,9 @@ body.heap .config .filter.selected span {
 }
 
 body.heap article {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -223,6 +280,22 @@ body.heap article a {
 
 body.heap article:first-child {
   margin-top: 0;
+}
+
+body.heap article.translated header .likes,
+body.heap article.translated header .likes:hover {
+  color: #000;
+  -webkit-animation: none;
+  animation: none;
+  cursor: default;
+}
+
+body.heap article.translated header .likes:before,
+body.heap article.translated header .likes:hover:before {
+  font-weight: 200;
+  color: #000;
+  content: "\e81f";
+  pointer-events: none;
 }
 
 body.heap article header {
@@ -253,9 +326,62 @@ body.heap article header time {
   display: inline-block;
 }
 
+body.heap article header .donate {
+  position: relative;
+  float: left;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  margin: .6rem .5rem 0 .6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  display: block;
+  color: #000;
+  font-size: .666rem;
+  -webkit-transition: -webkit-transform .25s;
+  transition: transform .25s;
+}
+
+body.heap article header .donate:hover {
+  -webkit-transform: scale(1.2) rotate(-30deg);
+  -ms-transform: scale(1.2) rotate(-30deg);
+  transform: scale(1.2) rotate(-30deg);
+}
+
+body.heap article header .donate:hover:before {
+  color: #c00;
+}
+
+body.heap article header .donate:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  color: #000;
+  font-size: 1.2rem;
+  content: "\e823";
+  position: absolute;
+  top: .05rem;
+  left: 0;
+  z-index: -1;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+}
+
 body.heap article header .likes {
   position: relative;
   float: left;
+  z-index: 1;
   right: 0;
   top: 0;
   margin: .6rem .5rem 0 .6rem;
@@ -269,11 +395,13 @@ body.heap article header .likes {
 }
 
 body.heap article header .likes:hover {
+  -webkit-animation: hart .4s 1 linear;
+  animation: hart .4s 1 linear;
   color: #fff;
 }
 
 body.heap article header .likes:hover:before {
-  color: #c00;
+  color: #d00;
 }
 
 body.heap article header .likes.liked {
@@ -290,7 +418,7 @@ body.heap article header .likes.liked:hover:before {
 
 body.heap article header .likes.liked:before {
   content: "\e81e";
-  color: #c00;
+  color: #d00;
 }
 
 body.heap article header .likes:before {
@@ -375,11 +503,13 @@ body.heap article .user-menu a.hide-list {
 }
 
 body.heap article:hover .editor-menu {
-  visibility: visible;
+  opacity: 1;
 }
 
 body.heap article .editor-menu {
-  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .25s;
+  transition: opacity .25s;
   position: absolute;
   left: 0;
   right: 0;
@@ -503,6 +633,11 @@ body.heap article .translations th {
   text-align: left;
   padding: 0 1rem 0 0;
   font-style: italic;
+}
+
+body.heap article .translations .domain {
+  padding: 0 1rem 0 0;
+  font-size: .666rem;
 }
 
 body.heap article .translations a {
@@ -697,6 +832,11 @@ body.heap>footer nav a.github:before {
 }
 
 @media screen and (min-width: 58rem) {
+  body.heap article header .donate {
+    top: 2.4rem;
+  }
+
+  body.heap article header .donate,
   body.heap article header .likes {
     margin: 0 .5rem 0 0;
     position: absolute;
@@ -763,6 +903,7 @@ body.heap>footer nav a.github:before {
     text-align: left;
   }
 
+  body.heap article header .donate,
   body.heap article header .likes {
     margin: 0 .5rem 0 0;
   }

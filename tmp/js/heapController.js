@@ -1,7 +1,7 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-define(['calendarController', 'MutationObserver-polyfil'], function(calendarController) {
+define(['calendarController', 'pageController'], function(calendarController, pageController) {
   /**
   # Класс обеспечивает работу Кучи
   # 
@@ -17,8 +17,6 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
     */
 
     function heapController() {
-      this.hideTranslationsList = __bind(this.hideTranslationsList, this);
-      this.showTranslationsList = __bind(this.showTranslationsList, this);
       this.addTranslation = __bind(this.addTranslation, this);
       this.hideTranslationForm = __bind(this.hideTranslationForm, this);
       this.changeTranslationURL = __bind(this.changeTranslationURL, this);
@@ -39,10 +37,9 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
       this.clearFilter = __bind(this.clearFilter, this);
       this.filterBy = __bind(this.filterBy, this);
       this.showAddArticleForm = __bind(this.showAddArticleForm, this);
-      this.blockKeys = __bind(this.blockKeys, this);
-      this.setPage = __bind(this.setPage, this);
-      this.savePageValue = __bind(this.savePageValue, this);
-      var addButton, button, editButton, element, elements, hideButton, likeDisabledButton, removeButton, showButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _o, _p, _q, _ref;
+      this.loadNextPage = __bind(this.loadNextPage, this);
+      this.loadPage = __bind(this.loadPage, this);
+      var addButton, button, editButton, element, elements, likeDisabledButton, removeButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -51,19 +48,11 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
         }
       }
       this.lang = 'ru';
-      showButton = document.querySelectorAll(".show-list");
-      hideButton = document.querySelectorAll(".hide-list");
       likeDisabledButton = document.querySelectorAll(".likes.disabled");
       addButton = document.querySelectorAll(".add");
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
       translateButton = document.querySelectorAll(".translate");
-      this.paginator = document.querySelector(".paginator");
-      this.paginatorCurrent = this.paginator.querySelector(".current");
-      this.paginatorCurrent.addEventListener("keydown", this.blockKeys);
-      this.paginatorCurrent.addEventListener("focus", this.savePageValue);
-      this.paginatorCurrent.addEventListener("blur", this.setPage);
-      this.paginatorTotal = parseInt(this.paginator.querySelector(".total").innerHTML, 10);
       this.addArticleForm = document.querySelector(".add-article-form");
       this.addArticleFormInput = this.addArticleForm.querySelector("input");
       this.addArticleButton = document.getElementById("add-article-button");
@@ -73,6 +62,8 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
       this.confirmArticleRemoveTemplate = document.querySelector('#confirm-article-remove');
       this.loginPopupTemplate = document.querySelector('#login-popup');
       this.editArticleTemplate = document.querySelector('#edit-article-form');
+      this.moreButton = document.querySelector(".more");
+      this.moreButton.addEventListener("click", this.loadNextPage);
       this.articleList = document.querySelector('.article-list');
       for (_j = 0, _len1 = translateButton.length; _j < _len1; _j++) {
         button = translateButton[_j];
@@ -82,24 +73,16 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
         button = editButton[_k];
         button.addEventListener("click", this.showEditArticleForm);
       }
-      for (_l = 0, _len3 = showButton.length; _l < _len3; _l++) {
-        button = showButton[_l];
-        button.addEventListener("click", this.showTranslationsList);
-      }
-      for (_m = 0, _len4 = hideButton.length; _m < _len4; _m++) {
-        button = hideButton[_m];
-        button.addEventListener("click", this.hideTranslationsList);
-      }
-      for (_n = 0, _len5 = addButton.length; _n < _len5; _n++) {
-        button = addButton[_n];
+      for (_l = 0, _len3 = addButton.length; _l < _len3; _l++) {
+        button = addButton[_l];
         button.addEventListener("click", this.showTranslationForm);
       }
-      for (_o = 0, _len6 = removeButton.length; _o < _len6; _o++) {
-        button = removeButton[_o];
+      for (_m = 0, _len4 = removeButton.length; _m < _len4; _m++) {
+        button = removeButton[_m];
         button.addEventListener("click", this.showRemoveConfirmation);
       }
-      for (_p = 0, _len7 = likeDisabledButton.length; _p < _len7; _p++) {
-        button = likeDisabledButton[_p];
+      for (_n = 0, _len5 = likeDisabledButton.length; _n < _len5; _n++) {
+        button = likeDisabledButton[_n];
         button.addEventListener("click", this.showLoginPopup);
       }
       this.addArticleFormInput.addEventListener("keyup", this.changeTranslationURL);
@@ -110,77 +93,40 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
       this.filterList.querySelector('.close').addEventListener("click", this.toggleFilter);
       this.filterList.querySelector('.clear').addEventListener("click", this.clearFilter);
       elements = this.filterList.querySelectorAll('a');
-      for (_q = 0, _len8 = elements.length; _q < _len8; _q++) {
-        element = elements[_q];
+      for (_o = 0, _len6 = elements.length; _o < _len6; _o++) {
+        element = elements[_o];
         element.addEventListener("click", this.filterBy);
       }
+      this.paginator = new pageController();
+      this.paginator.registerCallback(this.loadPage);
     }
 
-    heapController.prototype.savePageValue = function(event) {
-      return this.paginatorCurrent.setAttribute("data-pages", this.paginatorCurrent.innerHTML);
+    /**
+    # Загрузка страниц
+    #
+    */
+
+
+    heapController.prototype.loadPage = function() {
+      var _this = this;
+      return window.setTimeout(function() {
+        return _this.moreButton.classList.remove('loading');
+      }, 2500);
     };
 
-    heapController.prototype.setPage = function(event) {
-      var value;
-      value = this.paginatorCurrent.innerHTML;
-      value = value.replace(/[‒–—―]/ig, '-');
-      value = value.replace(/[^\d\-]/ig, '');
-      value = value.split('-');
-      if (value.length > 1) {
-        value[0] = parseInt(value[0], 10);
-        value[1] = parseInt(value[1], 10);
-        if (isNaN(value[0]) || value[0] < 1) {
-          value[0] = 1;
-        }
-        if (isNaN(value[1]) || value[1] > this.paginatorTotal) {
-          value[1] = this.paginatorTotal;
-        }
-        if (value[0] > value[1]) {
-          value[1] += value[0];
-          value[0] = value[1] - value[0];
-          value[1] = value[1] - value[0];
-          if (value[0] < 1) {
-            value[0] = 1;
-          }
-          if (value[1] > this.paginatorTotal) {
-            value[1] = this.paginatorTotal;
-          }
-        }
-        if (value[0] === value[1]) {
-          return this.paginatorCurrent.innerHTML = value[0];
-        } else {
-          return this.paginatorCurrent.innerHTML = value[0] + "&#8202;–&#8202;" + value[1];
-        }
-      } else {
-        value = parseInt(value[0], 10);
-        if (isNaN(value) || value < 1 || value > this.paginatorTotal) {
-          value = 1;
-        }
-        return this.paginatorCurrent.innerHTML = value;
-      }
-    };
+    /**
+    # Загрузить следующую страничку
+    #
+    */
 
-    heapController.prototype.blockKeys = function(event) {
-      var controls, numbers, _ref, _ref1, _ref2;
-      numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-      controls = [189, 32, 8, 9, 45, 46, 39, 37, 27, 17, 18, 16, 13, 91];
-      if ((_ref = event.which, __indexOf.call(controls, _ref) < 0) && (_ref1 = event.which, __indexOf.call(numbers, _ref1) < 0)) {
-        event.preventDefault();
+
+    heapController.prototype.loadNextPage = function(event) {
+      event.preventDefault();
+      if (this.moreButton.classList.contains('loading')) {
+        return;
       }
-      switch (event.which) {
-        case 13:
-          event.preventDefault();
-          this.setPage();
-          this.paginatorCurrent.blur();
-          break;
-        case 27:
-          event.preventDefault();
-          this.paginatorCurrent.innerHTML = this.paginatorCurrent.getAttribute("data-pages");
-          this.paginatorCurrent.blur();
-      }
-      if (this.paginatorCurrent.innerHTML.length > 10 && (_ref2 = event.which, __indexOf.call(numbers, _ref2) >= 0)) {
-        return event.preventDefault();
-      }
+      this.moreButton.classList.add('loading');
+      return this.paginator.addPage();
     };
 
     /**
@@ -273,12 +219,10 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
     heapController.prototype.openCalendar = function(event) {
       var calendar, date, form,
         _this = this;
-      console.log('открываем');
       form = event.currentTarget;
       while (form.tagName !== 'FORM') {
         form = form.parentNode;
       }
-      console.log(form);
       date = form.querySelector("[name='date']").value.trim();
       if (date.length === 0) {
         date = null;
@@ -579,40 +523,6 @@ define(['calendarController', 'MutationObserver-polyfil'], function(calendarCont
 
     heapController.prototype.addTranslation = function(event) {
       return event.preventDefault();
-    };
-
-    /**
-    # Показать список переводов
-    #
-    */
-
-
-    heapController.prototype.showTranslationsList = function(event) {
-      var article, button, list;
-      event.preventDefault();
-      button = event.currentTarget;
-      article = button.parentNode.parentNode;
-      list = article.querySelector(".translations");
-      list.style.display = "block";
-      article.querySelector(".hide-list").style.display = "inline";
-      return button.style.display = "none";
-    };
-
-    /**
-    # Скрыть список переводов
-    #
-    */
-
-
-    heapController.prototype.hideTranslationsList = function(event) {
-      var article, button, list;
-      event.preventDefault();
-      button = event.currentTarget;
-      article = button.parentNode.parentNode;
-      list = article.querySelector(".translations");
-      list.style.display = "none";
-      button.style.display = "none";
-      return article.querySelector(".show-list").style.display = "inline";
     };
 
     return heapController;

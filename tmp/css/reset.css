@@ -124,7 +124,12 @@ table {
 }
 
 a {
+  outline: none;
   color: #000;
+}
+
+a:focus {
+  color: #0ba5b7;
 }
 
 a:hover {

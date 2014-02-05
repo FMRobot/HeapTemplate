@@ -1,4 +1,4 @@
-define ['calendarController','MutationObserver-polyfil'], (calendarController) ->
+define ['calendarController','pageController'], (calendarController, pageController) ->
 
   ###*
   # Класс обеспечивает работу Кучи
@@ -20,20 +20,11 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
 
       @lang = 'ru'  
 
-      showButton = document.querySelectorAll ".show-list"
-      hideButton = document.querySelectorAll ".hide-list"
       likeDisabledButton = document.querySelectorAll ".likes.disabled"
       addButton = document.querySelectorAll ".add"
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
       translateButton = document.querySelectorAll ".translate"
-
-      @paginator = document.querySelector ".paginator"
-      @paginatorCurrent = @paginator.querySelector ".current"
-      @paginatorCurrent.addEventListener "keydown", @blockKeys
-      @paginatorCurrent.addEventListener "focus", @savePageValue
-      @paginatorCurrent.addEventListener "blur", @setPage
-      @paginatorTotal = parseInt(@paginator.querySelector(".total").innerHTML,10)
 
       @addArticleForm = document.querySelector ".add-article-form"
       @addArticleFormInput = @addArticleForm.querySelector "input"
@@ -46,6 +37,9 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
       @loginPopupTemplate = document.querySelector '#login-popup'
       @editArticleTemplate = document.querySelector '#edit-article-form'
 
+      @moreButton = document.querySelector ".more"
+      @moreButton.addEventListener "click", @loadNextPage
+
       @articleList = document.querySelector '.article-list'
 
       for button in translateButton
@@ -53,12 +47,6 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
 
       for button in editButton
         button.addEventListener "click", @showEditArticleForm
-
-      for button in showButton
-        button.addEventListener "click", @showTranslationsList
-
-      for button in hideButton
-        button.addEventListener "click", @hideTranslationsList
 
       for button in addButton
         button.addEventListener "click", @showTranslationForm
@@ -82,61 +70,31 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
       for element in elements
         element.addEventListener "click", @filterBy
 
-    savePageValue: (event)=>
-      @paginatorCurrent.setAttribute "data-pages", @paginatorCurrent.innerHTML
+      @paginator = new pageController()
+      @paginator.registerCallback @loadPage
 
-    setPage: (event)=>
-      value = @paginatorCurrent.innerHTML
-      value = value.replace /[‒–—―]/ig, '-'
-      value = value.replace /[^\d\-]/ig, ''
-      value = value.split '-'
+    ###*
+    # Загрузка страниц
+    # 
+    ###
+    loadPage: =>
+      # Вообще то тут должен быть аякс запрос, который получит нужный диапазон страниц
+      window.setTimeout(=>
+        @moreButton.classList.remove 'loading'
+      ,
+      2500)
 
-      if value.length>1
-        value[0] = parseInt value[0], 10
-        value[1] = parseInt value[1], 10
-        if isNaN(value[0]) || value[0]<1
-          value[0] = 1
-        if isNaN(value[1]) || value[1]>@paginatorTotal
-          value[1] = @paginatorTotal
-        if value[0]>value[1]
-          value[1]+= value[0]
-          value[0] = value[1] - value[0]
-          value[1] = value[1] - value[0]
-          if value[0]<1
-            value[0] = 1
-          if value[1]>@paginatorTotal
-            value[1] = @paginatorTotal
-        if value[0] == value[1]
-          @paginatorCurrent.innerHTML = value[0]
-        else
-          @paginatorCurrent.innerHTML = value[0]+"&#8202;–&#8202;"+value[1]
-      else
-        value = parseInt(value[0],10)
-        if isNaN(value) || value<1 || value>@paginatorTotal
-          value = 1
-        @paginatorCurrent.innerHTML = value
 
-    blockKeys: (event)=>
-      numbers = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
-      controls = [189, 32, 8, 9, 45, 46, 39, 37, 27, 17, 18, 16, 13, 91]
-      
-      if event.which not in controls and event.which not in numbers
-        event.preventDefault()
-
-      switch event.which
-        when 13 
-          # Ввод страницы закончен
-          event.preventDefault()
-          @setPage()
-          @paginatorCurrent.blur()
-        when 27
-          # Отменить действие
-          event.preventDefault()
-          @paginatorCurrent.innerHTML = @paginatorCurrent.getAttribute "data-pages"
-          @paginatorCurrent.blur()
-
-      if @paginatorCurrent.innerHTML.length>10 and event.which in numbers
-        event.preventDefault()
+    ###*
+    # Загрузить следующую страничку
+    # 
+    ###
+    loadNextPage: (event)=>
+      event.preventDefault()
+      if @moreButton.classList.contains 'loading'
+        return
+      @moreButton.classList.add 'loading'
+      @paginator.addPage()
 
     ###*
     # Показать форму добавления новой статьи
@@ -203,13 +161,9 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
     ###
     openCalendar: (event)=>
 
-      console.log 'открываем'
-
       form = event.currentTarget
       while form.tagName != 'FORM'
         form = form.parentNode
-
-      console.log form
 
       date = form.querySelector("[name='date']").value.trim()
       if date.length == 0
@@ -456,32 +410,5 @@ define ['calendarController','MutationObserver-polyfil'], (calendarController) -
     ###
     addTranslation: (event)=>
       event.preventDefault()
-
-
-    ###*
-    # Показать список переводов
-    # 
-    ###
-    showTranslationsList: (event)=>
-      event.preventDefault()
-      button = event.currentTarget
-      article = button.parentNode.parentNode
-      list = article.querySelector ".translations"
-      list.style.display = "block"
-      article.querySelector(".hide-list").style.display = "inline"
-      button.style.display = "none"
-
-    ###*
-    # Скрыть список переводов
-    # 
-    ###
-    hideTranslationsList: (event)=>
-      event.preventDefault()
-      button = event.currentTarget
-      article = button.parentNode.parentNode
-      list = article.querySelector ".translations"
-      list.style.display = "none"
-      button.style.display = "none"
-      article.querySelector(".show-list").style.display = "inline"
 
   return heapController

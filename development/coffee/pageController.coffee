@@ -61,8 +61,7 @@ define ['MutationObserver-polyfil'], ->
       else
         @paginatorCurrent.innerHTML = value[0]+@hspace+@en_dash+@hspace+(value[1]+1)
 
-      if @callbackFunction != null
-        @callbackFunction.call @
+      @setPage()
 
     ###*
     # Показать странички с по
@@ -75,9 +74,7 @@ define ['MutationObserver-polyfil'], ->
       if not isNaN(from) or not isNaN(to)
         return
       @paginatorCurrent.innerHTML = from+@hspace+@en_dash+@hspace+to
-
-      if @callbackFunction != null
-        @callbackFunction.call @
+      @setPage()
 
     ###*
     # Получить текущие странички

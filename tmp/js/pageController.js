@@ -76,9 +76,7 @@ define(['MutationObserver-polyfil'], function() {
       } else {
         this.paginatorCurrent.innerHTML = value[0] + this.hspace + this.en_dash + this.hspace + (value[1] + 1);
       }
-      if (this.callbackFunction !== null) {
-        return this.callbackFunction.call(this);
-      }
+      return this.setPage();
     };
 
     /**
@@ -94,9 +92,7 @@ define(['MutationObserver-polyfil'], function() {
         return;
       }
       this.paginatorCurrent.innerHTML = from + this.hspace + this.en_dash + this.hspace + to;
-      if (this.callbackFunction !== null) {
-        return this.callbackFunction.call(this);
-      }
+      return this.setPage();
     };
 
     /**

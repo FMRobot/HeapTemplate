@@ -97,8 +97,8 @@ define(['calendarController', 'pageController'], function(calendarController, pa
         element = elements[_o];
         element.addEventListener("click", this.filterBy);
       }
-      this.paginator = new pageController();
-      this.paginator.registerCallback(this.loadPage);
+      this.page = new pageController();
+      this.page.registerCallback(this.loadPage);
     }
 
     /**
@@ -111,7 +111,7 @@ define(['calendarController', 'pageController'], function(calendarController, pa
       var _this = this;
       return window.setTimeout(function() {
         return _this.moreButton.classList.remove('loading');
-      }, 2500);
+      }, 1500);
     };
 
     /**
@@ -126,7 +126,7 @@ define(['calendarController', 'pageController'], function(calendarController, pa
         return;
       }
       this.moreButton.classList.add('loading');
-      return this.paginator.addPage();
+      return this.page.addPage();
     };
 
     /**

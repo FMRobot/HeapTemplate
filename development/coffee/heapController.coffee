@@ -70,8 +70,8 @@ define ['calendarController','pageController'], (calendarController, pageControl
       for element in elements
         element.addEventListener "click", @filterBy
 
-      @paginator = new pageController()
-      @paginator.registerCallback @loadPage
+      @page = new pageController()
+      @page.registerCallback @loadPage
 
     ###*
     # Загрузка страниц
@@ -82,7 +82,7 @@ define ['calendarController','pageController'], (calendarController, pageControl
       window.setTimeout(=>
         @moreButton.classList.remove 'loading'
       ,
-      2500)
+      1500)
 
 
     ###*
@@ -94,7 +94,7 @@ define ['calendarController','pageController'], (calendarController, pageControl
       if @moreButton.classList.contains 'loading'
         return
       @moreButton.classList.add 'loading'
-      @paginator.addPage()
+      @page.addPage()
 
     ###*
     # Показать форму добавления новой статьи

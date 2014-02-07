@@ -40,7 +40,8 @@ define(['calendarController', 'pageController', 'donateController'], function(ca
       this.loadNextPage = __bind(this.loadNextPage, this);
       this.loadPage = __bind(this.loadPage, this);
       this.showDonateForm = __bind(this.showDonateForm, this);
-      var addButton, button, donateButton, editButton, element, elements, likeDisabledButton, removeButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref;
+      this.likeArticle = __bind(this.likeArticle, this);
+      var addButton, button, donateButton, editButton, element, elements, likeDisabledButton, likeEnabledButton, removeButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _o, _p, _q, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -50,6 +51,7 @@ define(['calendarController', 'pageController', 'donateController'], function(ca
       }
       this.lang = 'ru';
       likeDisabledButton = document.querySelectorAll(".likes.disabled");
+      likeEnabledButton = document.querySelectorAll("a.likes:not(.disabled)");
       addButton = document.querySelectorAll(".add");
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
@@ -87,8 +89,12 @@ define(['calendarController', 'pageController', 'donateController'], function(ca
         button = removeButton[_n];
         button.addEventListener("click", this.showRemoveConfirmation);
       }
-      for (_o = 0, _len6 = likeDisabledButton.length; _o < _len6; _o++) {
-        button = likeDisabledButton[_o];
+      for (_o = 0, _len6 = likeEnabledButton.length; _o < _len6; _o++) {
+        button = likeEnabledButton[_o];
+        button.addEventListener("click", this.likeArticle);
+      }
+      for (_p = 0, _len7 = likeDisabledButton.length; _p < _len7; _p++) {
+        button = likeDisabledButton[_p];
         button.addEventListener("click", this.showLoginPopup);
       }
       this.addArticleFormInput.addEventListener("keyup", this.changeTranslationURL);
@@ -99,13 +105,33 @@ define(['calendarController', 'pageController', 'donateController'], function(ca
       this.filterList.querySelector('.close').addEventListener("click", this.toggleFilter);
       this.filterList.querySelector('.clear').addEventListener("click", this.clearFilter);
       elements = this.filterList.querySelectorAll('a');
-      for (_p = 0, _len7 = elements.length; _p < _len7; _p++) {
-        element = elements[_p];
+      for (_q = 0, _len8 = elements.length; _q < _len8; _q++) {
+        element = elements[_q];
         element.addEventListener("click", this.filterBy);
       }
       this.page = new pageController();
       this.page.registerCallback(this.loadPage);
     }
+
+    /**
+    # лайкаем
+    #
+    */
+
+
+    heapController.prototype.likeArticle = function(event) {
+      var link, num;
+      event.preventDefault();
+      link = event.currentTarget;
+      num = parseInt(link.innerHTML, 10);
+      if (link.classList.contains("liked")) {
+        num--;
+      } else {
+        num++;
+      }
+      link.innerHTML = num;
+      return link.classList.toggle("liked");
+    };
 
     /**
     # Показать форму пожертвований

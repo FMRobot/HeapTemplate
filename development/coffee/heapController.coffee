@@ -21,6 +21,7 @@ define ['calendarController','pageController', 'donateController'], (calendarCon
       @lang = 'ru'  
 
       likeDisabledButton = document.querySelectorAll ".likes.disabled"
+      likeEnabledButton = document.querySelectorAll "a.likes:not(.disabled)"
       addButton = document.querySelectorAll ".add"
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
@@ -58,6 +59,9 @@ define ['calendarController','pageController', 'donateController'], (calendarCon
       for button in removeButton
         button.addEventListener "click", @showRemoveConfirmation
 
+      for button in likeEnabledButton
+        button.addEventListener "click", @likeArticle
+
       for button in likeDisabledButton
         button.addEventListener "click", @showLoginPopup
 
@@ -75,6 +79,21 @@ define ['calendarController','pageController', 'donateController'], (calendarCon
 
       @page = new pageController()
       @page.registerCallback @loadPage
+
+    ###*
+    # лайкаем
+    # 
+    ###
+    likeArticle: (event)=>
+      event.preventDefault()
+      link = event.currentTarget
+      num = parseInt link.innerHTML, 10
+      if link.classList.contains "liked"
+        num--
+      else
+        num++
+      link.innerHTML = num
+      link.classList.toggle "liked"
 
     ###*
     # Показать форму пожертвований

@@ -93,10 +93,13 @@ define ['calendarController','pageController', 'donateController'], (calendarCon
     ###
     loadPage: =>
       # Вообще то тут должен быть аякс запрос, который получит нужный диапазон страниц
-      window.setTimeout(=>
-        @moreButton.classList.remove 'loading'
-      ,
-      1500)
+      if @page.getLastPage() == @page.getPagesTotal()
+        @moreButton.parentNode.removeChild @moreButton
+      else
+        window.setTimeout(=>
+          @moreButton.classList.remove 'loading'
+        ,
+        1500)
 
 
     ###*

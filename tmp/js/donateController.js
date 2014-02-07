@@ -27,6 +27,7 @@ define(['MutationObserver-polyfil'], function() {
       this.insertBefore = __bind(this.insertBefore, this);
       this.insertAfter = __bind(this.insertAfter, this);
       this.appendTo = __bind(this.appendTo, this);
+      this.demo = __bind(this.demo, this);
       this.toggleSource = __bind(this.toggleSource, this);
       this.closeForm = __bind(this.closeForm, this);
       this.enter = 13;
@@ -73,10 +74,29 @@ define(['MutationObserver-polyfil'], function() {
     */
 
 
-    donateController.prototype.toggleSource = function(event) {
+    donateController.prototype.toggleSource = function() {
       this.donateSource.classList.toggle("wallet");
       this.wallet = !this.wallet;
       return this.card = !this.card;
+    };
+
+    /**
+    # Демонстрируем работу триггера, если пользователь открыл форму первый раз
+    #
+    */
+
+
+    donateController.prototype.demo = function() {
+      var _this = this;
+      if (window.localStorage.getItem('first_time') === null) {
+        window.setTimeout(function() {
+          return _this.toggleSource();
+        }, 300);
+        window.setTimeout(function() {
+          return _this.toggleSource();
+        }, 1100);
+        return window.localStorage.setItem('first_time', false);
+      }
     };
 
     /**
@@ -87,7 +107,8 @@ define(['MutationObserver-polyfil'], function() {
 
     donateController.prototype.appendTo = function(element) {
       element.appendChild(this.donate);
-      return this.donate = element.lastChild;
+      this.donate = element.lastChild;
+      return this.demo();
     };
 
     /**

@@ -92,6 +92,24 @@ define ['MutationObserver-polyfil'], ->
       return @getFromText @paginatorCurrent.innerHTML
 
     ###*
+    # Получить последнюю страницу
+    # 
+    ###
+    getLastPage: =>
+      value = @getFromText @paginatorCurrent.innerHTML
+      if typeof value != "number"
+        value = value[1]
+      return value
+
+
+    ###*
+    # Получить количество страниц
+    # 
+    ###
+    getPagesTotal: =>
+      return @paginatorTotal
+
+    ###*
     # Зарегистрировать коллбек
     # 
     ###

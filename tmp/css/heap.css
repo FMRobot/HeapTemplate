@@ -36,48 +36,6 @@
   }
 }
 
-@-webkit-keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-@-ms-keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-@keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
 @-webkit-keyframes hart {
   0% {
     -webkit-transform: scale(1);
@@ -454,8 +412,8 @@ body.heap article header .donate:before {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  color: #333;
-  font-size: 2rem;
+  color: #000;
+  font-size: 1.6rem;
   content: "\e802";
   position: absolute;
   top: .05rem;
@@ -482,6 +440,9 @@ body.heap article header .likes {
   display: block;
   color: #000;
   font-size: .666rem;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 body.heap article header .likes:hover {
@@ -602,6 +563,9 @@ body.heap article .editor-menu {
   opacity: 0;
   -webkit-transition: opacity .25s;
   transition: opacity .25s;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
   position: absolute;
   left: 0;
   right: 0;
@@ -780,9 +744,7 @@ body.heap .paginator .title {
 }
 
 body.heap .more {
-  clear: left;
   float: left;
-  display: inline-block;
   position: relative;
   background-color: #0ba5b7;
   color: #fff;
@@ -801,25 +763,25 @@ body.heap .more.loading:hover,
 body.heap .more.loading {
   color: #eafcfe;
   cursor: default;
+  text-align: center;
   background-color: #eafcfe;
 }
 
-body.heap .more.loading:hover span,
-body.heap .more.loading span {
-  -webkit-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: auto;
-  width: 2rem;
-  height: 2rem;
+body.heap .more.loading:hover .title,
+body.heap .more.loading .title {
+  display: none;
 }
 
-body.heap .more.loading:hover span:after,
-body.heap .more.loading span:after {
+body.heap .more.loading:hover .sign,
+body.heap .more.loading .sign {
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+}
+
+body.heap .more.loading:hover .sign:after,
+body.heap .more.loading .sign:after {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -830,15 +792,12 @@ body.heap .more.loading span:after {
   font-variant: normal;
   text-transform: none;
   content: '\e81a';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  width: 3rem;
+  height: 3rem;
   vertical-align: middle;
   text-align: center;
   color: #0ba5b7;
-  line-height: 2rem;
+  line-height: 3rem;
 }
 
 body.heap .more.loading:hover:before,

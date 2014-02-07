@@ -24,6 +24,8 @@ define(['MutationObserver-polyfil'], function() {
       this.setPage = __bind(this.setPage, this);
       this.savePageValue = __bind(this.savePageValue, this);
       this.registerCallback = __bind(this.registerCallback, this);
+      this.getPagesTotal = __bind(this.getPagesTotal, this);
+      this.getLastPage = __bind(this.getLastPage, this);
       this.getPages = __bind(this.getPages, this);
       this.showPages = __bind(this.showPages, this);
       this.addPage = __bind(this.addPage, this);
@@ -115,6 +117,31 @@ define(['MutationObserver-polyfil'], function() {
 
     pageController.prototype.getPages = function() {
       return this.getFromText(this.paginatorCurrent.innerHTML);
+    };
+
+    /**
+    # Получить последнюю страницу
+    #
+    */
+
+
+    pageController.prototype.getLastPage = function() {
+      var value;
+      value = this.getFromText(this.paginatorCurrent.innerHTML);
+      if (typeof value !== "number") {
+        value = value[1];
+      }
+      return value;
+    };
+
+    /**
+    # Получить количество страниц
+    #
+    */
+
+
+    pageController.prototype.getPagesTotal = function() {
+      return this.paginatorTotal;
     };
 
     /**

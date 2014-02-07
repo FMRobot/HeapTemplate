@@ -36,48 +36,6 @@
   }
 }
 
-@-webkit-keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-@-ms-keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-@keyframes demo {
-  0% {
-    top: 0;
-  }
-
-  50% {
-    top: 2.105263rem;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
 @-webkit-keyframes hart {
   0% {
     -webkit-transform: scale(1);

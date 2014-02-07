@@ -47,7 +47,6 @@ define ['MutationObserver-polyfil'], ->
       @card = false
       @donateSource.addEventListener "click", @toggleSource
 
-
     ###*
     # Закрываем форму
     # 
@@ -59,10 +58,28 @@ define ['MutationObserver-polyfil'], ->
     # Выбираем источник пожертвований
     # 
     ###
-    toggleSource: (event)=>
+    toggleSource: =>
       @donateSource.classList.toggle "wallet"
       @wallet = !@wallet
       @card = !@card
+
+    ###*
+    # Демонстрируем работу триггера, если пользователь открыл форму первый раз
+    # 
+    ###
+    demo: =>
+      if window.localStorage.getItem('first_time') == null
+        window.setTimeout(=>
+            @toggleSource()
+          ,
+          300)
+        window.setTimeout(=>
+            @toggleSource()
+          ,
+          1100)
+        window.localStorage.setItem('first_time', false)
+
+
 
     ###*
     # Добавить форму пожертвований в качестве последнего ребенка элемента DOM
@@ -71,6 +88,8 @@ define ['MutationObserver-polyfil'], ->
     appendTo: (element)=>
       element.appendChild @donate
       @donate = element.lastChild
+
+      @demo()
 
     ###*
     # Добавить форму пожертвований в DOM после элемента

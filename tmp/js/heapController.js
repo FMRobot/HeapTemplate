@@ -130,9 +130,13 @@ define(['calendarController', 'pageController', 'donateController'], function(ca
 
     heapController.prototype.loadPage = function() {
       var _this = this;
-      return window.setTimeout(function() {
-        return _this.moreButton.classList.remove('loading');
-      }, 1500);
+      if (this.page.getLastPage() === this.page.getPagesTotal()) {
+        return this.moreButton.parentNode.removeChild(this.moreButton);
+      } else {
+        return window.setTimeout(function() {
+          return _this.moreButton.classList.remove('loading');
+        }, 1500);
+      }
     };
 
     /**

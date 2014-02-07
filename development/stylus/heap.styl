@@ -119,7 +119,6 @@ body.heap
 
   // Блок статьи
   article
-    // transform translateZ(0)
     box-sizing border-box
     width 100%
     position relative
@@ -194,8 +193,8 @@ body.heap
             color #c00 
         &:before
           icon()
-          color #333
-          font-size 2rem
+          color #000
+          font-size 1.6rem
           content "\e802"
           position absolute
           top .05rem
@@ -223,6 +222,7 @@ body.heap
         display block
         color #000 
         font-size 0.666rem
+        transform translateZ(0)
         
         &:hover
           animation hart .4s 1 linear
@@ -306,6 +306,7 @@ body.heap
     .editor-menu
       opacity 0
       transition opacity .25s
+      transform translateZ(0)
       position absolute
       left 0
       right 0
@@ -425,9 +426,7 @@ body.heap
       
   // Кнопочка «Загрузить еще статей»
   .more
-    clear left
     float left
-    display inline-block
     position relative
     background-color #0ba5b7
     color #FFF
@@ -444,29 +443,26 @@ body.heap
     &.loading
       color lighten(#0ba5b7,93%)
       cursor default
+      text-align center
       background-color lighten(#0ba5b7,93%)
-      span
-        animation spin 2s infinite linear
-        position absolute
-        left 0
-        right 0
-        bottom 0
-        top 0
+      .title
+        display none
+      .sign
         margin auto
-        width 2rem
-        height 2rem
+        // transform rotate(0deg)
+        // animation spin 2s infinite linear
+        width 3rem
+        height 3rem
+        display inline-block
         &:after
           icon()
           content  '\e81a'
-          position absolute
-          left 0
-          right 0
-          bottom 0
-          top 0
+          width 3rem
+          height 3rem
           vertical-align middle
           text-align center
           color #0ba5b7
-          line-height 2rem
+          line-height 3rem
       &:before
         border-color lighten(#0ba5b7,93%) transparent transparent
         

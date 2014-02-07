@@ -20,16 +20,12 @@
   text-transform: none;
 }
 
-.icon-pig:before {
+.icon-piggy:before {
   content: '\e802';
 }
 
 .icon-calendar:before {
   content: '\e80a';
-}
-
-.icon-heart-1:before {
-  content: '\e81e';
 }
 
 .icon-heart-empty-1:before {
@@ -56,24 +52,12 @@
   content: '\e818';
 }
 
-.icon-down-open-mini:before {
-  content: '\e804';
-}
-
-.icon-up-open-mini:before {
-  content: '\e808';
-}
-
 .icon-left-open-big:before {
   content: '\e819';
 }
 
-.icon-spin5:before {
-  content: '\e81a';
-}
-
-.icon-credit-card-1:before {
-  content: '\e822';
+.icon-heart-1:before {
+  content: '\e81e';
 }
 
 .icon-github:before {
@@ -92,12 +76,8 @@
   content: '\e807';
 }
 
-.icon-credit-card-2:before {
-  content: '\e823';
-}
-
-.icon-yandex-rect:before {
-  content: '\e800';
+.icon-clock:before {
+  content: '\e805';
 }
 
 .icon-star-circled:before {

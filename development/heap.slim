@@ -343,7 +343,7 @@ html
       section.donate-for-article
         section.amount
           span.label Хотел пожертвовать на перевод этой статьи 
-          span.amount_due contenteditable="true" 40
+          span.amount_due contenteditable="true" 50
           |&#8202;
           span.currecy
           span.money_source.wallet
@@ -357,7 +357,7 @@ html
                   |ндекс.Денег
           nav
             span.confirm И пожертвую!
-            span.deny Но передумал.
+            span.deny Но передумал
             
     template#add-translation-form
       form action="/add/translation/" method="post" class="add-translation-form"
@@ -372,7 +372,7 @@ html
       section.confirm-article-remove.yes-no-popup
         nav
           h2.title Точно-точно удалить?
-          .confirm data-l10n-id="confirmArticleRemoveConfirm" title="Удалить" Да!
+          .confirm data-l10n-id="confirmArticleRemoveConfirm" title="Удалить" Удаляй!
           .deny data-l10n-id="confirmArticleRemoveDeny" title="Нет, я передумал" Нет, я передумал
 
     template#login-popup

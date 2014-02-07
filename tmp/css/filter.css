@@ -168,7 +168,7 @@
   font-variant: normal;
   text-transform: none;
   margin: 0 0 0 .25rem;
-  content: '\e805';
+  content: '\e801';
 }
 
 .tag-list .type .tags .selected:hover {

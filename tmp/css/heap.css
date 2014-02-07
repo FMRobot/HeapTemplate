@@ -791,7 +791,7 @@ body.heap .more.loading .sign:after {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  content: '\e81a';
+  content: '\e805';
   width: 3rem;
   height: 3rem;
   vertical-align: middle;

@@ -97,7 +97,7 @@ html
     section.page
       .article-list
 
-        article
+        article data-id="1"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -138,7 +138,7 @@ html
               td
                 a.title href="#" Ne poussez pas lours: Création de contenu pour des situations délicates
 
-        article.translated
+        article.translated data-id="2"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -169,7 +169,7 @@ html
                 a.title href="#" Понимание Function.prototype.bind в JavaScript
 
         
-        article
+        article data-id="3"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -206,7 +206,7 @@ html
               td
                 a.title href="#" Diseñar para servicios más allá de la pantalla
 
-        article
+        article data-id="4"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -226,7 +226,7 @@ html
           menu.user-menu
             a.add data-l10n-id="addNewTanslation" href="#" Добавить ссылку на перевод
 
-        article
+        article data-id="5"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -254,7 +254,7 @@ html
               td
                 a.title href="#" Сats purring on JavaScript
 
-        article
+        article data-id="6"
           menu.editor-menu
             a.remove data-l10n-id="removeArticle" href="#" title="Удалить"
             a.edit data-l10n-id="editArticle" href="#" title="Редактировать"
@@ -287,17 +287,20 @@ html
 
     footer
       nav.сontacts
-        a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
-        a.rss data-l10n-id="footerMagazineRSS" href="http://feeds.frontender.info/FrontenderMagazine" rss-канал журнала
-        a.rss data-l10n-id="footerArticleRSS" href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss-канал журнала
-        a.rss data-l10n-id="footerHeapRSS" href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss-канал кучи
+        section
+          a data-l10n-id="footerMagazine" href="http://frontender.info/" Журнал Frontender Magazine
+          a data-l10n-id="footerTeam" href="#" Редакция
+        section
+          a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
+          a.rss data-l10n-id="footerMagazineRSS" href="http://feeds.frontender.info/FrontenderMagazine" rss журнала
+          a.rss data-l10n-id="footerArticleRSS" href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss журнала
+          a.rss data-l10n-id="footerHeapRSS" href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss кучи
       nav.project
-        a data-l10n-id="footerMagazine" href="http://frontender.info/" Журнал Frontender Magazine
-        a data-l10n-id="footerContribute" href="#" Я хочу стать автором
-        a data-l10n-id="footerContribute" href="#" Я хочу стать переводчиком
+        a data-l10n-id="footerAbout" href="#" О проекте
+        a data-l10n-id="footerAuthor" href="#" Я хочу стать автором
+        a data-l10n-id="footerTranslate" href="#" Я хочу стать переводчиком
         a data-l10n-id="footerMoney" href="#" Помочь проекту деньгами
         a data-l10n-id="footerContribute" href="#" Как еще я могу помочь?
-        a data-l10n-id="footerTeam" href="#" Редакция
       nav.language
         a.en href="#" Русский
         a.ru href="#" English
@@ -335,6 +338,26 @@ html
           button.save data-l10n-id="editArticleSave" type="submit" Сохранить
           button.close data-l10n-id="editArticleClose" type="button" Закрыть
           button.reset data-l10n-id="editArticleReset" type="reset" Отменить изменения
+
+    template#donate-template
+      section.donate-for-article
+        section.amount
+          span.label Хотел пожертвовать на перевод этой статьи 
+          span.amount_due contenteditable="true" 40
+          |&#8202;
+          span.currecy
+          span.money_source.wallet
+            .wrapper
+              span.card 
+                span с банковской карты
+              span.wallet 
+                span 
+                  |из кошелька 
+                  b.yandex Я
+                  |ндекс.Денег
+          nav
+            span.confirm И пожертвую!
+            span.deny Но передумал.
             
     template#add-translation-form
       form action="/add/translation/" method="post" class="add-translation-form"

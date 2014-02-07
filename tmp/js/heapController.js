@@ -1,7 +1,7 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-define(['calendarController', 'pageController'], function(calendarController, pageController) {
+define(['calendarController', 'pageController', 'donateController'], function(calendarController, pageController, donateController) {
   /**
   # Класс обеспечивает работу Кучи
   # 
@@ -39,7 +39,8 @@ define(['calendarController', 'pageController'], function(calendarController, pa
       this.showAddArticleForm = __bind(this.showAddArticleForm, this);
       this.loadNextPage = __bind(this.loadNextPage, this);
       this.loadPage = __bind(this.loadPage, this);
-      var addButton, button, editButton, element, elements, likeDisabledButton, removeButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _o, _ref;
+      this.showDonateForm = __bind(this.showDonateForm, this);
+      var addButton, button, donateButton, editButton, element, elements, likeDisabledButton, removeButton, template, translateButton, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _m, _n, _o, _p, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -53,6 +54,7 @@ define(['calendarController', 'pageController'], function(calendarController, pa
       removeButton = document.querySelectorAll(".remove");
       editButton = document.querySelectorAll(".edit");
       translateButton = document.querySelectorAll(".translate");
+      donateButton = document.querySelectorAll(".donate");
       this.addArticleForm = document.querySelector(".add-article-form");
       this.addArticleFormInput = this.addArticleForm.querySelector("input");
       this.addArticleButton = document.getElementById("add-article-button");
@@ -65,24 +67,28 @@ define(['calendarController', 'pageController'], function(calendarController, pa
       this.moreButton = document.querySelector(".more");
       this.moreButton.addEventListener("click", this.loadNextPage);
       this.articleList = document.querySelector('.article-list');
-      for (_j = 0, _len1 = translateButton.length; _j < _len1; _j++) {
-        button = translateButton[_j];
+      for (_j = 0, _len1 = donateButton.length; _j < _len1; _j++) {
+        button = donateButton[_j];
+        button.addEventListener("click", this.showDonateForm);
+      }
+      for (_k = 0, _len2 = translateButton.length; _k < _len2; _k++) {
+        button = translateButton[_k];
         button.addEventListener("click", this.toggleTranslationArticleForm);
       }
-      for (_k = 0, _len2 = editButton.length; _k < _len2; _k++) {
-        button = editButton[_k];
+      for (_l = 0, _len3 = editButton.length; _l < _len3; _l++) {
+        button = editButton[_l];
         button.addEventListener("click", this.showEditArticleForm);
       }
-      for (_l = 0, _len3 = addButton.length; _l < _len3; _l++) {
-        button = addButton[_l];
+      for (_m = 0, _len4 = addButton.length; _m < _len4; _m++) {
+        button = addButton[_m];
         button.addEventListener("click", this.showTranslationForm);
       }
-      for (_m = 0, _len4 = removeButton.length; _m < _len4; _m++) {
-        button = removeButton[_m];
+      for (_n = 0, _len5 = removeButton.length; _n < _len5; _n++) {
+        button = removeButton[_n];
         button.addEventListener("click", this.showRemoveConfirmation);
       }
-      for (_n = 0, _len5 = likeDisabledButton.length; _n < _len5; _n++) {
-        button = likeDisabledButton[_n];
+      for (_o = 0, _len6 = likeDisabledButton.length; _o < _len6; _o++) {
+        button = likeDisabledButton[_o];
         button.addEventListener("click", this.showLoginPopup);
       }
       this.addArticleFormInput.addEventListener("keyup", this.changeTranslationURL);
@@ -93,13 +99,28 @@ define(['calendarController', 'pageController'], function(calendarController, pa
       this.filterList.querySelector('.close').addEventListener("click", this.toggleFilter);
       this.filterList.querySelector('.clear').addEventListener("click", this.clearFilter);
       elements = this.filterList.querySelectorAll('a');
-      for (_o = 0, _len6 = elements.length; _o < _len6; _o++) {
-        element = elements[_o];
+      for (_p = 0, _len7 = elements.length; _p < _len7; _p++) {
+        element = elements[_p];
         element.addEventListener("click", this.filterBy);
       }
       this.page = new pageController();
       this.page.registerCallback(this.loadPage);
     }
+
+    /**
+    # Показать форму пожертвований
+    #
+    */
+
+
+    heapController.prototype.showDonateForm = function(event) {
+      var article, donateForm, link;
+      event.preventDefault();
+      link = event.currentTarget;
+      article = link.parentNode.parentNode;
+      donateForm = new donateController();
+      return donateForm.appendTo(article);
+    };
 
     /**
     # Загрузка страниц

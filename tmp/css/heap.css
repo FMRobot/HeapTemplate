@@ -36,6 +36,48 @@
   }
 }
 
+@-webkit-keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@-ms-keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
 @-webkit-keyframes hart {
   0% {
     -webkit-transform: scale(1);
@@ -314,9 +356,6 @@ body.heap .config .filter.selected span {
 }
 
 body.heap article {
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
@@ -393,15 +432,12 @@ body.heap article header .donate {
   text-align: center;
   display: block;
   color: #000;
-  font-size: .666rem;
+  font-size: .666;
   -webkit-transition: -webkit-transform .25s;
   transition: transform .25s;
-}
-
-body.heap article header .donate:hover {
-  -webkit-transform: scale(1.2) rotate(-30deg);
-  -ms-transform: scale(1.2) rotate(-30deg);
-  transform: scale(1.2) rotate(-30deg);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 body.heap article header .donate:hover:before {
@@ -418,9 +454,9 @@ body.heap article header .donate:before {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  color: #000;
-  font-size: 1.2rem;
-  content: "\e823";
+  color: #333;
+  font-size: 2rem;
+  content: "\e802";
   position: absolute;
   top: .05rem;
   left: 0;
@@ -714,12 +750,20 @@ body.heap .paginator {
   height: 3rem;
 }
 
+body.heap .paginator:hover .current {
+  background-color: #f0f0f0;
+}
+
 body.heap .paginator .total,
 body.heap .paginator .separator {
   font-weight: 100;
 }
 
 body.heap .paginator .current {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-weight: 100;
   cursor: pointer;
   outline: none;
@@ -867,6 +911,21 @@ body.heap>footer nav.сontacts a:before {
   text-decoration: none;
   margin: 0 .25rem 0 0;
   color: #000;
+}
+
+body.heap>footer nav section {
+  margin: 0 0 1.618rem;
+}
+
+body.heap>footer nav section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
 }
 
 body.heap>footer nav a {

@@ -27,6 +27,7 @@ define(['MutationObserver-polyfil'], function() {
       this.getPages = __bind(this.getPages, this);
       this.showPages = __bind(this.showPages, this);
       this.addPage = __bind(this.addPage, this);
+      this.pseudoLabel = __bind(this.pseudoLabel, this);
       this.enter = 13;
       this.esc = 27;
       this.dash = 189;
@@ -55,12 +56,23 @@ define(['MutationObserver-polyfil'], function() {
       this.controlsPressed = [];
       this.paginator = document.querySelector(".paginator");
       this.paginatorCurrent = this.paginator.querySelector(".current");
+      this.paginator.addEventListener("click", this.pseudoLabel);
       this.paginatorCurrent.addEventListener("keydown", this.keyDown);
       this.paginatorCurrent.addEventListener("keyup", this.keyUp);
       this.paginatorCurrent.addEventListener("focus", this.savePageValue);
       this.paginatorCurrent.addEventListener("blur", this.setPage);
       this.paginatorTotal = parseInt(this.paginator.querySelector(".total").innerHTML, 10);
     }
+
+    /**
+    # Передать фокус полю ввода
+    #
+    */
+
+
+    pageController.prototype.pseudoLabel = function(event) {
+      return this.paginatorCurrent.focus();
+    };
 
     /**
     # Догрузить 1 страничку
@@ -139,7 +151,7 @@ define(['MutationObserver-polyfil'], function() {
       } else {
         this.paginatorCurrent.innerHTML = value[0] + this.hspace + this.en_dash + this.hspace + value[1];
       }
-      if (this.callbackFunction !== null) {
+      if (typeof this.callbackFunction === "function") {
         return this.callbackFunction.call(this);
       }
     };

@@ -119,7 +119,7 @@ body.heap
 
   // Блок статьи
   article
-    transform translateZ(0)
+    // transform translateZ(0)
     box-sizing border-box
     width 100%
     position relative
@@ -186,17 +186,17 @@ body.heap
         text-align center
         display block
         color #000 
-        font-size 0.666rem
+        font-size .666
         transition transform .25s
+        transform scale(1)
         &:hover
-          transform scale(1.2) rotate(-30deg)
           &:before
             color #c00 
         &:before
           icon()
-          color #000
-          font-size 1.2rem
-          content "\e823"
+          color #333
+          font-size 2rem
+          content "\e802"
           position absolute
           top .05rem
           left 0
@@ -403,10 +403,16 @@ body.heap
     font-size 1.8rem
     line-height 3rem
     height 3rem
+    &:hover .current
+      background-color #F0F0F0 
     .total,
     .separator
       font-weight 100 
     .current
+      -moz-user-select none
+      -webkit-user-select none
+      -ms-user-select none
+      user-select none
       font-weight 100 
       cursor pointer
       outline none
@@ -504,7 +510,7 @@ body.heap
       line-height 1.618rem
       overflow hidden
       position relative
-      box-sizing border-box
+      box-sizing border-box 
       &.сontacts
         a
           &:before
@@ -512,6 +518,9 @@ body.heap
             text-decoration none
             margin 0 .25rem 0 0 
             color #000
+      section
+        margin 0 0 1.618rem
+        clear-after()
       a
         float left
         white-space nowrap

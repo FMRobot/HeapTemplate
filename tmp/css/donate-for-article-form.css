@@ -1,0 +1,378 @@
+@-webkit-keyframes spin {
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes spin {
+  50% {
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  50% {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@-ms-keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes demo {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 2.105263rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@-webkit-keyframes hart {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes hart {
+  0% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hart {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes hart-broken {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes hart-broken {
+  0% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes hart-broken {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transform: scale(.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.donate-for-article {
+  position: absolute;
+  top: -1.4rem;
+  left: -7rem;
+  border-width: 1.4rem 0 0 7rem;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.95) transparent transparent rgba(255,255,255,0.95);
+  right: 0;
+  bottom: 0;
+  background-clip: padding-box;
+  margin: auto;
+  background-color: rgba(255,255,255,0.95);
+  color: #000;
+  z-index: 5;
+  min-height: 6.315789rem;
+  min-width: 32rem;
+}
+
+.donate-for-article nav .confirm {
+  margin: 0 1rem 0 0;
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0 1rem;
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  background-color: #0ba5b7;
+  font-size: .777rem;
+  position: relative;
+  vertical-align: middle;
+  color: #fff;
+}
+
+.donate-for-article nav .confirm:before {
+  content: ".";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: .5rem;
+  border-width: .5rem .5rem 0 0;
+  border-style: solid;
+  border-color: #0ba5b7 transparent transparent transparent;
+}
+
+.donate-for-article nav .confirm:hover {
+  background-color: #098492;
+}
+
+.donate-for-article nav .confirm:hover:before {
+  border-color: #098492 transparent transparent transparent;
+}
+
+.donate-for-article nav .deny {
+  display: inline;
+  cursor: pointer;
+  height: 2.105263rem;
+  font-size: .777rem;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 1px dotted #666;
+  color: #000;
+}
+
+.donate-for-article nav .deny:hover {
+  color: #f00;
+  border-bottom: 1px dotted #f00;
+}
+
+.donate-for-article .amount {
+  height: 6.315789rem;
+  line-height: 2.105263rem;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.donate-for-article .amount .label {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 .25rem 0 0;
+}
+
+.donate-for-article .amount .label:hover~.amount_due {
+  background-color: #f0f0f0;
+}
+
+.donate-for-article .amount .amount_due {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom: 1px solid #0ba5b7;
+  font-size: 2rem;
+  outline: none;
+}
+
+.donate-for-article .amount .amount_due:hover,
+.donate-for-article .amount .amount_due:focus {
+  background-color: #f0f0f0;
+}
+
+.donate-for-article .amount .money_source {
+  position: relative;
+  display: inline-block;
+}
+
+.donate-for-article .amount .money_source.wallet .wrapper {
+  top: 0;
+}
+
+.donate-for-article .amount .money_source.wallet .wallet span {
+  border-bottom-style: none;
+  color: #000;
+}
+
+.donate-for-article .amount .money_source.wallet .wallet span .yandex {
+  color: #f00;
+}
+
+.donate-for-article .amount .money_source.wallet .card span {
+  border-bottom: 1px dotted #999;
+  color: #999;
+}
+
+.donate-for-article .amount .money_source .card:hover,
+.donate-for-article .amount .money_source .wallet:hover {
+  color: #000;
+}
+
+.donate-for-article .amount .money_source .card:hover span,
+.donate-for-article .amount .money_source .wallet:hover span {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.donate-for-article .amount .money_source .wrapper {
+  -webkit-transition: top .25s;
+  transition: top .25s;
+  position: relative;
+  top: 2.105263rem;
+}
+
+.donate-for-article .amount .money_source .wallet {
+  cursor: pointer;
+  white-space: nowrap;
+  display: block;
+}
+
+.donate-for-article .amount .money_source .wallet span {
+  border-bottom: 1px dotted #999;
+  color: #999;
+}
+
+.donate-for-article .amount .money_source .wallet span .yandex {
+  font-weight: normal;
+}
+
+.donate-for-article .amount .money_source .card {
+  cursor: pointer;
+  white-space: nowrap;
+  display: block;
+  color: #000;
+}
+
+.donate-for-article .amount .currecy {
+  display: inline-block;
+}
+
+.donate-for-article .amount .currecy:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  margin: 0 .25rem 0 0;
+  font-size: 1.2rem;
+  content: "\e81b ";
+}

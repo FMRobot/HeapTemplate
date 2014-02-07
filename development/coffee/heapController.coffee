@@ -1,4 +1,4 @@
-define ['calendarController','pageController'], (calendarController, pageController) ->
+define ['calendarController','pageController', 'donateController'], (calendarController, pageController, donateController) ->
 
   ###*
   # Класс обеспечивает работу Кучи
@@ -25,6 +25,7 @@ define ['calendarController','pageController'], (calendarController, pageControl
       removeButton = document.querySelectorAll ".remove"
       editButton = document.querySelectorAll ".edit"
       translateButton = document.querySelectorAll ".translate"
+      donateButton = document.querySelectorAll ".donate"
 
       @addArticleForm = document.querySelector ".add-article-form"
       @addArticleFormInput = @addArticleForm.querySelector "input"
@@ -42,6 +43,9 @@ define ['calendarController','pageController'], (calendarController, pageControl
 
       @articleList = document.querySelector '.article-list'
 
+      for button in donateButton
+        button.addEventListener "click", @showDonateForm
+
       for button in translateButton
         button.addEventListener "click", @toggleTranslationArticleForm
 
@@ -57,7 +61,6 @@ define ['calendarController','pageController'], (calendarController, pageControl
       for button in likeDisabledButton
         button.addEventListener "click", @showLoginPopup
 
-
       @addArticleFormInput.addEventListener "keyup", @changeTranslationURL
       @addArticleButton.addEventListener "click", @showAddArticleForm
 
@@ -72,6 +75,17 @@ define ['calendarController','pageController'], (calendarController, pageControl
 
       @page = new pageController()
       @page.registerCallback @loadPage
+
+    ###*
+    # Показать форму пожертвований
+    # 
+    ###
+    showDonateForm: (event)=>
+      event.preventDefault()
+      link = event.currentTarget
+      article = link.parentNode.parentNode
+      donateForm = new donateController()
+      donateForm.appendTo article
 
     ###*
     # Загрузка страниц

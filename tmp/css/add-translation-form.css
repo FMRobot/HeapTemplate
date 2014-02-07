@@ -10,6 +10,7 @@
   bottom: 0;
   margin: auto;
   background-color: rgba(255,255,255,0.95);
+  z-index: 5;
   border-width: 1.4rem 0 0 7rem;
   border-style: solid;
   border-color: rgba(255,255,255,0.95) transparent transparent rgba(255,255,255,0.95);

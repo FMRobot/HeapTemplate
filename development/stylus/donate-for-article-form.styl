@@ -1,0 +1,141 @@
+@import "animations.styl"
+@import "mixins.styl"
+
+.donate-for-article
+  // transform translateZ(0)
+  position absolute
+  top -1.4rem
+  left -7rem
+  border-width 1.4rem 0 0 7rem
+  border-style solid
+  border-color rgba(255,255,255,.95) transparent transparent rgba(255,255,255,.95)
+  right 0
+  bottom 0
+  background-clip padding-box
+  margin auto
+  background-color rgba(255,255,255,.95)
+  color #000
+  z-index 5
+  min-height 6.315789rem
+  min-width 32rem
+  nav
+    .confirm
+      margin 0 1rem 0 0  
+      display inline-block
+      cursor pointer
+      white-space nowrap
+      padding 0 1rem 
+      line-height 2.105263rem 
+      height 2.105263rem
+      background-color #0BA5B7
+      font-size .777rem
+      position relative
+      vertical-align middle
+      color #FFF 
+      &:before
+        content "."
+        width 0
+        height 0
+        overflow hidden
+        text-indent -9999px
+        display block
+        position absolute
+        top 100%
+        left .5rem
+        border-width .5rem .5rem 0 0
+        border-style solid
+        border-color #0BA5B7 transparent transparent transparent
+      &:hover
+        background-color darken(#0BA5B7, 20%) 
+        &:before
+          border-color darken(#0BA5B7, 20%) transparent transparent transparent
+    
+    .deny
+      display inline
+      cursor pointer
+      height 2.105263rem
+      font-size .777rem
+      position relative
+      vertical-align middle
+      white-space nowrap
+      border-bottom 1px dotted #666
+      color #000
+      &:hover
+        color #f00
+        border-bottom 1px dotted #f00
+  .amount
+    height 6.315789rem
+    line-height 2.105263rem
+    position absolute
+    margin auto
+    top 0
+    left 0
+    right 0
+    bottom 0
+    .label
+      display inline-block
+      white-space nowrap
+      margin 0 .25rem 0 0 
+      &:hover~.amount_due
+        background-color #F0F0F0 
+    .amount_due
+      -moz-user-select none
+      -webkit-user-select none
+      -ms-user-select none
+      user-select none
+      border-bottom 1px solid #0ba5b7
+      font-size 2rem
+      outline none
+      &:hover,
+      &:focus
+        background-color #F0F0F0 
+    .money_source
+      position relative
+      display inline-block
+            
+      &.wallet
+        .wrapper
+          top 0
+        .wallet
+          span 
+            border-bottom-style none
+            color #000
+            .yandex
+              color #F00
+        .card
+          span 
+            border-bottom 1px dotted #999 
+            color #999 
+      .card:hover,
+      .wallet:hover
+        color #000 
+        span
+          color #000 
+          border-bottom-color #000
+      .wrapper
+        // animation demo .6s 1 linear
+        transition top .25s
+        position relative
+        top 2.105263rem
+      .wallet
+        cursor pointer
+        white-space nowrap
+        display block
+        span 
+          border-bottom 1px dotted #999 
+          color #999
+          .yandex
+            font-weight normal
+      .card
+        cursor pointer
+        white-space nowrap
+        display block
+        color #000
+    .currecy
+      display inline-block
+      &:after
+        icon()
+        margin 0 .25rem 0 0 
+        font-size 1.2rem
+        content "\e81b "
+        

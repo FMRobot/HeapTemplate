@@ -43,11 +43,19 @@ define ['MutationObserver-polyfil'], ->
       @controlsPressed = []
       @paginator = document.querySelector ".paginator"
       @paginatorCurrent = @paginator.querySelector ".current"
+      @paginator.addEventListener "click", @pseudoLabel
       @paginatorCurrent.addEventListener "keydown", @keyDown
       @paginatorCurrent.addEventListener "keyup", @keyUp
       @paginatorCurrent.addEventListener "focus", @savePageValue
       @paginatorCurrent.addEventListener "blur", @setPage
       @paginatorTotal = parseInt(@paginator.querySelector(".total").innerHTML,10)
+
+    ###*
+    # Передать фокус полю ввода
+    # 
+    ###
+    pseudoLabel: (event)=>
+      @paginatorCurrent.focus()
 
     ###*
     # Догрузить 1 страничку
@@ -109,7 +117,7 @@ define ['MutationObserver-polyfil'], ->
       else
         @paginatorCurrent.innerHTML = value[0]+@hspace+@en_dash+@hspace+value[1]
 
-      if @callbackFunction != null
+      if typeof @callbackFunction == "function"
         @callbackFunction.call @
       
 

@@ -19,10 +19,21 @@ define([], function() {
       this.changeTranslationURL = __bind(this.changeTranslationURL, this);
       this.resizeTextarea = __bind(this.resizeTextarea, this);
       this.delayedResize = __bind(this.delayedResize, this);
+      this.testEmail = __bind(this.testEmail, this);
+      this.testContacts = __bind(this.testContacts, this);
+      this.sendMessage = __bind(this.sendMessage, this);
       var input, inputElements, _i, _len;
+      this.re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       this.contactForm = document.querySelector(".contact-us");
       inputElements = this.contactForm.querySelectorAll("input, textarea");
       this.textarea = this.contactForm.querySelector("textarea");
+      this.email = this.contactForm.querySelector("[name='email']");
+      this.skype = this.contactForm.querySelector("[name='skype']");
+      this.button = this.contactForm.querySelector("button");
+      this.contactForm.addEventListener("submit", this.sendMessage);
+      this.email.addEventListener("change", this.testEmail);
+      this.email.addEventListener("change", this.testContacts);
+      this.skype.addEventListener("change", this.testContacts);
       this.textarea.addEventListener("keydown", this.delayedResize);
       this.textarea.addEventListener("cut", this.delayedResize);
       this.textarea.addEventListener("paste", this.delayedResize);
@@ -33,6 +44,43 @@ define([], function() {
         input.addEventListener("keyup", this.changeTranslationURL);
       }
     }
+
+    /**
+    # Сообщение редакции
+    #
+    */
+
+
+    abstractController.prototype.sendMessage = function(event) {
+      event.preventDefault();
+      if (!this.testContacts()) {
+        return;
+      }
+      if (!this.testEmail()) {
+        return;
+      }
+      return this.button.classList.add("loading");
+    };
+
+    abstractController.prototype.testContacts = function() {
+      if (this.email.value.trim().length === 0 && this.skype.value.trim().length === 0) {
+        this.contactForm.classList.add("contact-err");
+        this.contactForm.classList.remove("email-err");
+        return false;
+      }
+      this.contactForm.classList.remove("contact-err");
+      return true;
+    };
+
+    abstractController.prototype.testEmail = function() {
+      if (this.email.value.trim().length > 0 && !this.re.test(this.email.value.trim())) {
+        this.contactForm.classList.add("email-err");
+        this.contactForm.classList.remove("contact-err");
+        return false;
+      }
+      this.contactForm.classList.remove("email-err");
+      return true;
+    };
 
     /**
     # Изменяем высоту textarea что бы всегда вмещать текст
@@ -48,7 +96,7 @@ define([], function() {
     };
 
     abstractController.prototype.resizeTextarea = function() {
-      this.textarea.style.height = '1px';
+      this.textarea.style.height = '0';
       return this.textarea.style.height = this.textarea.scrollHeight + 'px';
     };
 

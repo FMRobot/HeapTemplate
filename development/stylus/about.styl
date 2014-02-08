@@ -8,12 +8,26 @@ body.about
       position relative
       margin -1.2rem auto 0 
       background-color #fff
+      &.contact-err
+        .error.contact-required
+          display inline-block
+      &.email-err
+        .error.wrong-email 
+          display inline-block
       nav
         margin 1.2rem 0 0 
+        .error
+          display none
+          vertical-align top
+          color #f00
+          font-family Helvetica, Arial, sans-serif
+          font-size .666rem  
+          padding 0 0 0 1rem
+          line-height 1.0526315rem
         button
           clear-button()
           white-space nowrap
-          display block
+          display inline-block
           height 2.105263rem 
           font-size .777rem
           box-sizing border-box
@@ -74,6 +88,7 @@ body.about
           border-style none
           box-sizing border-box
           resize none
+          transform translateZ(0)
           &+span
             left 0
             line-height 2.118rem

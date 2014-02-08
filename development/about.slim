@@ -60,7 +60,7 @@ html
       form class="contact-us" method="post" action="/contactme/"
         fieldset
           label
-            input required="required" type="text" name="name" placeholder="Вы можете называть меня"
+            input type="text" name="name" placeholder="Вы можете называть меня"
             span Вы можете называть меня
           label
             input type="email" name="email" placeholder="Мой адресс электронной почты"
@@ -73,6 +73,12 @@ html
             span И вот что я вам скажу!
         nav
           button type="submit" Сказать
+          span.error.contact-required
+            |Пожалуйста, введите skype или email, 
+            br что бы мы смогли с вами связаться
+          span.error.wrong-email 
+            |У вас слишком необычный email на наш вкус. 
+            br Смените его!
 
 
 

@@ -14,9 +14,21 @@ define [], ->
     # @constructor
     ###
     constructor: ->
+      # Регулярное выражение для дополнительной проверкеи email
+      @re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
       @contactForm = document.querySelector ".contact-us"
       inputElements = @contactForm.querySelectorAll "input, textarea"
       @textarea = @contactForm.querySelector "textarea"
+      @email = @contactForm.querySelector "[name='email']"
+      @skype = @contactForm.querySelector "[name='skype']"
+      @button = @contactForm.querySelector "button"
+
+      @contactForm.addEventListener "submit", @sendMessage
+      @email.addEventListener "change", @testEmail
+      @email.addEventListener "change", @testContacts
+      @skype.addEventListener "change", @testContacts
+
       @textarea.addEventListener "keydown", @delayedResize
       @textarea.addEventListener "cut", @delayedResize
       @textarea.addEventListener "paste", @delayedResize
@@ -25,6 +37,40 @@ define [], ->
 
       for input in inputElements
         input.addEventListener "keyup", @changeTranslationURL
+
+
+    ###*
+    # Сообщение редакции
+    # 
+    ###
+    sendMessage: (event)=>
+      event.preventDefault()
+
+      if not @testContacts()
+        return
+      if not @testEmail()
+        return
+
+      @button.classList.add "loading"
+      
+
+    testContacts: =>
+      if @email.value.trim().length == 0 and @skype.value.trim().length == 0
+        @contactForm.classList.add "contact-err"
+        @contactForm.classList.remove "email-err"
+        return false
+
+      @contactForm.classList.remove "contact-err"
+      return true
+
+    testEmail: =>
+      if @email.value.trim().length > 0 and !@re.test @email.value.trim()
+        @contactForm.classList.add "email-err"
+        @contactForm.classList.remove "contact-err"
+        return false
+
+      @contactForm.classList.remove "email-err"
+      return true
 
 
     ###*
@@ -37,7 +83,7 @@ define [], ->
         , 0
 
     resizeTextarea: =>
-      @textarea.style.height = '1px'
+      @textarea.style.height = '0'
       @textarea.style.height = (@textarea.scrollHeight)+'px';
 
     ###*

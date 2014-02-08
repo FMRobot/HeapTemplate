@@ -1,0 +1,158 @@
+body.about article section {
+  margin: 2.4rem 0;
+}
+
+body.about article .contact-us {
+  position: relative;
+  margin: -1.2rem auto 0;
+  background-color: #fff;
+}
+
+body.about article .contact-us nav {
+  margin: 1.2rem 0 0;
+}
+
+body.about article .contact-us nav button {
+  background: none;
+  border-radius: 0;
+  border-style: none;
+  box-shadow: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 .1rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+  white-space: nowrap;
+  display: block;
+  height: 2.105263rem;
+  font-size: .777rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  min-width: 20%;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0ba5b7;
+}
+
+body.about article .contact-us nav button:hover {
+  background-color: #098c9c;
+}
+
+body.about article .contact-us label {
+  float: left;
+  overflow: hidden;
+  height: 3.216263rem;
+  width: 33%;
+  border-bottom: 1px solid #0ba5b7;
+  padding-top: 1.111rem;
+  position: relative;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body.about article .contact-us label.message {
+  float: none;
+  clear: both;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom-style: none;
+  padding: 2.118rem 0 .5rem;
+}
+
+body.about article .contact-us label:first-child {
+  width: 34%;
+}
+
+body.about article .contact-us label:first-child span {
+  left: 0;
+}
+
+body.about article .contact-us label:first-child input {
+  padding-left: 0;
+}
+
+body.about article .contact-us label span {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  right: 0;
+  font-size: .611rem;
+  line-height: 1.618rem;
+  color: #a9a9a9;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity .25s;
+  transition: opacity .25s;
+}
+
+body.about article .contact-us label textarea {
+  clear: both;
+  width: 100%;
+  height: 1.618rem;
+  line-height: 1.618rem;
+  font-size: .9rem;
+  margin: 0;
+  display: block;
+  padding: 0;
+  border-style: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  resize: none;
+}
+
+body.about article .contact-us label textarea+span {
+  left: 0;
+  line-height: 2.118rem;
+}
+
+body.about article .contact-us label textarea:focus + span {
+  color: #0ba5b7;
+}
+
+body.about article .contact-us label textarea.non-empty + span {
+  opacity: 1;
+  z-index: 2;
+}
+
+body.about article .contact-us label input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  line-height: 1.618rem;
+  height: 1.618rem;
+  display: inline-block;
+  position: relative;
+  background: none;
+  border-radius: 0;
+  border-style: none;
+  width: auto;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  font-size: .9rem;
+  padding-left: 1rem;
+}
+
+body.about article .contact-us label input:focus + span {
+  color: #0ba5b7;
+}
+
+body.about article .contact-us label input.non-empty + span {
+  opacity: 1;
+  z-index: 2;
+}

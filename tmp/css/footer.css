@@ -1,0 +1,104 @@
+body>footer {
+  max-width: 43rem;
+  margin: 2rem auto;
+  padding: 1rem 2.10526rem 0;
+  border-top: 1px dotted #000;
+  font-size: 0;
+  line-height: 0;
+}
+
+body>footer .copyright {
+  display: block;
+  font-size: .68rem;
+  line-height: 1.618rem;
+  margin: 2rem 0;
+}
+
+body>footer .title {
+  margin-top: -1.618rem;
+  line-height: 1.618rem;
+  font-size: .5rem;
+}
+
+body>footer .language .title:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: "\e800";
+}
+
+body>footer a {
+  color: #000;
+}
+
+body>footer a:focus,
+body>footer a:hover {
+  color: #0ba5b7;
+}
+
+body>footer nav {
+  vertical-align: top;
+  display: inline-block;
+  min-width: 30%;
+  padding: 0 1rem 0 0;
+  font-size: .666rem;
+  line-height: 1.618rem;
+  overflow: hidden;
+  position: relative;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body>footer nav.сontacts a:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  margin: 0 .25rem 0 0;
+  color: #000;
+}
+
+body>footer nav section {
+  margin: 0 0 1.618rem;
+}
+
+body>footer nav section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+body>footer nav a {
+  float: left;
+  white-space: nowrap;
+  clear: left;
+}
+
+body>footer nav a.rss:before {
+  content: '\e818';
+}
+
+body>footer nav a.twitter:before {
+  content: '\e815';
+}
+
+body>footer nav a.github:before {
+  content: '\e80f';
+}

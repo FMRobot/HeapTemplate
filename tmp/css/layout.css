@@ -1,0 +1,16 @@
+body>.page {
+  max-width: 43rem;
+  margin: 0 auto;
+  padding: 1rem 2.10526rem 0;
+}
+
+body>.page:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}

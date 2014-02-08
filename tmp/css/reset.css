@@ -125,15 +125,17 @@ table {
 
 a {
   outline: none;
-  color: #000;
+  color: #0ba5b7;
 }
 
 a:focus {
   color: #0ba5b7;
+  text-decoration: none;
 }
 
 a:hover {
   color: #0ba5b7;
+  text-decoration: none;
 }
 
 input,

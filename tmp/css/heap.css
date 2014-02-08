@@ -148,23 +148,6 @@ body.heap {
   position: relative;
 }
 
-body.heap>.page {
-  max-width: 43rem;
-  margin: 0 auto;
-  padding: 1rem 2.10526rem 0;
-}
-
-body.heap>.page:after {
-  content: ".";
-  display: block;
-  height: 0;
-  line-height: 0;
-  font-size: 0;
-  overflow: hidden;
-  position: relative;
-  clear: both;
-}
-
 body.heap>header {
   max-width: 43rem;
   margin: 0 auto;
@@ -826,83 +809,6 @@ body.heap .more:hover {
 
 body.heap .more:hover:before {
   border-color: #098492 transparent transparent;
-}
-
-body.heap>footer {
-  max-width: 43rem;
-  margin: 2rem auto;
-  padding: 1rem 2.10526rem 0;
-  border-top: 1px dotted #000;
-  font-size: 0;
-  line-height: 0;
-}
-
-body.heap>footer .copyright {
-  display: block;
-  font-size: .68rem;
-  line-height: 1.618rem;
-  margin: 2rem 0;
-}
-
-body.heap>footer nav {
-  vertical-align: top;
-  display: inline-block;
-  min-width: 30%;
-  padding: 0 1rem 0 0;
-  font-size: .68rem;
-  line-height: 1.618rem;
-  overflow: hidden;
-  position: relative;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body.heap>footer nav.сontacts a:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  text-decoration: none;
-  margin: 0 .25rem 0 0;
-  color: #000;
-}
-
-body.heap>footer nav section {
-  margin: 0 0 1.618rem;
-}
-
-body.heap>footer nav section:after {
-  content: ".";
-  display: block;
-  height: 0;
-  line-height: 0;
-  font-size: 0;
-  overflow: hidden;
-  position: relative;
-  clear: both;
-}
-
-body.heap>footer nav a {
-  float: left;
-  white-space: nowrap;
-  clear: left;
-}
-
-body.heap>footer nav a.rss:before {
-  content: '\e818';
-}
-
-body.heap>footer nav a.twitter:before {
-  content: '\e815';
-}
-
-body.heap>footer nav a.github:before {
-  content: '\e80f';
 }
 
 @media screen and (min-width: 58rem) {

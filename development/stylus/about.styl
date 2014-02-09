@@ -38,7 +38,55 @@ body.about
           background-color #0BA5B7
           &:hover
             background-color darken(#0BA5B7, 15%) 
-      label
+      .role
+        position relative
+        clear both
+        // overflow hidden
+        height 1.618rem
+        padding-top 1.618rem
+        border-bottom 1px solid #0ba5b7
+        span
+          white-space nowrap
+          position absolute
+          top 0
+          left 0
+          right 0
+          
+          font-size .611rem
+          line-height 1.618rem
+          color rgb(169, 169, 169)
+          
+          z-index 1
+        input
+          position absolute
+          left -9999px
+        input:focus~span
+          color #0ba5b7
+        input:checked+label
+          color #000
+          border-bottom-style none
+          cursor default
+          pointer-events none 
+           
+        label
+          color #999 
+          float left
+          width 50%
+          box-sizing border-box
+          line-height 1.618rem
+          font-size .666rem 
+          &:hover
+            color #000
+            cursor pointer
+      label.message
+        clear both
+        position relative
+        display block
+        width 100%
+        height auto
+        border-bottom-style none
+        padding 2.118rem 0 .5rem
+      label.input
         float left
         overflow hidden
         height 3.216263rem
@@ -47,20 +95,13 @@ body.about
         padding-top 1.111rem
         position relative
         box-sizing border-box
-        &.message
-          float none
-          clear both
-          display block
-          width 100%
-          height auto
-          border-bottom-style none
-          padding 2.118rem 0 .5rem
         &:first-child
           width 34% 
           span
             left 0
           input
             padding-left 0
+      label
         span
           white-space nowrap
           position absolute

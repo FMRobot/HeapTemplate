@@ -59,15 +59,22 @@ html
 
       form class="contact-us" method="post" action="/contactme/"
         fieldset
-          label
+          label.input
             input type="text" name="name" placeholder="Вы можете называть меня"
             span Вы можете называть меня
-          label
+          label.input
             input type="email" name="email" placeholder="Мой адресс электронной почты"
             span Мой адресс электронной почты
-          label
+          label.input
             input type="text" name="skype" placeholder="Мой skype"
             span Мой skype
+          .role
+            input type="radio" checked="checked" name="role" value="translator" id="contact-us-translator"
+            label for="contact-us-translator" переводчиком!
+            input type="radio" name="role" value="author" id="contact-us-author"
+            label for="contact-us-author" автором!
+            span  Я хочу стать
+
           label.message
             textarea name="message" rows="1" cols="50" placeholder="И вот что я вам скажу!"
             span И вот что я вам скажу!
@@ -90,7 +97,7 @@ html
           a href="#" тут
           |.
 
-      section
+      section#donate
         h2 — Я хочу помочь проекту деньгами!
         p Все собранные деньги пойдут на оплату работы редактора, корректора и штатных переводчиков журнала над новыми статьями.
       
@@ -133,3 +140,23 @@ html
         /   |, по желанию добавим в skype‑чат редакции, дадим доступ к панели администрирования проекта и вы сможете создать оттуда репозиторий статьи и начать её перевод.
 
       / section
+
+    template#donate-template
+      section.donate-for-article.inline
+        section.amount
+          span.label Я вот хотел пожертвовать на развитие журнала
+          span.amount_due contenteditable="true" 40
+          |&#8202;
+          span.currecy
+          span.money_source.wallet
+            .wrapper
+              span.card 
+                span с банковской карты
+              span.wallet 
+                span 
+                  |из кошелька 
+                  b.yandex Я
+                  |ндекс.Денег
+          nav
+            span.confirm И пожертвую!
+            span.deny Но передумал

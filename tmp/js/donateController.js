@@ -30,6 +30,8 @@ define(['MutationObserver-polyfil'], function() {
       this.demo = __bind(this.demo, this);
       this.toggleSource = __bind(this.toggleSource, this);
       this.closeForm = __bind(this.closeForm, this);
+      this.setDefault = __bind(this.setDefault, this);
+      this.setInline = __bind(this.setInline, this);
       this.enter = 13;
       this.esc = 27;
       this.dash = 189;
@@ -57,6 +59,30 @@ define(['MutationObserver-polyfil'], function() {
       this.card = false;
       this.donateSource.addEventListener("click", this.toggleSource);
     }
+
+    /**
+    # Cделать форму инлайновой
+    #
+    */
+
+
+    donateController.prototype.setInline = function() {
+      return this.donate.classList.add("inline");
+    };
+
+    /**
+    # Установить сумму пожертвования по умолчанию
+    #
+    */
+
+
+    donateController.prototype.setDefault = function(value) {
+      value = parseInt(value, 10);
+      if (isNaN(value)) {
+        value = 40;
+      }
+      return this.donateAmount.innerHTML = value;
+    };
 
     /**
     # Закрываем форму

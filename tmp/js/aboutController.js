@@ -1,6 +1,7 @@
-var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-define([], function() {
+define(['donateController'], function(donateController) {
   /**
   # Класс обеспечивает работу страницы о проекте
   # 
@@ -21,8 +22,16 @@ define([], function() {
       this.delayedResize = __bind(this.delayedResize, this);
       this.testEmail = __bind(this.testEmail, this);
       this.testContacts = __bind(this.testContacts, this);
+      this.hideErr = __bind(this.hideErr, this);
       this.sendMessage = __bind(this.sendMessage, this);
-      var input, inputElements, _i, _len;
+      var donateForm, input, inputElements, template, _i, _j, _len, _len1, _ref;
+      if (__indexOf.call(document.createElement("template"), "content") < 0) {
+        _ref = document.querySelectorAll("template");
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          template = _ref[_i];
+          template.content = template.childNodes[0];
+        }
+      }
       this.re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       this.contactForm = document.querySelector(".contact-us");
       inputElements = this.contactForm.querySelectorAll("input, textarea");
@@ -39,10 +48,13 @@ define([], function() {
       this.textarea.addEventListener("paste", this.delayedResize);
       this.textarea.addEventListener("drop", this.delayedResize);
       this.textarea.addEventListener("change", this.resizeTextarea);
-      for (_i = 0, _len = inputElements.length; _i < _len; _i++) {
-        input = inputElements[_i];
+      for (_j = 0, _len1 = inputElements.length; _j < _len1; _j++) {
+        input = inputElements[_j];
         input.addEventListener("keyup", this.changeTranslationURL);
       }
+      donateForm = new donateController();
+      donateForm.setDefault(40);
+      donateForm.insertAfter(document.getElementById("donate"));
     }
 
     /**
@@ -62,10 +74,19 @@ define([], function() {
       return this.button.classList.add("loading");
     };
 
+    abstractController.prototype.hideErr = function() {
+      this.contactForm.classList.remove("email-err");
+      return this.contactForm.classList.remove("contact-err");
+    };
+
     abstractController.prototype.testContacts = function() {
+      var _this = this;
       if (this.email.value.trim().length === 0 && this.skype.value.trim().length === 0) {
         this.contactForm.classList.add("contact-err");
         this.contactForm.classList.remove("email-err");
+        window.setTimeout(function() {
+          return _this.hideErr();
+        }, 5000);
         return false;
       }
       this.contactForm.classList.remove("contact-err");
@@ -73,9 +94,13 @@ define([], function() {
     };
 
     abstractController.prototype.testEmail = function() {
+      var _this = this;
       if (this.email.value.trim().length > 0 && !this.re.test(this.email.value.trim())) {
         this.contactForm.classList.add("email-err");
         this.contactForm.classList.remove("contact-err");
+        window.setTimeout(function() {
+          return _this.hideErr();
+        }, 5000);
         return false;
       }
       this.contactForm.classList.remove("email-err");

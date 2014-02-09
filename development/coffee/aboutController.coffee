@@ -1,4 +1,4 @@
-define [], ->
+define ['donateController'], (donateController)->
 
   ###*
   # Класс обеспечивает работу страницы о проекте
@@ -14,6 +14,13 @@ define [], ->
     # @constructor
     ###
     constructor: ->
+
+
+      if "content" not in document.createElement "template"
+        for template in document.querySelectorAll "template"
+          template.content = template.childNodes[0]
+
+
       # Регулярное выражение для дополнительной проверкеи email
       @re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -23,6 +30,8 @@ define [], ->
       @email = @contactForm.querySelector "[name='email']"
       @skype = @contactForm.querySelector "[name='skype']"
       @button = @contactForm.querySelector "button"
+
+
 
       @contactForm.addEventListener "submit", @sendMessage
       @email.addEventListener "change", @testEmail
@@ -37,6 +46,10 @@ define [], ->
 
       for input in inputElements
         input.addEventListener "keyup", @changeTranslationURL
+
+      donateForm = new donateController()
+      donateForm.setDefault 40
+      donateForm.insertAfter document.getElementById("donate")
 
 
     ###*
@@ -53,11 +66,17 @@ define [], ->
 
       @button.classList.add "loading"
       
+    hideErr: =>
+      @contactForm.classList.remove("email-err")
+      @contactForm.classList.remove("contact-err")
 
     testContacts: =>
       if @email.value.trim().length == 0 and @skype.value.trim().length == 0
         @contactForm.classList.add "contact-err"
         @contactForm.classList.remove "email-err"
+        window.setTimeout =>
+          @hideErr()
+        , 5000
         return false
 
       @contactForm.classList.remove "contact-err"
@@ -67,6 +86,9 @@ define [], ->
       if @email.value.trim().length > 0 and !@re.test @email.value.trim()
         @contactForm.classList.add "email-err"
         @contactForm.classList.remove "contact-err"
+        window.setTimeout =>
+          @hideErr()
+        , 5000
         return false
 
       @contactForm.classList.remove "email-err"

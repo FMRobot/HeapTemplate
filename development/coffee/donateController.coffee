@@ -48,6 +48,23 @@ define ['MutationObserver-polyfil'], ->
       @donateSource.addEventListener "click", @toggleSource
 
     ###*
+    # Cделать форму инлайновой
+    # 
+    ###
+    setInline: ()=>
+      @donate.classList.add "inline"
+
+    ###*
+    # Установить сумму пожертвования по умолчанию
+    # 
+    ###
+    setDefault: (value)=>
+      value = parseInt value, 10
+      if isNaN(value)
+        value = 40
+      @donateAmount.innerHTML = value
+
+    ###*
     # Закрываем форму
     # 
     ###

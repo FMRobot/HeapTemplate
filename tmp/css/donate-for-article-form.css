@@ -160,6 +160,20 @@
   z-index: 5;
   min-height: 6.315789rem;
   min-width: 32rem;
+  font-size: .666rem;
+  line-height: 2.105263rem;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+.donate-for-article.inline {
+  position: relative;
+  top: 0;
+  left: 0;
+  border-style: none;
+}
+
+.donate-for-article.inline .deny {
+  display: none;
 }
 
 .donate-for-article nav .confirm {

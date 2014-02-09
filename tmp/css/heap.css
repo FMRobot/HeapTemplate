@@ -148,6 +148,10 @@ body.heap {
   position: relative;
 }
 
+body.heap a {
+  color: #000;
+}
+
 body.heap>header {
   max-width: 43rem;
   margin: 0 auto;

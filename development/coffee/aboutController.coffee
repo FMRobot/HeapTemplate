@@ -31,7 +31,15 @@ define ['donateController'], (donateController)->
       @skype = @contactForm.querySelector "[name='skype']"
       @button = @contactForm.querySelector "button"
 
+      bookmarklets = document.querySelectorAll ".bookmarklet"
+      @bookmarkletTip = document.querySelector ".bookmarklet-tip"
 
+
+      for bookmarklet in bookmarklets      
+        bookmarklet.addEventListener "mouseenter", @showTip
+        bookmarklet.addEventListener "dragstart", @showTip
+        bookmarklet.addEventListener "mouseleave", @hideTip
+        bookmarklet.addEventListener "dragend", @hideTip
 
       @contactForm.addEventListener "submit", @sendMessage
       @email.addEventListener "change", @testEmail
@@ -51,6 +59,19 @@ define ['donateController'], (donateController)->
       donateForm.setDefault 40
       donateForm.insertAfter document.getElementById("donate")
 
+    ###*
+    # Показываем подсказку
+    # 
+    ###
+    showTip: (event)=>
+      @bookmarkletTip.classList.add 'open'
+
+    ###*
+    # Прячем подсказку
+    # 
+    ###
+    hideTip: (event)=>
+      @bookmarkletTip.classList.remove 'open'
 
     ###*
     # Сообщение редакции

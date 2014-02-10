@@ -74,13 +74,14 @@
     window.setTimeout(function(){
       document.getElementById('heapScreen').style.opacity="1";
     },0);
+    heapScreen.setAttribute('timer',
     window.setTimeout(function(){
       document.getElementById('heapScreen').style.opacity="0";
-    },10000);
-    window.setTimeout(function(){
-      body.removeChild(scrn);
-      body.removeChild(style);
-    },10600);
+      window.setTimeout(function(){
+        body.removeChild(scrn);
+        body.removeChild(style);
+      },600);
+    },10000));
   } catch (exception) {
     alert('Пожалуйста подождите полной загрузки страницы.');
   }

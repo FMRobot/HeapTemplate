@@ -52,6 +52,10 @@
   content: '\e80b';
 }
 
+.icon-up:before {
+  content: '\e808';
+}
+
 .icon-language:before {
   content: '\e800';
 }
@@ -74,6 +78,10 @@
 
 .icon-clock:before {
   content: '\e805';
+}
+
+.icon-github-circled-alt2:before {
+  content: '\e804';
 }
 
 .icon-star-circled:before {

@@ -3,7 +3,7 @@ body {
   font-size: 18px;
   line-height: 1.618;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: Georgia,Palatino,Times,'Times New Roman',serif;
 }
 
 body {
@@ -12,7 +12,9 @@ body {
 
 p {
   font-size: 1rem;
-  margin: 1.2rem 0;
+  font-size: 1.055rem;
+  line-height: 1.47rem;
+  margin: 1.47rem 0;
 }
 
 h1,
@@ -47,22 +49,80 @@ h5 {
   font-size: 1.1rem;
 }
 
-ul {
-  margin: 1.2rem 0 1.2rem 2rem;
-  list-style: circle;
-}
-
-ol {
-  margin: 1.2rem 0 1.2rem 2rem;
-  list-style: decimal;
-}
-
 code {
   display: inline-block;
   font-family: "Droid Sans Mono","Lucidia Console","Menlo","Courier New",Courier,monospace;
   white-space: pre-line;
   word-wrap: break-word;
-  padding: 0 .5em;
+  padding: 0 .5rem;
   background-color: #f5f2f0;
   font-size: smaller;
+}
+
+pre code {
+  font-size: 19px;
+  font-size: 1.1875rem;
+}
+
+blockquote {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: #c7c7c7;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.47;
+  margin: 1.47em 0;
+  padding: 0 1em 0 1.47em;
+}
+
+ul {
+  list-style: disc outside;
+  margin: 1.47rem 0 1.47rem 2.84rem;
+  font-size: 1rem;
+  line-height: 1.47rem;
+}
+
+ul ul {
+  list-style: circle outside;
+  margin: 0 0 0 2.375rem;
+}
+
+ul ol {
+  list-style: decimal outside;
+  margin: 0 0 0 2.375rem;
+}
+
+ol {
+  margin: 1.47rem 0 1.47rem 2.84rem;
+  font-size: 1rem;
+  line-height: 1.47rem;
+  list-style: decimal outside;
+}
+
+ol ol {
+  list-style: upper-roman outside;
+  margin: 0 0 0 2.375rem;
+}
+
+ol ul {
+  list-style: disc outside;
+  margin: 0 0 0 2.375rem;
+}
+
+figure {
+  margin: 1.47rem 0;
+}
+
+figure img {
+  display: block;
+}
+
+figure figcaption {
+  margin: 0;
+  background: #f8f8f8;
+  display: block;
+  font-size: .888rem;
+  font-style: italic;
+  line-height: 1.47;
+  padding: 1.47em;
 }

@@ -24,7 +24,9 @@ define(['donateController'], function(donateController) {
       this.testContacts = __bind(this.testContacts, this);
       this.hideErr = __bind(this.hideErr, this);
       this.sendMessage = __bind(this.sendMessage, this);
-      var donateForm, input, inputElements, template, _i, _j, _len, _len1, _ref;
+      this.hideTip = __bind(this.hideTip, this);
+      this.showTip = __bind(this.showTip, this);
+      var bookmarklet, bookmarklets, donateForm, input, inputElements, template, _i, _j, _k, _len, _len1, _len2, _ref;
       if (__indexOf.call(document.createElement("template"), "content") < 0) {
         _ref = document.querySelectorAll("template");
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -39,6 +41,15 @@ define(['donateController'], function(donateController) {
       this.email = this.contactForm.querySelector("[name='email']");
       this.skype = this.contactForm.querySelector("[name='skype']");
       this.button = this.contactForm.querySelector("button");
+      bookmarklets = document.querySelectorAll(".bookmarklet");
+      this.bookmarkletTip = document.querySelector(".bookmarklet-tip");
+      for (_j = 0, _len1 = bookmarklets.length; _j < _len1; _j++) {
+        bookmarklet = bookmarklets[_j];
+        bookmarklet.addEventListener("mouseenter", this.showTip);
+        bookmarklet.addEventListener("dragstart", this.showTip);
+        bookmarklet.addEventListener("mouseleave", this.hideTip);
+        bookmarklet.addEventListener("dragend", this.hideTip);
+      }
       this.contactForm.addEventListener("submit", this.sendMessage);
       this.email.addEventListener("change", this.testEmail);
       this.email.addEventListener("change", this.testContacts);
@@ -48,14 +59,34 @@ define(['donateController'], function(donateController) {
       this.textarea.addEventListener("paste", this.delayedResize);
       this.textarea.addEventListener("drop", this.delayedResize);
       this.textarea.addEventListener("change", this.resizeTextarea);
-      for (_j = 0, _len1 = inputElements.length; _j < _len1; _j++) {
-        input = inputElements[_j];
+      for (_k = 0, _len2 = inputElements.length; _k < _len2; _k++) {
+        input = inputElements[_k];
         input.addEventListener("keyup", this.changeTranslationURL);
       }
       donateForm = new donateController();
       donateForm.setDefault(40);
       donateForm.insertAfter(document.getElementById("donate"));
     }
+
+    /**
+    # Показываем подсказку
+    #
+    */
+
+
+    abstractController.prototype.showTip = function(event) {
+      return this.bookmarkletTip.classList.add('open');
+    };
+
+    /**
+    # Прячем подсказку
+    #
+    */
+
+
+    abstractController.prototype.hideTip = function(event) {
+      return this.bookmarkletTip.classList.remove('open');
+    };
 
     /**
     # Сообщение редакции

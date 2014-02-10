@@ -1,13 +1,122 @@
-body.about article section {
-  margin: 2.4rem 0;
+body.about .bookmarklet-tip {
+  font-family: Helvetica,Arial,sans-serif;
+  position: fixed;
+  top: -3rem;
+  left: 0;
+  right: 0;
+  padding: 0 2rem 0 3rem;
+  height: 2.105263rem;
+  line-height: 2.105263rem;
+  background-color: #0ba5b7;
+  color: #fff;
+  font-size: .666rem;
+  -webkit-transition: top .25s .5s;
+  transition: top .25s .5s;
 }
 
-body.about article .bookmarklet {
+body.about .bookmarklet-tip.open {
+  top: 0;
+  -webkit-transition: top .25s;
+  transition: top .25s;
+}
+
+body.about .bookmarklet-tip:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  width: 1rem;
+  text-align: center;
+  margin: 0;
+  content: '\e808';
+  position: absolute;
+  font-size: 1.2rem;
+  left: 1rem;
+}
+
+body.about .bookmarklets:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+body.about .bookmarklets .anonymous {
+  padding: 0 1rem 0 0;
+}
+
+body.about .bookmarklets .identified {
+  position: relative;
+}
+
+body.about .bookmarklets .identified .locked {
+  position: absolute;
+  top: -.1rem;
+  left: -.1rem;
+  bottom: -.1rem;
+  right: -.1rem;
+  background-color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  color: #000;
+}
+
+body.about .bookmarklets .identified .locked:hover:after {
+  color: #0ba5b7;
+}
+
+body.about .bookmarklets .identified .locked:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: "\e804";
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+body.about .bookmarklets .anonymous,
+body.about .bookmarklets .identified {
+  float: left;
+  width: 50%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body.about .bookmarklets .anonymous p,
+body.about .bookmarklets .identified p {
+  margin-top: 0;
+}
+
+body.about .bookmarklet {
+  font-family: Helvetica,Arial,sans-serif;
   display: inline-block;
   vertical-align: middle;
   padding: 0 1rem;
   margin: 0 .5rem 0 0;
-  border-radius: 3px;
   height: 2.105263rem;
   line-height: 2.105263rem;
   background-color: #0ba5b7;
@@ -16,8 +125,12 @@ body.about article .bookmarklet {
   font-size: .666rem;
 }
 
-body.about article .bookmarklet:hover {
+body.about .bookmarklet:hover {
   background-color: #098c9c;
+}
+
+body.about article section {
+  margin: 2.4rem 0;
 }
 
 body.about article .contact-us {

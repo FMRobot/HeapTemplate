@@ -1,3 +1,52 @@
+body.about .inner-navigation {
+  display: block;
+  font-size: .777rem;
+  margin: 0 0 1.47rem;
+}
+
+body.about .inner-navigation:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+body.about .inner-navigation a {
+  text-decoration: none;
+  color: #000;
+  float: left;
+  clear: left;
+}
+
+body.about .inner-navigation a span {
+  border-bottom: 1px dotted #000;
+}
+
+body.about .inner-navigation a span:hover {
+  border-bottom-style: none;
+}
+
+body.about .inner-navigation nav {
+  display: block;
+  padding: 0 0 0 2rem;
+  margin: 0 0 .735rem;
+}
+
+body.about .inner-navigation nav:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
 body.about .bookmarklet-tip {
   font-family: Helvetica,Arial,sans-serif;
   position: fixed;

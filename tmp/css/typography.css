@@ -1,7 +1,7 @@
 html,
 body {
   font-size: 18px;
-  line-height: 1.618;
+  line-height: 1.618rem;
   text-rendering: optimizeLegibility;
   font-family: Georgia,Palatino,Times,'Times New Roman',serif;
 }

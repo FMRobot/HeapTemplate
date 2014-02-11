@@ -21,23 +21,59 @@ html
           |. 
 
 
-      section
+      nav.inner-navigation
+        a href="#heap" 
+          span Куча
+        nav
+          a href="#add" 
+            span — А как добавлять в неё статьи?
+          nav
+            a href="#with-site" 
+              span C сайта «Кучи»
+            a href="#with-bookmarklets" 
+              span C помощью букмарклета
+          a href="#why-login" 
+            span — Ну и зачем мне нужно авторизовываться, что бы добавлять статьи в «Кучу»?
+          a href="#like" 
+            span — Я хочу что бы статью перевели раньше всех прочих!
+          a href="#donate-article" 
+            span — Но за другие статьи тоже голосуют! А я хочу эту!
+        a href="#magazine" 
+          span Frontender Magazine
+          nav
+            a href="#why-you" 
+              span — Почему именно ваш проект?
+            a href="#i-want" 
+              span — Я хочу стать переводчиком!
+            a href="#i-want" 
+              span — Я хочу стать автором!
+            a href="#questions" 
+              span — Но у меня масса вопросов!
+        
+        a href="#donate" 
+          span — Я хочу помочь проекту деньгами!
+        a href="#help" 
+          span — Как еще я могу помочь?
+
+
+
+
+      section#heap
         h2 Куча
         p это хаб статей. Сюда пользователи могут добавлять новые статьи, связанные с фронтенд‑разработкой, или переводы уже присутствующих там статей. Как следствие, в хабе можно всегда будет найти, что почитать. 
       
-      section       
-        section
-          h3 — А как добавлять в неё статьи?
-          figure
-            img.gif-tutorial src="img/add-article-tutorial.gif" alt="Анимация добавления статьи в «Кучу» с сайта"
-            figcaption
-              |Вы можете делать это непосредственно со страницы кучи
+      section#add  
+        h3 — А как добавлять в неё статьи?
+        figure#with-site
+          img.gif-tutorial src="img/add-article-tutorial.gif" alt="Анимация добавления статьи в «Кучу» с сайта"
+          figcaption
+            |Вы можете делать это непосредственно со страницы «Кучи»
         
-        section.bookmarklets
+        section.bookmarklets#with-bookmarklets
           figure
             img.gif-tutorial src="img/use-bookmarklet-tutorial.gif" alt="Анимация добавления статьи в «Кучу» с помощью букмарклета"
             figcaption
-              |Кроме того вы можете использовать букмарклет:
+              |Кроме того, вы можете использовать букмарклет
           .anonymous
             p Перетащите эту кнопку на «Панель закладок», что бы добавлять статьи анонимно
             a.bookmarklet href='javascript:(function(){var t="Anonymous",n=document.createElement("SCR"+"IPT"),r=document.createElement("DIV"),i=document.createElement("DIV"),s=document.createElement("STY"+"LE"),o=document.body,u=document.location;s.innerHTML="  @-webkit-keyframes pulse {    50% {-webkit-transform: scale(1.4);        transform: scale(1.4);      }}  @-moz-keyframes pulse {    50% {        -moz-transform: scale(1.4);        transform: scale(1.4);      }}  @-ms-keyframes pulse {    50% {      -ms-transform: scale(1.4);        transform: scale(1.4);      }}  @keyframes pulse {    50% {        -webkit-transform: scale(1.4);        -moz-transform: scale(1.4);        -ms-transform: scale(1.4);        transform: scale(1.4);      }}      ";s.setAttribute("id","heapScreenStyle");r.setAttribute("style","    position: fixed;    top: 0;    left: 0;    right: 0;    bottom: 0;    margin: 0;    background-color: rgba(255,255,255,.95);    opacity: 0;    -webkit-transition: opacity .5s;    -moz-transition: opacity .5s;    transition: opacity .5s;    z-index: 32000;    overflow:hidden;    ");r.setAttribute("id","heapScreen");i.setAttribute("style","    position: fixed;    top: 0;    left: 0;    right: 0;    bottom: 0;    margin: auto;    height: 24px;    width: 24px;    border-radius:100%;    background-color: #000;    -webkit-animation: pulse .8s infinite;    -moz-animation: pulse .8s infinite;    -ms-animation: pulse .8s infinite;    animation: pulse .8s infinite;    -webkit-transform: scale(1);    transform: scale(1);    ");r.appendChild(i);try{if(!o)throw 0;n.setAttribute("src",u.protocol+"//heap.frontender.info/add/?user="+t+"&+url="+encodeURIComponent(u.href));o.appendChild(n);o.appendChild(r);o.appendChild(s);window.setTimeout(function(){document.getElementById("heapScreen").style.opacity="1"},0);window.setTimeout(function(){document.getElementById("heapScreen").style.opacity="0"},1e4);window.setTimeout(function(){o.removeChild(r);o.removeChild(s)},10600)}catch(a){alert("Пожалуйста подождите полной загрузки страницы.")}})();void 0' Добавить в «Кучу»
@@ -49,20 +85,37 @@ html
             a.locked href="#"
       
 
-      section
+      section#why-login
         h3 — Ну и зачем мне нужно авторизовываться, что бы добавлять статьи в «Кучу»?
         p Это не обязательно. Но если вы авторизуетесь, то мы запомним, что статью добавили в «Кучу» именно вы и, вероятно, время от времени, самые активные участники будут получать разного рода вознаграждения.
 
-      section
+      section#like
+        h3 — Я хочу что бы статью перевели раньше всех прочих!
+        p Тогда вам следует голосовать за перевод статей статьи в «Куче». Для этого вам придется авторизироваться на гитхабе и нажать на иконку «сердечка». Внутри него показано количество голосов, отданных за статью.
+
+        figure
+          img src="img/how-to-like.png" alt="Кнопка, с помощью которой можно проголосовать за перевод статьи"
+          figcaption Кнопка, с помощью которой можно проголосовать за перевод статьи
+
+
+      section#donate-article
+        h3 — Но за другие статьи тоже голосуют! А я хочу эту!
+        p Вы можете пожертвовать деньги на ее перевод. Статья получит некоторое количество дополнительных «голосов» в зависимости от размера пожертвования. Если на перевод статьи пожертвуют больше, чем потребуется для оплаты работы переводчика, корректора и редактора над ней, то оставшиеся деньги будут использованы для оплаты работы над другими статьями. По желанию вы сможете добавить своё имя на страницу поддержавших проект.
+
+        figure
+          img src="img/how-to-like-more.png" alt="Кнопка, с помощью которой можно пожертвовать деньги на перевод статьи"
+          figcaption Кнопка, с помощью которой можно пожертвовать деньги на перевод статьи, в результате чего статья получит дополнительные «голоса»
+
+      section#magazine
         h2 Frontender Magazine
         p это журнал, в котором регулярно выходят переводы и авторские статьи, связанные с фронтенд‑разработкой. 
 
-      section
+      section#why-you
         h3 — Почему именно ваш проект?
         p У него есть целый ряд принципиальных, как нам кажется, отличий от остальных проектов схожей тематики:
         ol
-          li Журнал выходит регулярно. Вы точно знаете когда будет новая публикация.
-          li Все статьи вычитываются коректором и редактором, что позволяет обеспечить высокое качество материалов.
+          li Журнал выходит регулярно. Вы точно знаете, когда будет новая публикация.
+          li Все статьи вычитываются корректором и редактором, что позволяет обеспечить высокое качество материалов.
           li 
             |Все переводчики работают в сфере связанной с фронтендом и знают, о чем пишут. Cреди нас есть сотрудники Яндекса и даже независимый консультант Opera по вопросам фронтенда, переводивший для издательства «
             a href="http://www.mann-ivanov-ferber.ru/" Манн, Иванов и Фербер
@@ -70,11 +123,11 @@ html
             a href="http://www.abookapart.com/" A Book Apart.
           li Вы можете непосредственно влиять на материалы, которые переводятся для журнала, голосуя за них в «Куче». Штатные переводчики переводят те статьи, которые набрали наибольшее количество голосов.
 
-      section
+      section#i-want
         h3 — Я хочу стать переводчиком!
         h3 — Я хочу стать автором!
         p 
-          |Для этого достаточно просто связатья с редакцией. Лучше всего написать в skype 
+          |Для этого достаточно просто связаться с редакцией. Лучше всего написать в skype 
           a href="skype:ravencry?chat" ravencry
           |  Антону Немцеву или просто отправьте нам сообщение c помощью формы, приведенной ниже и мы свяжемся с вами.
 
@@ -84,8 +137,8 @@ html
             input type="text" name="name" placeholder="Вы можете называть меня"
             span Вы можете называть меня
           label.input
-            input type="email" name="email" placeholder="Мой адресс электронной почты"
-            span Мой адресс электронной почты
+            input type="email" name="email" placeholder="Мой адрес электронной почты"
+            span Мой адрес электронной почты
           label.input
             input type="text" name="skype" placeholder="Мой skype"
             span Мой skype
@@ -111,7 +164,7 @@ html
 
 
 
-      section
+      section#questions
         h3 — Но у меня масса вопросов!
         p 
           |Более подробно с процессом перевода или написания статьи вы можете ознакомится 
@@ -122,7 +175,7 @@ html
         h2 — Я хочу помочь проекту деньгами!
         p Все собранные деньги пойдут на оплату работы редактора, корректора и штатных переводчиков журнала над новыми статьями.
       
-      section
+      section#help
         h2 — Как еще я могу помочь?
         p Вы можете:
         ul

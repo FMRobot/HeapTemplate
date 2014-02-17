@@ -1,0 +1,148 @@
+doctype html
+html
+  head
+    title data-l10n-id="pageTitle" Для авторов и независимых переводчиков | Frontender Magazine
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    link rel="stylesheet" type="text/css" href="css/styles.css"
+    script data-main="js/about" src="js/require.js"
+  body.about
+
+    article.page
+      section
+        h1 Для авторов и независимых переводчиков
+
+      nav.inner-navigation
+        a href="#translator" 
+          span — Я хочу стать независимым переводчиком!
+        nav
+          a href="#how-to-find-article" 
+            span — Как мне выбрать статью для перевода?
+          a href="#how-to-find-translation"
+            span — Как мне проверить существуют ли переводы статьи?
+          a href="#translation-repo"
+            span — Что должно быть в репозитории перевода?
+          a href="#translation-pay"
+            span — А независимым переводчикам платят?
+            
+        a href="#author" 
+          span — Я хочу стать автором!
+        nav
+          a href="#how-to-find-article" 
+            span — Какие темы подходят для статей?
+          a href="#translation-repo"
+            span — Что должно быть в репозитории перевода?
+          a href="#author-pay"
+            span — Авторам платят?
+
+        a href="#typo"
+          span — У вас есть какие‑то соглашения касательно типографики проекта?
+
+        a href="#md"
+          span — А что это за маркдаун, который вы постоянно упоминаете?
+        nav
+          a href="#md-link" 
+            span — Как в маркдауне обозначить ссылку?
+          a href="#md-img" 
+            span — Как в маркдауне обозначить картинку?
+          a href="#md-code" 
+            span — Как в маркдауне обозначить картинку?
+          a href="#md-line" 
+            span — Как мне ограничить длинну строки 80 символами?
+
+        a href="#questions"
+          span — У меня ещё остались вопросы!
+
+      section#translator
+        h3 — Я хочу стать независимым переводчиком!
+        p Процесс работы независимого переводчика выглядит следующим образом: 
+        ol
+          li Cначала нужно выбрать статью, которую вы будете переводить.
+          li Проверить существуют ли на данный момент её переводы. Если они существуют, то скорее всего лучше будет выбрать другую статью.
+          li Затем нужно получить разрешения на перевод у её автора или издания, которое её опубликовало. Это задача редактора журнала.
+          li 
+            |Если оно будет получено, то вас добавят в организацию 
+            a href="http://github.com/FrontenderMagazine/" Frontender Magazine
+            |  на GitHub, дадут доступ к панели администрирования проекта и, по желанию, в skype‑чат редакции, где можно будет задавать вопросы по поводу терминологии или процесса работы.
+          li После этого вы сможете создать из панели администрирования репозиторий и начать работу над статьей.
+          li Когда работа будет закончена, вы сообщите об этом любому штатному члену редакции и статья будет передана на вычитку корректору и редактору.
+          li После того, как вычитка будет окончена мы назначим дату публикации.
+
+      section#how-to-find-article
+        h3 — Как мне выбрать статью для перевода?
+        ol 
+          li
+            |Вы можете найти её в «
+            a href="http://heap.frontender.info/" Куче
+            |»,
+          li предложить ту, которую вы нашли в сети и хотели бы перевести или
+          li мы предложим вам статью сами.
+
+      section#how-to-find-translation
+        h3 — Как мне проверить существуют ли переводы статьи?
+        p 
+          | Проверить существование переводов можно, например, проверив ссылки на нее с помощью сервиса 
+          a href="http://www.opensiteexplorer.org/" http://www.opensiteexplorer.org/
+          |  или поискав её название с помощью Google.
+
+      section#translation-repo
+        h3 — Что должно быть в репозитории перевода?
+        p Как минимум там будут:
+        ul
+          li 
+            em ./eng.md
+            |  — автоматически формируемый при создании репозитория перевода черновой вариант маркдауна на основе статьи. Он далек от идеала и, возможно, вы предпочтете сделать его вручную.
+          li
+            em ./README.md
+            |  — создается автоматически, но изначально пуст. Должен содержать резюме статьи, обычно порядка 300 символов. Это резюме вы можете видеть на главной странице журнала под названием любой статьи. Не включает заглавие статьи. Регистр названия файла имеет значение.
+          li 
+            em ./rus.md
+            |  — перевод статьи на русский язык. Маркдаун. Включает заглавие статьи. Заголовок с названием — первого уровня.
+          li
+            em ./img/
+            |  — должен содержать картинки, которые есть в статье.
+          li
+            em ./examples/
+            |  — директорий, который содержит отдельные страницы с примерами, если они есть.
+        
+        p Кроме того, в репозитории могут быть любые другие файлы, которые необходимы для статьи.
+
+      section#translation-pay
+        h3 — А независимым переводчикам платят?
+        p Нет. К сожалению, на данный момент, мы можем оплачивать только работу штатных переводчиков.
+
+    footer
+      nav.сontacts
+        a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
+        a.rss data-l10n-id="footerMagazineRSS" href="http://feeds.frontender.info/FrontenderMagazine" rss журнала
+        a.rss data-l10n-id="footerArticleRSS" href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss журнала
+        a.rss data-l10n-id="footerHeapRSS" href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss кучи
+      nav
+        section
+          a data-l10n-id="footerHeap" href="http://heap.frontender.info/" Куча
+          a data-l10n-id="footerMagazine" href="http://frontender.info/" Frontender Magazine
+          a data-l10n-id="footerTeam" href="#" Редакция
+        section.language
+          h5.title 
+          a.ru href="#" English, please
+
+    template#donate-template
+      section.donate-for-article.inline
+        section.amount
+          span.label Я вот хотел пожертвовать на развитие журнала
+          span.amount_due contenteditable="true" 40
+          |&#8202;
+          span.currecy
+          span.money_source.wallet
+            .wrapper
+              span.card 
+                span с банковской карты
+              span.wallet 
+                span 
+                  |из кошелька 
+                  b.yandex Я
+                  |ндекс.Денег
+          nav
+            span.confirm И пожертвую!
+            span.deny Но передумал

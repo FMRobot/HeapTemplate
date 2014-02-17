@@ -61,6 +61,7 @@ body.about .bookmarklet-tip {
   font-size: .666rem;
   -webkit-transition: top .25s .5s;
   transition: top .25s .5s;
+  z-index: 10;
 }
 
 body.about .bookmarklet-tip.open {
@@ -116,6 +117,7 @@ body.about .bookmarklets .identified .locked {
   background-color: rgba(255,255,255,0.75);
   text-decoration: none;
   color: #000;
+  z-index: 1;
 }
 
 body.about .bookmarklets .identified .locked:hover:after {

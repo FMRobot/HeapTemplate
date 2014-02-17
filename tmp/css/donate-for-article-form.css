@@ -270,6 +270,9 @@
 .donate-for-article .amount .money_source {
   position: relative;
   display: inline-block;
+  height: 4.210526rem;
+  min-width: 2rem;
+  vertical-align: bottom;
 }
 
 .donate-for-article .amount .money_source.wallet .wrapper {
@@ -304,7 +307,7 @@
 .donate-for-article .amount .money_source .wrapper {
   -webkit-transition: top .25s;
   transition: top .25s;
-  position: relative;
+  position: absolute;
   top: 2.105263rem;
 }
 

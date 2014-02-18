@@ -34,8 +34,10 @@
       cursor pointer
       white-space nowrap
       padding 0 1rem 
+      
       line-height 2.105263rem 
       height 2.105263rem
+      
       background-color #0BA5B7
       font-size .777rem
       position relative
@@ -72,6 +74,7 @@
       &:hover
         color #f00
         border-bottom 1px dotted #f00
+        
   .amount
     height 6.315789rem
     line-height 2.105263rem
@@ -81,29 +84,61 @@
     left 0
     right 0
     bottom 0
+    
     .label
+      line-height 2.105263rem 
+      height 2.105263rem
+      overflow hidden
+      position relative
+      
       display inline-block
       white-space nowrap
+      vertical-align bottom
       margin 0 .25rem 0 0 
       &:hover~.amount_due
         background-color #F0F0F0 
+        
     .amount_due
       -moz-user-select none
       -webkit-user-select none
       -ms-user-select none
       user-select none
-      border-bottom 1px solid #0ba5b7
-      font-size 2rem
+      box-shadow 0 1px 0 0  #0ba5b7
+      font-size 1.8rem
       outline none
+      vertical-align bottom
+      
+      line-height 2.105263rem 
+      height 2.105263rem
+      display inline-block
+
       &:hover,
       &:focus
         background-color #F0F0F0 
+        
+    .currecy
+      line-height 2.105263rem 
+      height 2.105263rem
+      overflow hidden
+      position relative
+      
+      vertical-align bottom
+      display inline-block
+      &:after
+        icon()
+        margin 0 .25rem 0 0 
+        font-size 1.2rem
+        content "\e81b "
+        
     .money_source
       position relative
       display inline-block
       height 4.210526rem
       min-width 2rem
       vertical-align bottom
+      line-height 2.105263rem
+      position relative
+
       &.wallet
         .wrapper
           top 0
@@ -124,7 +159,6 @@
           color #000 
           border-bottom-color #000
       .wrapper
-        // animation demo .6s 1 linear
         transition top .25s
         position absolute
         top 2.105263rem
@@ -132,6 +166,9 @@
         cursor pointer
         white-space nowrap
         display block
+        line-height 2.105263rem 
+        height 2.105263rem
+        overflow hidden
         span 
           border-bottom 1px dotted #999 
           color #999
@@ -142,11 +179,8 @@
         white-space nowrap
         display block
         color #000
-    .currecy
-      display inline-block
-      &:after
-        icon()
-        margin 0 .25rem 0 0 
-        font-size 1.2rem
-        content "\e81b "
+        line-height 2.105263rem 
+        height 2.105263rem
+        overflow hidden
+        
         

@@ -243,8 +243,13 @@
 }
 
 .donate-for-article .amount .label {
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  overflow: hidden;
+  position: relative;
   display: inline-block;
   white-space: nowrap;
+  vertical-align: bottom;
   margin: 0 .25rem 0 0;
 }
 
@@ -257,14 +262,42 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border-bottom: 1px solid #0ba5b7;
-  font-size: 2rem;
+  box-shadow: 0 1px 0 0 #0ba5b7;
+  font-size: 1.8rem;
   outline: none;
+  vertical-align: bottom;
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  display: inline-block;
 }
 
 .donate-for-article .amount .amount_due:hover,
 .donate-for-article .amount .amount_due:focus {
   background-color: #f0f0f0;
+}
+
+.donate-for-article .amount .currecy {
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  overflow: hidden;
+  position: relative;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.donate-for-article .amount .currecy:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  margin: 0 .25rem 0 0;
+  font-size: 1.2rem;
+  content: "\e81b ";
 }
 
 .donate-for-article .amount .money_source {
@@ -273,6 +306,8 @@
   height: 4.210526rem;
   min-width: 2rem;
   vertical-align: bottom;
+  line-height: 2.105263rem;
+  position: relative;
 }
 
 .donate-for-article .amount .money_source.wallet .wrapper {
@@ -315,6 +350,9 @@
   cursor: pointer;
   white-space: nowrap;
   display: block;
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  overflow: hidden;
 }
 
 .donate-for-article .amount .money_source .wallet span {
@@ -331,23 +369,7 @@
   white-space: nowrap;
   display: block;
   color: #000;
-}
-
-.donate-for-article .amount .currecy {
-  display: inline-block;
-}
-
-.donate-for-article .amount .currecy:after {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  margin: 0 .25rem 0 0;
-  font-size: 1.2rem;
-  content: "\e81b ";
+  line-height: 2.105263rem;
+  height: 2.105263rem;
+  overflow: hidden;
 }

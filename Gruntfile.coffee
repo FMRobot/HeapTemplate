@@ -72,6 +72,17 @@ module.exports = (grunt) ->
           ext: '.map'
         ]
 
+    # Минимизируем html
+    htmlmin:
+      dist:
+        files: [
+          expand: true
+          cwd: 'production'
+          src: ['{,*/}*.html']
+          dest: 'production'
+          ext: '.html'
+        ]
+
     # Минимизируем css и конкатенируем
     cssmin:
       dist:
@@ -88,7 +99,7 @@ module.exports = (grunt) ->
         tasks: ['coffee','uglify']
       markup:
         files: ['development/*.slim']
-        tasks: ['slim']
+        tasks: ['slim','htmlmin']
       copy:
         files: ['tmp/js/*.map']
         tasks: ['copy']
@@ -114,6 +125,7 @@ module.exports = (grunt) ->
     'stylus'
     'autoprefixer'
     'uglify'
+    'htmlmin'
     'cssmin'
     'copy'
   ]

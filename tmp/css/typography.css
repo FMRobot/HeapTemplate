@@ -70,8 +70,12 @@ code {
 }
 
 pre code {
-  font-size: 19px;
-  font-size: 1.1875rem;
+  font-size: .666rem;
+  line-height: 1.43;
+  display: block;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-y: auto;
 }
 
 blockquote {

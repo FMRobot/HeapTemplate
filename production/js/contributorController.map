@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "contributorController.js",
+  "sourceRoot": "../../development/coffee/",
+  "sources": [
+    "contributorController.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAO,CAAP,CAAW,GAAX,GAAW;CAET;;;;;CAAA;CAAA,KAAA,eAAA;SAKM;CAEJ;;;;;CAAA;CAKa,EAAA,CAAA,2BAAA;;CALb;;CATO;CAAA"
+}

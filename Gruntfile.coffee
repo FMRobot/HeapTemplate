@@ -32,7 +32,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'development/stylus'
-          src: ['{,*/}*.styl']
+          src: ['{,*/}*']
           dest: 'tmp/css'
           ext: '.css'
         ]

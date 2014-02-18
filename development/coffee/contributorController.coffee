@@ -1,4 +1,4 @@
-define ()->
+define ['highlight.pack'], (hljs)->
 
   ###*
   # Класс обеспечивает работу страницы о проекте для авторов и переводчиков
@@ -38,6 +38,10 @@ define ()->
 
       for input in inputElements
         input.addEventListener "keyup", @changeTranslationURL
+
+      code = document.querySelectorAll "pre code"
+      for element in code
+        hljs.highlightBlock element
 
 
     ###*

@@ -60,22 +60,30 @@ h5 {
 }
 
 code {
-  display: inline-block;
+  display: inline;
   font-family: "Droid Sans Mono","Lucidia Console","Menlo","Courier New",Courier,monospace;
-  white-space: pre-line;
+  white-space: nowrap;
   word-wrap: break-word;
-  padding: 0 .5rem;
-  background-color: #f5f2f0;
+  color: #333;
+  padding: 0 .25rem;
+  background-color: #f7f2ed;
   font-size: smaller;
 }
 
 pre code {
   font-size: .666rem;
-  line-height: 1.43;
+  line-height: 1.8;
   display: block;
   white-space: pre;
   word-wrap: normal;
-  overflow-y: auto;
+  overflow: auto;
+  max-height: 50rem;
+  margin: 0 0 1rem;
+  padding: 1.63934426%;
+}
+
+a code {
+  display: inline-block;
 }
 
 blockquote {

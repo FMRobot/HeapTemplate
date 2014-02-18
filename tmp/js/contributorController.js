@@ -1,6 +1,6 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define(function() {
+define(['highlight.pack'], function(hljs) {
   /**
   # Класс обеспечивает работу страницы о проекте для авторов и переводчиков
   # 
@@ -23,7 +23,7 @@ define(function() {
       this.testContacts = __bind(this.testContacts, this);
       this.hideErr = __bind(this.hideErr, this);
       this.sendMessage = __bind(this.sendMessage, this);
-      var input, inputElements, _i, _len;
+      var code, element, input, inputElements, _i, _j, _len, _len1;
       this.re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       this.contactForm = document.querySelector(".contact-us");
       inputElements = this.contactForm.querySelectorAll("input, textarea");
@@ -43,6 +43,11 @@ define(function() {
       for (_i = 0, _len = inputElements.length; _i < _len; _i++) {
         input = inputElements[_i];
         input.addEventListener("keyup", this.changeTranslationURL);
+      }
+      code = document.querySelectorAll("pre code");
+      for (_j = 0, _len1 = code.length; _j < _len1; _j++) {
+        element = code[_j];
+        hljs.highlightBlock(element);
       }
     }
 

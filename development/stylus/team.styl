@@ -1,0 +1,91 @@
+@import "mixins.styl"
+
+body.team
+  
+  // Шапка
+  &>header
+    max-width 43rem
+    margin 0 auto 2.4rem
+    padding 1rem 2.10526rem 0
+    h1
+      position relative
+              
+    nav
+      position relative
+      margin 0 0 1rem
+      font-size .8rem 
+      a
+        color #000
+        margin 0 .5rem 0 0
+        &:hover
+          text-decoration none
+      .fm
+        margin 0 0 0 -1rem 
+        &:before
+          content "←"
+          display inline-block
+          width 1rem
+          text-align right
+          margin 0 .25rem 0 0
+          text-decoration none
+      .heap
+        float right
+        margin 0 -1rem 0 0
+        &:after
+          content "→"
+          display inline-block
+          width 1rem
+          text-align right
+          margin 0 .25rem 0 0
+          text-decoration none
+  &>.page
+    .persons
+      margin 1rem 0
+      font-family Helvetica, Arial, sans-serif
+      font-size 0
+      position relative
+      .person
+        width 50%
+        box-sizing border-box
+        vertical-align top
+        font-size .666rem
+        line-height 1.111rem  
+        padding 0 2rem 0 0 
+        display inline-block
+        img
+          float left
+          width 80px
+          height 80px
+          margin 0 1rem 0 0 
+        .details
+          overflow hidden
+          .role
+            margin 0 0 .5rem
+          .name
+            font-family Georgia, Palatino, Times, 'Times New Roman', serif
+            font-size 1rem 
+        p
+          margin 0
+          font-size .666rem
+          line-height 1.111rem
+    section
+      margin 2.4rem 0
+      clear-after()
+      &:first-child
+        margin 0 0 2.4rem 
+    #sponsors
+      position relative
+      font-size 0
+      a
+        float left
+        max-width 50% 
+      img
+        display block
+    #donators
+      .thank-you
+        text-align center
+      p
+        font-family Helvetica, Arial, sans-serif
+        font-size 0.666rem
+
+

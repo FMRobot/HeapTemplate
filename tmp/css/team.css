@@ -1,0 +1,137 @@
+body.team>header {
+  max-width: 43rem;
+  margin: 0 auto 2.4rem;
+  padding: 1rem 2.10526rem 0;
+}
+
+body.team>header h1 {
+  position: relative;
+}
+
+body.team>header nav {
+  position: relative;
+  margin: 0 0 1rem;
+  font-size: .8rem;
+}
+
+body.team>header nav a {
+  color: #000;
+  margin: 0 .5rem 0 0;
+}
+
+body.team>header nav a:hover {
+  text-decoration: none;
+}
+
+body.team>header nav .fm {
+  margin: 0 0 0 -1rem;
+}
+
+body.team>header nav .fm:before {
+  content: "←";
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin: 0 .25rem 0 0;
+  text-decoration: none;
+}
+
+body.team>header nav .heap {
+  float: right;
+  margin: 0 -1rem 0 0;
+}
+
+body.team>header nav .heap:after {
+  content: "→";
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin: 0 .25rem 0 0;
+  text-decoration: none;
+}
+
+body.team>.page .persons {
+  margin: 1rem 0;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 0;
+  position: relative;
+}
+
+body.team>.page .persons .person {
+  width: 50%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  font-size: .666rem;
+  line-height: 1.111rem;
+  padding: 0 2rem 0 0;
+  display: inline-block;
+}
+
+body.team>.page .persons .person img {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 0 1rem 0 0;
+}
+
+body.team>.page .persons .person .details {
+  overflow: hidden;
+}
+
+body.team>.page .persons .person .details .role {
+  margin: 0 0 .5rem;
+}
+
+body.team>.page .persons .person .details .name {
+  font-family: Georgia,Palatino,Times,'Times New Roman',serif;
+  font-size: 1rem;
+}
+
+body.team>.page .persons .person p {
+  margin: 0;
+  font-size: .666rem;
+  line-height: 1.111rem;
+}
+
+body.team>.page section {
+  margin: 2.4rem 0;
+}
+
+body.team>.page section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+body.team>.page section:first-child {
+  margin: 0 0 2.4rem;
+}
+
+body.team>.page #sponsors {
+  position: relative;
+  font-size: 0;
+}
+
+body.team>.page #sponsors a {
+  float: left;
+  max-width: 50%;
+}
+
+body.team>.page #sponsors img {
+  display: block;
+}
+
+body.team>.page #donators .thank-you {
+  text-align: center;
+}
+
+body.team>.page #donators p {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: .666rem;
+}

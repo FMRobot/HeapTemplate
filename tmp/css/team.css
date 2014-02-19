@@ -131,7 +131,7 @@ body.team>.page #donators .thank-you {
   text-align: center;
 }
 
-body.team>.page #donators p {
+body.team>.page #donators .names {
   font-family: Helvetica,Arial,sans-serif;
   font-size: .666rem;
 }

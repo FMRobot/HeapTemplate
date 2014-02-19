@@ -16,6 +16,7 @@ body>header nav {
   position: relative;
   margin: 0 0 1rem;
   font-size: .8rem;
+  font-family: Helvetica,Arial,sans-serif;
 }
 
 body>header nav a {

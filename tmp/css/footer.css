@@ -1,3 +1,128 @@
+body>.page .paginator {
+  font-family: Helvetica,Arial,sans-serif;
+  margin: 0 0 1rem;
+  float: right;
+  font-size: 1.8rem;
+  line-height: 3rem;
+  height: 3rem;
+}
+
+body>.page .paginator:hover .current {
+  background-color: #f0f0f0;
+}
+
+body>.page .paginator .total,
+body>.page .paginator .separator {
+  font-weight: 100;
+}
+
+body>.page .paginator .current {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 100;
+  cursor: pointer;
+  outline: none;
+}
+
+body>.page .paginator .current:focus,
+body>.page .paginator .current:hover {
+  background-color: #f0f0f0;
+}
+
+body>.page .paginator .title {
+  display: inline;
+  font-size: .777rem;
+}
+
+body>.page .more {
+  font-family: Helvetica,Arial,sans-serif;
+  float: left;
+  position: relative;
+  background-color: #0ba5b7;
+  color: #fff;
+  height: 3rem;
+  font-size: .777rem;
+  padding: 0 1rem;
+  margin: 0 0 1rem;
+  line-height: 3rem;
+  min-width: 5rem;
+  cursor: pointer;
+  overflow: visible;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+body>.page .more.loading:hover,
+body>.page .more.loading {
+  color: #eafcfe;
+  cursor: default;
+  text-align: center;
+  background-color: #eafcfe;
+}
+
+body>.page .more.loading:hover .title,
+body>.page .more.loading .title {
+  display: none;
+}
+
+body>.page .more.loading:hover .sign,
+body>.page .more.loading .sign {
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+}
+
+body>.page .more.loading:hover .sign:after,
+body>.page .more.loading .sign:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  content: '\e805';
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+  text-align: center;
+  color: #0ba5b7;
+  line-height: 3rem;
+}
+
+body>.page .more.loading:hover:before,
+body>.page .more.loading:before {
+  border-color: #eafcfe transparent transparent;
+}
+
+body>.page .more:before {
+  content: ".";
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: .5rem;
+  margin: auto;
+  height: 0;
+  width: 0;
+  border-width: .5rem .5rem 0 0;
+  border-color: #0ba5b7 transparent transparent;
+  border-style: solid solid none;
+}
+
+body>.page .more:hover {
+  background-color: #098492;
+}
+
+body>.page .more:hover:before {
+  border-color: #098492 transparent transparent;
+}
+
 body>footer {
   font-family: Helvetica,Arial,sans-serif;
   max-width: 43rem;

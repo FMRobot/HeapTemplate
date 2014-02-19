@@ -152,64 +152,6 @@ body.heap a {
   color: #000;
 }
 
-body.heap>header {
-  max-width: 43rem;
-  margin: 0 auto;
-  padding: 1rem 2.10526rem 0;
-}
-
-body.heap>header h1 {
-  position: relative;
-}
-
-body.heap>header nav {
-  position: relative;
-  margin: 0 0 1rem;
-  font-size: .8rem;
-}
-
-body.heap>header nav a {
-  margin: 0 .5rem 0 0;
-}
-
-body.heap>header nav a:hover {
-  text-decoration: none;
-}
-
-body.heap>header nav .fm {
-  margin: 0 0 0 -1rem;
-}
-
-body.heap>header nav .fm:before {
-  content: "←";
-  display: inline-block;
-  width: 1rem;
-  text-align: right;
-  margin: 0 .25rem 0 0;
-  text-decoration: none;
-}
-
-body.heap>header nav .login {
-  float: right;
-  margin: 0;
-  position: relative;
-}
-
-body.heap>header nav .login:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  margin: 0 .25rem 0 0;
-  text-decoration: none;
-  content: '\e80f';
-}
-
 body.heap .config {
   font-family: Helvetica,Arial,sans-serif;
   position: relative;
@@ -502,6 +444,7 @@ body.heap article .filter a {
 }
 
 body.heap article .filter a:hover {
+  color: #0ba5b7;
   border-bottom-color: #0ba5b7;
 }
 
@@ -536,6 +479,7 @@ body.heap article .user-menu a {
 }
 
 body.heap article .user-menu a:hover {
+  color: #0ba5b7;
   border-bottom-color: #0ba5b7;
 }
 
@@ -691,131 +635,6 @@ body.heap article .translations a {
 
 body.heap article .translations a:hover {
   text-decoration: none;
-}
-
-body.heap .paginator {
-  font-family: Helvetica,Arial,sans-serif;
-  margin: 0 0 1rem;
-  float: right;
-  font-size: 1.8rem;
-  line-height: 3rem;
-  height: 3rem;
-}
-
-body.heap .paginator:hover .current {
-  background-color: #f0f0f0;
-}
-
-body.heap .paginator .total,
-body.heap .paginator .separator {
-  font-weight: 100;
-}
-
-body.heap .paginator .current {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-weight: 100;
-  cursor: pointer;
-  outline: none;
-}
-
-body.heap .paginator .current:focus,
-body.heap .paginator .current:hover {
-  background-color: #f0f0f0;
-}
-
-body.heap .paginator .title {
-  display: inline;
-  font-size: .777rem;
-}
-
-body.heap .more {
-  font-family: Helvetica,Arial,sans-serif;
-  float: left;
-  position: relative;
-  background-color: #0ba5b7;
-  color: #fff;
-  height: 3rem;
-  font-size: .777rem;
-  padding: 0 1rem;
-  margin: 0 0 1rem;
-  line-height: 3rem;
-  min-width: 5rem;
-  cursor: pointer;
-  overflow: visible;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-body.heap .more.loading:hover,
-body.heap .more.loading {
-  color: #eafcfe;
-  cursor: default;
-  text-align: center;
-  background-color: #eafcfe;
-}
-
-body.heap .more.loading:hover .title,
-body.heap .more.loading .title {
-  display: none;
-}
-
-body.heap .more.loading:hover .sign,
-body.heap .more.loading .sign {
-  margin: auto;
-  width: 3rem;
-  height: 3rem;
-  display: inline-block;
-}
-
-body.heap .more.loading:hover .sign:after,
-body.heap .more.loading .sign:after {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  content: '\e805';
-  width: 3rem;
-  height: 3rem;
-  vertical-align: middle;
-  text-align: center;
-  color: #0ba5b7;
-  line-height: 3rem;
-}
-
-body.heap .more.loading:hover:before,
-body.heap .more.loading:before {
-  border-color: #eafcfe transparent transparent;
-}
-
-body.heap .more:before {
-  content: ".";
-  overflow: hidden;
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: .5rem;
-  margin: auto;
-  height: 0;
-  width: 0;
-  border-width: .5rem .5rem 0 0;
-  border-color: #0ba5b7 transparent transparent;
-  border-style: solid solid none;
-}
-
-body.heap .more:hover {
-  background-color: #098492;
-}
-
-body.heap .more:hover:before {
-  border-color: #098492 transparent transparent;
 }
 
 @media screen and (min-width: 58rem) {

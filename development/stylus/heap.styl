@@ -7,42 +7,6 @@ body.heap
   
   a
     color #000 
-  
-  // Шапка
-  &>header
-    max-width 43rem
-    margin 0 auto
-    padding 1rem 2.10526rem 0
-    h1
-      position relative
-              
-    nav
-      position relative
-      margin 0 0 1rem
-      font-size .8rem 
-      a
-        margin 0 .5rem 0 0
-        &:hover
-          text-decoration none
-      .fm
-        margin 0 0 0 -1rem 
-        &:before
-          content "←"
-          display inline-block
-          width 1rem
-          text-align right
-          margin 0 .25rem 0 0
-          text-decoration none
-      .login
-        float right 
-        margin 0
-        position relative
-        &:before
-          icon()
-          margin 0 .25rem 0 0
-          text-decoration none 
-          content '\e80f'
-          
 
   .config
     font-family Helvetica, Arial, sans-serif
@@ -123,7 +87,7 @@ body.heap
     margin 3rem 0
     padding 0
     font-size 0.777rem
-    line-height 1.257186rem 
+    line-height 1.257186rem
     font-family Helvetica, Arial, sans-serif
     
     a
@@ -265,6 +229,7 @@ body.heap
         display inline
         border-bottom 1px dotted #666 
         &:hover 
+          color #0ba5b7
           border-bottom-color #0ba5b7 
         
       // Язык оригинала и переводы
@@ -293,6 +258,7 @@ body.heap
         white-space nowrap
         border-bottom 1px dotted #666 
         &:hover 
+          color #0ba5b7
           border-bottom-color #0ba5b7 
         &.hide-list
           display none
@@ -393,94 +359,7 @@ body.heap
         color #0BA5B7 
         &:hover
           text-decoration none
-  
-  //Пагинатор
-  .paginator
-    font-family Helvetica, Arial, sans-serif
-    margin 0 0 1rem
-    float right 
-    font-size 1.8rem
-    line-height 3rem
-    height 3rem
-    &:hover .current
-      background-color #F0F0F0 
-    .total,
-    .separator
-      font-weight 100 
-    .current
-      -moz-user-select none
-      -webkit-user-select none
-      -ms-user-select none
-      user-select none
-      font-weight 100 
-      cursor pointer
-      outline none
-      &:focus,
-      &:hover
-        background-color #F0F0F0 
-    .title
-      display inline
-      font-size 0.777rem
-      
-  // Кнопочка «Загрузить еще статей»
-  .more
-    font-family Helvetica, Arial, sans-serif
-    float left
-    position relative
-    background-color #0ba5b7
-    color #FFF
-    height 3rem
-    font-size .777rem
-    padding 0 1rem
-    margin 0 0 1rem 
-    line-height 3rem
-    min-width 5rem 
-    cursor pointer
-    overflow visible
-    white-space nowrap
-    text-decoration none
-    &.loading:hover,
-    &.loading
-      color lighten(#0ba5b7,93%)
-      cursor default
-      text-align center
-      background-color lighten(#0ba5b7,93%)
-      .title
-        display none
-      .sign
-        margin auto
-        width 3rem
-        height 3rem
-        display inline-block
-        &:after
-          icon()
-          content  '\e805'
-          width 3rem
-          height 3rem
-          vertical-align middle
-          text-align center
-          color #0ba5b7
-          line-height 3rem
-      &:before
-        border-color lighten(#0ba5b7,93%) transparent transparent
-        
-    &:before
-      content "."
-      overflow hidden
-      display block
-      position absolute
-      top 100%
-      left .5rem
-      margin auto
-      height 0
-      width 0
-      border-width .5rem .5rem 0 0
-      border-color #0ba5b7 transparent transparent
-      border-style solid solid none
-    &:hover
-      background-color darken(#0ba5b7,20%)
-      &:before
-        border-color darken(#0ba5b7,20%) transparent transparent
+
              
 @media screen and (min-width: 58rem)
   body.heap

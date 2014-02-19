@@ -1,0 +1,49 @@
+@import "mixins.styl"
+
+body
+  // Шапка
+  &>header
+    max-width 43rem
+    margin 0 auto 2.4rem
+    padding 1rem 2.10526rem 0
+    a
+      color #000 
+    h1
+      position relative
+              
+    nav
+      position relative
+      margin 0 0 1rem
+      font-size .8rem 
+      a
+        margin 0 .5rem 0 0
+        &:hover
+          text-decoration none
+      .fm
+        margin 0 0 0 -1rem 
+        &:before
+          content "←"
+          display inline-block
+          width 1rem
+          text-align right
+          margin 0 .25rem 0 0
+          text-decoration none
+      .heap
+        float right
+        margin 0 -1rem 0 0
+        &:after
+          content "→"
+          display inline-block
+          width 1rem
+          text-align right
+          margin 0 .25rem 0 0
+          text-decoration none
+      .login
+        float right 
+        margin 0
+        position relative
+        &:before
+          icon()
+          margin 0 .25rem 0 0
+          text-decoration none 
+          content '\e80f'

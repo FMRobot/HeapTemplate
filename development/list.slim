@@ -1,0 +1,270 @@
+doctype html
+html
+  head
+    title Frontender Magazine
+    meta charset="UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    link rel="stylesheet" type="text/css" href="css/styles.css"
+  body.list
+
+    header
+      nav 
+        a.fm href="http://heap.frontender.info/" Куча
+        a.login href="#" Войдите, что бы комментировать
+      h1 Frontender Magazine
+
+    nav.config
+      .filter 
+        span Фильтр
+
+    .tag-list
+      menu
+        select
+          option Сортировать по дате
+          option Сортировать по количеству лайков
+        select
+          option Сортировать по убыванию
+          option Сортировать по возрастанию
+        a.clear href="#" Очистить фильтр
+      .type
+        h2.title JavaScript
+        nav.tags
+          a.selected href="/search/tag/nodejs" NodeJS
+          a href="/search/tag/webgl" WebGL
+          a href="/search/tag/ecma-6" ECMA 6
+      .type
+        h2.title Markup
+        nav.tags
+          a href="/search/tag/html" html
+          a href="/search/tag/slim" slim
+          a href="/search/tag/haml" haml
+      .type
+        h2.title Styles
+        nav.tags
+          a href="/search/tag/css" CSS
+          a href="/search/tag/adaptive-design" Adaptive design
+          a.selected href="/search/tag/mobile" Mobile
+          a href="/search/tag/3d-transforms" 3d-transforms
+          a href="/search/tag/less" less
+          a href="/search/tag/sass" sass
+          a href="/search/tag/stylus" stylus
+      .type
+        h2.title Typography
+        nav.tags
+          a href="/search/tag/fonts" fonts
+          a href="/search/tag/antialiasing" antialiasing
+          a href="/search/tag/web-fonts" web web-fonts
+      .type
+        h2.title Automation
+        nav.tags
+          a href="/search/tag/grunt" Grunt
+          a.selected href="/search/tag/bower" Bower
+          a.selected href="/search/tag/yoman" Yoman
+      .type
+        h2.title Misc
+        nav.tags
+          a href="/search/tag/content-strategy" Content strategy
+      .type.language
+        h2.title Language
+        nav.tags
+          a href="/search/tag/en" English
+          a href="/search/tag/es" Español
+          a href="/search/tag/ru" Русский
+          a href="/search/tag/it" Italiano
+          a href="/search/tag/fr" Français
+      .type.domains
+        h2.title Domains
+        nav.tags
+          a href="/search/tag/alistapart.com" alistapart.com
+          a href="/search/tag/habrahabr.ru" habrahabr.ru
+          a href="/search/tag/smashingmagazine.com" smashingmagazine.com
+      footer
+        a.close href="#" Закрыть
+
+    section.page
+      .article-list
+
+        article data-id="1"
+          header
+            h3.title 
+              a href="http://frontender.info/ten-reasons-we-switched-from-an-icon-font-to-svg/" Десять причин нашего перехода с иконочного шрифта на SVG
+            .info
+              time title="03.01.2014" datetime="2014.01.03" Cтатья: 3 января 2014 года
+              time title="18.02.2014" datetime="2014.02.18" Перевод: 18 февраля 2014 года
+              span.comments: a href="http://frontender.info/ten-reasons-we-switched-from-an-icon-font-to-svg/#comments" 36 комментариев
+            .contributors
+              span.source
+                | Источник: 
+                a href="http://coding.smashingmagazine.com/2012/10/09/designing-javascript-apis-usability/"  alistapart.com
+              span.contributor
+                | Автор: 
+                a href="http://ianfeather.co.uk/" Ian Feather
+              span.contributor
+                | Переводчик: 
+                a href="http://flamecoder.net/" Наталья Луканюк
+
+          nav.tags
+            |Теги: 
+            a href="/search/tag/alistapart.com" alistapart.com
+            |, 
+            a href="/search/tag/css" css
+            |, 
+            a href="/search/tag/svg" svg
+            |, 
+            a href="/search/tag/typography" typography
+            |, 
+            a href="/search/tag/icons" icons
+
+        article.translated data-id="2"
+          header
+            h3.title 
+              a href="http://frontender.info/after-no-no-before-wait/" После… или нет, перед… что-то я запутался
+            .info
+              time title="28.01.2014" datetime="2014.01.28" Cтатья: 28 января 2014 года
+              time title="14.02.2014" datetime="2014.02.14" Перевод: 14 февраля 2014 года
+            .contributors
+              span.source
+                | Источник: 
+                a href="http://coding.smashingmagazine.com/2012/10/09/designing-javascript-apis-usability/"  html5hub.com
+              span.contributor
+                | Автор: 
+                a href="http://getify.me/" Kyle Simpson
+              span.contributor
+                | Переводчик: 
+                a href="http://flamecoder.net/" Наталья Луканюк
+
+          nav.tags
+            |Теги: 
+            a href="/search/tag/html5hub.com" html5hub.com
+            |, 
+            a href="/search/tag/css" css
+
+        
+        article data-id="3"
+          header
+            h3.title 
+              a href="http://frontender.info/designing-javascript-apis-usability/" Разрабатываем более качественные API на JavaScript
+            .info
+              time title="09.10.2012" datetime="2012.10.09" Cтатья: 9 октября 2012 года
+              time title="11.02.2014" datetime="2014.02.11" Перевод: 11 февраля 2014 года
+              span.comments: a href="http://frontender.info/after-no-no-before-wait/#comments" 2 комментария
+            .contributors
+              span.source
+                | Источник: 
+                a href="http://coding.smashingmagazine.com/2012/10/09/designing-javascript-apis-usability/"  smashingmagazine.com
+              span.contributor
+                | Автор: 
+                a href="http://rodneyrehm.de/" Rodney Rehm
+              span.contributor
+                | Переводчик: 
+                a href="http://github.com/subzey" Антон Хлыновский
+
+          nav.tags
+            |Теги: 
+            a href="/search/tag/smashingmagazine.com" smashingmagazine.com
+            |, 
+            a href="/search/tag/javascript" javascript
+            |, 
+            a href="/search/tag/api" api
+
+        article data-id="4"
+          header
+            h3.title 
+              a href="http://frontender.info/generator-yeoman/" Пишем свой генератор для Yeoman
+            .info
+              time title="31.01.2014" datetime="2014.01.31" Cтатья: 31 января 2014 года
+              span.comments: a href="http://frontender.info/generator-yeoman/#comments" 8 комментариев
+            .contributors
+              span.contributor
+                | Автор: 
+                a href="https://twitter.com/lancedikson" Денис Демченко
+
+          nav.tags
+            |Теги: 
+            a href="/search/tag/frontender.info" frontender.info
+            |, 
+            a href="/search/tag/yoman" yoman
+            |, 
+            a href="/search/tag/grunt" grunt
+            |, 
+            a href="/search/tag/automation" automation
+
+        article data-id="5"
+          header
+            h3.title 
+              a href="http://frontender.info/gulp-piping/" Потоковая передача данных в стиле gulp для Grunt, или для другого таск-менеджера
+            .info
+              time title="12.12.2013" datetime="2013.12.29" Cтатья: 29 декабря 2013 года
+              time title="28.01.2014" datetime="2014.01.28" Перевод: 28 января 2014 года
+            .contributors
+              span.source
+                | Источник: 
+                a href="http://blog.evanyou.me/2013/12/29/gulp-piping/" evanyou.me
+              span.contributor
+                | Автор: 
+                a href="http://evanyou.me/" Evan You
+              span.contributor
+                | Переводчик: 
+                a href="http://flamecoder.net/" Наталья Луканюк
+
+          nav.tags
+            |Теги: 
+            a href="/search/tag/evanyou.me" evanyou.me
+            |, 
+            a href="/search/tag/gulp" gulp
+            |, 
+            a href="/search/tag/grant" grant
+            |, 
+            a href="/search/tag/automation" automation
+
+      menu
+        a.more href="#" 
+          span.title Ещё! Ещё! Больше статей!
+          span.sign
+
+      menu.paginator
+        span.title Cтраницы 
+        span.current contenteditable="true" 1
+        span.separator &#8202;/&#8202;
+        span.total 10
+
+    footer
+      nav.сontacts
+        a.twitter href="http://twitter/@frontenderinfo" @frontenderinfo
+        a.rss href="http://feeds.frontender.info/FrontenderMagazine" rss журнала
+        a.rss href="http://feeds.frontender.info/FrontenderMagazineArticles" полнотекстовый rss журнала
+        a.rss href="http://feeds.frontender.info/FrontenderMagazineHEAP" rss кучи
+      nav
+        section 
+          a href="http://heap.frontender.info/" Куча
+          a href="team.html" Редакция
+
+      nav.project
+        a href="about.html" О проекте
+        a href="about.html#i-want" Я хочу стать автором
+        a href="about.html#i-want" Я хочу стать переводчиком
+        a href="about.html#donate" Помочь проекту деньгами
+        a href="about.html#help" Как еще я могу помочь?
+
+      p.copyright &copy; 2013 Frontender Magazine
+
+    template#donate-template
+      section.donate-for-article
+        section.amount
+          span.label Хотел пожертвовать на перевод этой статьи 
+          span.amount_due contenteditable="true" 50
+          |&#8202;
+          span.currecy
+          span.money_source.wallet
+            .wrapper
+              span.card 
+                span с банковской карты
+              span.wallet 
+                span 
+                  |из кошелька 
+                  b.yandex Я
+                  |ндекс.Денег
+          nav
+            span.confirm И пожертвую!
+            span.deny Но передумал

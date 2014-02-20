@@ -273,6 +273,7 @@ define(['MutationObserver-polyfil'], function() {
 
     pageController.prototype.keyDown = function(event) {
       var index, isAlt, isCmd, isCtrl, isShift, _ref, _ref1, _ref2, _ref3, _ref4;
+      console.log(event.which);
       if ((_ref = event.which, __indexOf.call(this.controls, _ref) < 0) && (_ref1 = event.which, __indexOf.call(this.numbers, _ref1) < 0) && (_ref2 = event.which, __indexOf.call(this.chars, _ref2) < 0) && event.which !== this.r) {
         event.preventDefault();
       }

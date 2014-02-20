@@ -205,6 +205,8 @@ define ['MutationObserver-polyfil'], ->
     # 
     ###
     keyDown: (event)=>
+
+      console.log event.which
       
       if event.which not in @controls and event.which not in @numbers and event.which not in @chars and event.which != @r
         event.preventDefault()
